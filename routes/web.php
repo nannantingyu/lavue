@@ -1,20 +1,15 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+use App\Http\Middleware\CheckAge;
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::get('/home', function () {
+Route::get('/', "IndexController@index");
+Route::get('/home/{age}', function() {
     return "这个是我写的页面哦";
+})->middleware(CheckAge::class);
+
+Route::get('/forbidden', function() {
+    return "您的年龄太小，不能访问哦";
 });
+Route::get('/blog_{id}', "IndexController@detail");
+Route::get('/incre_{id}', "AjaxController@incre");
+Route::get('/search_{keywords}_{page}', "IndexController@search");

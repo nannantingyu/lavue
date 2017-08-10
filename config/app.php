@@ -177,6 +177,12 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        /**
+         * my own providers
+         */
+        App\Providers\FoodServiceProvider::class,
+        App\Providers\ViewServiceProvider::class,
+
     ],
 
     /*
@@ -226,6 +232,8 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
 
+        //mine
+        "Food" => App\Facades\FoodFacade::class,
     ],
 
 ];

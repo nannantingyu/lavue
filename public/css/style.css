@@ -1,0 +1,324 @@
+/* Template Name: Cyprass Responsive HTML5/CSS3 Template
+Author:yjshare
+Author URI:
+Description:Cyprass Responsive HTML5/CSS3 Template.
+Version:1.1 */
+
+@import url(http://fonts.googleapis.com/css?family=Raleway:400,100,300,500,600,700);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,700);
+@import url(http://fonts.googleapis.com/css?family=Oswald);
+@import url(http://fonts.googleapis.com/css?family=Roboto+Condensed:400,700);
+
+/* ----------------------------------------------------------------------------------- */
+/* CSS Reset & Clear
+/*----------------------------------------------------------------------------------- */
+ 
+
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,
+abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,
+var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td {margin: 0;padding: 0;border: 0;outline: 0;font-size: 100%;vertical-align: baseline;background: transparent;}
+
+.clearfix:after {display: block;visibility: hidden;clear: both;height: 0;content: ".";}
+.clearfix {display: inline-block;display: block;}
+.none {display: none;}
+.fl {float: left;}
+.fr {float: right;}
+.clear {clear: both;}
+body {line-height: 1.5em;}
+ol,ul,dl {margin: 0;padding: 0;list-style-type: none;}
+body {font-family: '微软雅黑', '宋体', 'Raleway', sans-serif;font-weight: normal;color: #6a6a6a!important;margin: 0 auto;overflow-x: hidden;position: relative;}
+h1,h2,h3,h4,h5,h6 {font-family: '微软雅黑', '宋体', 'Raleway', sans-serif;font-weight: 700;color: #262626;}
+h3 {font-weight: 400;text-transform: uppercase;}
+a {text-decoration: none!important;color: #000;}
+
+/**index.html**/
+header{width: 100%; border-bottom: 4px solid #A9CB2E; min-width: 1200px;}
+header.fixed{ position: fixed; top: 0; background: #fff; z-index: 999;}
+header .content{padding: 20px 0 10px; width: 1200px; margin: 0 auto;}
+header .navbar-brand {float: left;}
+header .navbar-brand img {height: 60px;}
+header .navbar-search {margin: 0 20px;}
+header .navbar-search input[type="text"] {border: 1px solid #c1c1c1;float: left;display: inline;margin-top: 3px;border-radius: 0;font-family: "Arial","SimSun","宋体";height: 33px;width: 258px;font-size: 14px;padding: 0 6px;}
+header .navbar-search {padding: 10px 0; float: left;}
+header .navbar-search button{border: 0;float: left;display: inline;width: 66px;height: 35px;margin-top: 3px;margin-right: 6px;background: #ff8400 url(http://i0.sinaimg.cn/home/main/index2013/0719/bg2.png) 0 0 no-repeat;cursor: pointer;border-radius: 0;}
+
+header .navbar-login {float: right; margin: 0 20px;}
+header .navbar-login a{padding: 0 5px;}
+header .navbar-follow {float: right; position: relative; margin: 0 20px;}
+header .navbar-follow img{display: none; width: 100px; position: absolute;top:50px; left: -15px;}
+header .navbar-follow span:hover + img{display: block;}
+header .line{line-height: 70px;}
+ul.pagination li{display: inline-block;}
+
+/***nav***/
+nav {width: 1200px; margin: 10px auto; overflow: hidden;}
+nav .nav-mod{width: 33%; float: left; border-right: 1px solid #ccc;}
+nav .nav-mod:nth-of-type(3){border: none;}
+nav .nav-mod ul li{float: left; width: 20%; text-align: center; line-height: 28px;}
+nav .nav-mod ul:first-of-type li:first-of-type{font-weight: bold; font-size: 21px;}
+nav .nav-mod ul:first-of-type li:first-of-type a{color: #b2e05d}
+.main-left{margin: 30px 10px; float: left; width: 300px;}
+.main-right{width: 840px; margin: 30px 20px; float: left;}
+.main-left .carousel{width: 300px; height: 400px; overflow: hidden; padding-top: 40px;}
+.main-left .carousel img{width: 300px;}
+.main-right .hot-goods{float: left; margin: 0 10px;}
+.main-right .hot-goods dl{float: left; padding: 0 10px;}
+.main-right .hot-goods dl dd a{display: block; max-height: 200px; overflow: hidden}
+.main-right .hot-goods dl dd img{width: 143px; }
+.main-right .hot-goods dl dt{text-align: center; line-height: 40px; padding-top: 10px;}
+.main-content {width: 1200px; margin: 10px auto; overflow: hidden;}
+.main-content .sub-title{font-size: 16px; line-height: 40px; margin-bottom: 10px; border-bottom: 3px solid #3ac;}
+.main-right .hot-blog .one-blog{margin: 10px 0; border-bottom: 1px solid #ccc;}
+.main-right .hot-blog .one-blog:last-of-type{border: none;}
+.main-right .hot-blog .one-blog .blog-title{font-size: 17px; font-weight: bold; line-height: 30px;}
+.main-right .hot-blog .one-blog .blog-desc{line-height: 28px;}
+.main-right .hot-blog .one-blog .blog-info{width: 100%; height: 40px;}
+.main-right .hot-blog .one-blog .blog-time, .main-right .hot-blog .one-blog .blog-author{font-size: 14px; float: right; padding: 5px 15px;}
+
+/*carousel*/
+.nivo-controlNav {position:absolute;left:260px;bottom:-42px;}
+.nivo-controlNav a {display:block;width:22px;height:22px;background:url(../images/bullets.png) no-repeat;text-indent:-9999px;border:0;margin-right:3px;float:left;}
+.nivo-controlNav a.active {background-position:0 -22px;}
+.nivo-directionNav a {display:block;width:30px;height:30px;background:url(../images/arrows.png) no-repeat;text-indent:-9999px;border:0;}
+a.nivo-nextNav {background-position:-30px 0;right:15px;}
+a.nivo-prevNav {left:15px;}
+.nivo-caption {text-shadow:none;font-family: Helvetica, Arial, sans-serif;}
+.nivo-caption a { color:#efe9d1;text-decoration:underline;}
+
+/**news**/
+.main-content .news li{line-height: 30px;}
+.main-content .news li a{display: block; width: 80%; overflow: hidden; float: left; margin-right: 5%; white-space: nowrap;text-overflow: ellipsis;}
+
+/**tab**/
+ul.tab-title{border-bottom: 2px solid #3ac;}
+ul.tab-title li{
+    float: left;
+    width: 100px;
+    text-align: center;
+    font-size: 18px;
+    line-height: 49px;
+    position: relative;
+}
+ul.tab-title li:after {
+    content: "";
+    position: absolute;
+    z-index: 0;
+    left: 0;
+    right: 0;
+    bottom: -3px;
+    background: #3ac;
+    width: 100%;
+    height: 1px;
+    transform: translateY(-1px);
+    -ms-transform: translateY(-1px);
+    -moz-transform: translateY(-1px);
+    -webkit-transform: translateY(-1px);
+    -o-transform: translateY(-1px);
+    transition: transform .3s ease-out;
+    -ms-transition: transform .3s ease-out;
+    -moz-transition: transform .3s ease-out;
+    -webkit-transition: transform .3s ease-out;
+    -o-transition: transform .3s ease-out;
+}
+ul.tab-title li.current{font-weight: bold;}
+ul.tab-title li.current:after{
+    height: 4px;
+    transform: translateY(0);
+    -ms-transform: translateY(0);
+    -moz-transform: translateY(0);
+    -webkit-transform: translateY(0);
+    -o-transform: translateY(0);
+}
+
+.sub-title + .sub-img dl{
+    display: block;
+    width: 48%;
+    float: left;
+    padding: 0 1%;
+}
+.sub-title + .sub-img dl dd{text-align: center;}
+.sub-title + .sub-img dl dd img{
+    width: 140px;
+    height: 80px;
+}
+.sub-title + .sub-img dl dt{
+    font-size: 14px;
+    padding-bottom: 15px;
+}
+
+/**healthy**/
+.healthy ul li {
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ddd;
+}
+.healthy ul li div.info-text {
+    width: 70%;
+    float: left;
+}
+.healthy ul li div.info-text span{
+    float: right;
+    line-height: 40px;
+    padding: 3px 10px;
+}
+
+.healthy ul li div.info-img {
+    width: 30%;
+    float: left;
+}
+.healthy ul li div.info-img img{
+    width: 250px;
+    height: 150px;
+}
+.healthy ul li h3{
+    font-size: 18px;
+}
+
+.cofriend .co_title {
+    width: 1170px;
+    height: 27px;
+    margin: 0 auto;
+    font: 18px/18px "\5fae\8f6f\96c5\9ed1";
+    color: #2e9c82;
+    text-align: center;
+    background: url(http://img2.cache.netease.com/f2e/health/jiankangindex/images/youqing_71.png) no-repeat center center;
+}
+.cofriend .link_friend li {
+    width: 1170px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.cofriend .link_friend li .cnt {
+    display: inline;
+    float: right;
+    width: 1170px;
+}
+.cofriend .link_friend li .cnt a {
+    float: left;
+    padding: 0 6px;
+    display: block;
+    white-space: nowrap;
+    font: 12px/30px "SimSun";
+    color: #333;
+}
+.cofriend .link_friend li .cnt span {
+    width: 10px;
+    text-align: center;
+    font-weight: normal;
+    color: #ccc;
+    display: block;
+    float: left;
+    margin-top: 5px;
+}
+
+/**footer**/
+footer{
+    width: 100%;
+    min-width: 1200px;
+    margin: 20px auto 0;
+    padding: 20px 0;
+    background-color: #222;
+    clear: both;
+}
+footer div.content{
+    width: 1100px;
+    margin: 0 auto;
+    color: #fff;
+}
+
+footer .copyright{
+    display: block;
+    float: left;
+    margin-right: 100px;
+}
+footer ul{
+    float: left;
+}
+footer ul li{
+    float: left;
+    width: 100px;
+}
+footer ul li a{color: #fff;}
+
+/*detail*/
+.detail-main .content-left h2{
+    font-size: 28px;
+    text-align: center;
+    line-height: 50px;
+    padding: 10px 0 20px;
+}
+
+.detail-main .content-left{
+    width: 70%;
+    overflow: hidden;
+    float: left;
+}
+.detail-main .content-right{
+    width: 26%;
+    overflow: hidden;
+    float: left;
+    margin-left: 4%;
+}
+.left-con{
+    text-align: left !important;
+}
+.right-con{
+    text-align: right !important;
+}
+
+.right-con span{
+    padding: 0 10px;
+}
+.detail-main .f_center{
+    text-align: center;
+}
+
+.detail-main .otitle{
+    text-align: center;
+    line-height: 40px;
+}
+
+.detail-main p{
+    text-indent: 1.2em;
+    line-height: 35px;
+}
+.detail-main p strong{
+    line-height: 50px;
+    padding-left: 0.6em;
+}
+.detail-main .ep-source.cDGray{
+    display: none;
+}
+.gg200x300{
+    display: none;
+}
+
+/*list*/
+.con-list{
+    padding: 20px;
+    min-height: 650px;
+}
+
+.con-list ul li{
+    line-height: 35px;
+}
+
+.con-list ul li div.title{
+    float: left;
+}
+.con-list ul li div.time{
+    float: right;
+}
+
+div.page{
+    text-align: center;
+}
+div.page a{
+    padding: 5px;
+}
+div.page span.current{
+    color: #3a74ee;
+}
+div.page a, div.page span{
+    font-size: 18px;
+}
