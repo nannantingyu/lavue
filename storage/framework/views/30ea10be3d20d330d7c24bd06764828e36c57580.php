@@ -8,7 +8,7 @@
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('content'); ?>
-	<?php echo $__env->make('component.navi', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+	<?php echo $__env->make('public.navi', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 	<div class="main-content">
 		<div class="main-left">
 			<section class="carousel">
@@ -204,6 +204,6 @@
 	</div>
 
 	<!-- 友情链接 -->
-	<?php echo $__env->make("component.friendlink", array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+	<?php echo $__env->make("public.friendlink", array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 <?php $__env->stopSection(); ?>
 <?php echo $__env->make('layout.app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

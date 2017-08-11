@@ -1,9 +1,23 @@
 <html>
     <head>
-        <title>五常大米-{{ $app_name }}</title>
+        <title>
+            @if(defined("seo_title"))
+            {{ $seo_title }}
+            @else
+            {{ $default_seo_title }}
+            @endif
+        </title>
         <meta charset="utf-8">
-        <meta name="keywords" content="五常大米">
-        <meta name="description" content="五常大米专卖">
+        @if(defined("seo_keywords"))
+        <meta name="keywords" content="{{ $seo_keywords }}">
+        @else
+        <meta name="keywords" content="{{ $default_seo_title }}">
+        @endif
+        @if(defined("seo_description"))
+        <meta name="description" content="{{ $seo_description }}">
+        @else
+        <meta name="description" content="{{ $default_seo_description }}">
+        @endif
         <script src="{{ URL::asset('js/jquery.js') }}"></script>
         <script src="{{ URL::asset('js/show.js') }}"></script>
         <link rel="stylesheet" href="{{ URL::asset('css/style.css') }}">
@@ -11,8 +25,10 @@
         @yield('js')
     </head>
     <body>
-        @include('component.header')
+    @php
+    @endphp
+        @include('public.header')
         @yield('content')
-        @include('component.footer')
+        @include('public.footer')
     </body>
 </html>

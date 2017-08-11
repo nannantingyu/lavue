@@ -9,7 +9,7 @@
 @endsection
 
 @section('content')
-	@include('component.navi')
+	@include('public.navi')
 	<div class="main-content">
 		<div class="main-left">
 			<section class="carousel">
@@ -205,5 +205,5 @@
 	</div>
 
 	<!-- 友情链接 -->
-	@include("component.friendlink")
+	@include("public.friendlink")
 @endsection

@@ -13,37 +13,11 @@ class IndexController extends Controller
     }
 
     public function index(Request $request) {
-//        dump($request->url());  // Without Query String...
-//        dump($request->path());
-//        dump($request->fullUrl());  // With Query String...
-//        dump($request->method());
-//        dump($request->all());  //全部参数
-//        if($request->has("age")){
-//            dump("has age");
-//        }
-//
-//        $this->test->say();
-//        app()->make('food')->start();
-//        $this->food->start();
-//
-//        Food::start();
-//        \App\Facades\FoodFacade::start();
-
-//        \App\Facades\FoodFacade::start();
-//        \Food::start();
-//        $food = resolve("food");
-//        $food->start();
-//
-//        $food2 = \App::make("food");
-//        $food2->start();
-//
-//        $food3 = app()->make('food');
-//        $food3->start();
-
         $name = "nannantingyu";
         $password = "abc123";
 
         $articles = DB::table('article')->take(10)->get();
+
         return view("index.index", ['name'=>$name, 'password'=>$password, 'articles'=>$articles]);
     }
 
