@@ -6,7 +6,7 @@
             <p class="right-con">
                 <span>lavue</span>
                 <span>{{ date("Y-m-d H:i", strtotime($article->publish_time)) }}</span>
-                <span>{{ $article->hits }}</span>
+                <span>{{ $article->favor }}</span>
             </p>
             {!!  $article->body !!}
         </div>

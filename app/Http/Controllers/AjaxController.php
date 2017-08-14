@@ -9,6 +9,6 @@ class AjaxController extends Controller
 {
     public function incre(Request $request) {
         $id = $request->id;
-        DB::table('article')->where('id', $id)->increment('hits');
+        DB::table('weixin_article')->where('id', $id)->increment('favor');
     }
 }

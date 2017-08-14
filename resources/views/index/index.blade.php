@@ -184,7 +184,7 @@
 								<h3><a href="/blog_{{ $article->id }}">{{ $article->title }}</a></h3>
 								<p>{{ $article->description }}</p>
 								@php
-									$keywords = explode(",", $article->keywords); $length = count($keywords)-1;
+									$keywords = explode(",", $article->type); $length = count($keywords)-1;
 								@endphp
 								<span>
 									@foreach($keywords as $keys)

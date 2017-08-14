@@ -16,23 +16,23 @@ class IndexController extends Controller
         $name = "nannantingyu";
         $password = "abc123";
 
-        $articles = DB::table('article')->take(10)->get();
+        $articles = DB::table('weixin_article')->take(10)->get();
 
         return view("index.index", ['name'=>$name, 'password'=>$password, 'articles'=>$articles]);
     }
 
     public function detail(Request $request) {
         $id = $request->id;
-        $article = DB::table('article')->where('id', $id)->first();
+        $article = DB::table('weixin_article')->where('id', $id)->first();
 
-        $hot = DB::table('article')->orderBy('hits', 'desc')->take(5)->get();
+        $hot = DB::table('weixin_article')->orderBy('favor', 'desc')->take(5)->get();
         return view('index.detail', ['article'=>$article, 'hot'=>$hot]);
     }
 
     public function search(Request $request) {
         $keywords = $request->keywords;
-        $articles = DB::table('article')->where('title', 'like', '%'.$keywords.'%')
-            ->orWhere('keywords', 'like', '%'.$keywords.'%')
+        $articles = DB::table('weixin_article')->where('title', 'like', '%'.$keywords.'%')
+            ->orWhere('type', 'like', '%'.$keywords.'%')
             ->orWhere('body', 'like', '%'.$keywords.'%')
             ->paginate(15);
 
