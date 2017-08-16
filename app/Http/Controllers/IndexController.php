@@ -51,16 +51,21 @@ class IndexController extends Controller
         $id = $request->id;
         $article = DB::table('weixin_article')->where('id', $id)->first();
 
-        $hot = DB::table('weixin_article')->orderBy('hits', 'desc')->take(5)->get();
+        $hot = DB::table('weixin_article')
+            ->whereNotNull('body')
+            ->orderBy('hits', 'desc')->take(5)->get();
         $related = DB::table('weixin_article')
             ->where('type', $article->type)
+            ->whereNotNull('body')
             ->orderBy('hits', 'desc')->take(5)->get();
 
         $favor = DB::table('weixin_article')
+            ->whereNotNull('body')
             ->orderBy('favor', 'desc')
             ->take(5)->get();
 
         $latest = DB::table('weixin_article')
+            ->whereNotNull('body')
             ->orderBy('publish_time', 'desc')
             ->take(5)->get();
         return view('index.detail', ['article'=>$article, 'hot'=>$hot, 'favor'=>$favor, 'related'=>$related, 'latest'=>$latest ]);
