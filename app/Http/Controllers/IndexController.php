@@ -51,16 +51,29 @@ class IndexController extends Controller
         $id = $request->id;
         $article = DB::table('weixin_article')->where('id', $id)->first();
 
-        $hot = DB::table('weixin_article')->orderBy('favor', 'desc')->take(5)->get();
-        return view('index.detail', ['article'=>$article, 'hot'=>$hot]);
+        $hot = DB::table('weixin_article')->orderBy('hits', 'desc')->take(5)->get();
+        $related = DB::table('weixin_article')
+            ->where('type', $article->type)
+            ->orderBy('hits', 'desc')->take(5)->get();
+
+        $favor = DB::table('weixin_article')
+            ->orderBy('favor', 'desc')
+            ->take(5)->get();
+
+        $latest = DB::table('weixin_article')
+            ->orderBy('publish_time', 'desc')
+            ->take(5)->get();
+        return view('index.detail', ['article'=>$article, 'hot'=>$hot, 'favor'=>$favor, 'related'=>$related, 'latest'=>$latest ]);
     }
 
     public function search(Request $request) {
         $keywords = $request->keywords;
-        $articles = DB::table('weixin_article')->where('title', 'like', '%'.$keywords.'%')
+        $articles = DB::table('weixin_article')
+            ->where('title', 'like', '%'.$keywords.'%')
             ->orWhere('type', 'like', '%'.$keywords.'%')
             ->orWhere('body', 'like', '%'.$keywords.'%')
-            ->paginate(15);
+            ->whereNotNull('body')
+            ->paginate(20);
 
         return view('index.search', ['articles'=>$articles]);
     }

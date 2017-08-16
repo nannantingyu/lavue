@@ -14,31 +14,31 @@
             <h2 class="sub-title left-con">热门阅读</h2>
             <ul class="news">
                 @foreach($hot as $art)
-                    <li><a href="{{  $base_url }}blog_{{ $art->id }}">{{ $art->title }}</a><span>{{ date("H:i", strtotime($art->publish_time)) }}</span></li>
+                    <li><a href="{{  $base_url }}blog_{{ $art->id }}">{{ $art->title }}</a><span>{{ date("m-d H:i", strtotime($art->publish_time)) }}</span></li>
                 @endforeach
             </ul>
         </div>
         <div class="content-right">
             <h2 class="sub-title left-con">相关推荐</h2>
             <ul class="news">
-                @foreach($hot as $art)
-                    <li><a href="{{  $base_url }}blog_{{ $art->id }}">{{ $art->title }}</a><span>{{ date("H:i", strtotime($art->publish_time)) }}</span></li>
+                @foreach($related as $art)
+                    <li><a href="{{  $base_url }}blog_{{ $art->id }}">{{ $art->title }}</a><span>{{ date("m-d H:i", strtotime($art->publish_time)) }}</span></li>
                 @endforeach
             </ul>
         </div>
         <div class="content-right">
             <h2 class="sub-title left-con">猜你喜欢</h2>
             <ul class="news">
-                @foreach($hot as $art)
-                    <li><a href="{{  $base_url }}blog_{{ $art->id }}">{{ $art->title }}</a><span>{{ date("H:i", strtotime($art->publish_time)) }}</span></li>
+                @foreach($favor as $art)
+                    <li><a href="{{  $base_url }}blog_{{ $art->id }}">{{ $art->title }}</a><span>{{ date("m-d H:i", strtotime($art->publish_time)) }}</span></li>
                 @endforeach
             </ul>
         </div>
         <div class="content-right">
             <h2 class="sub-title left-con">最新进展</h2>
             <ul class="news">
-                @foreach($hot as $art)
-                    <li><a href="{{  $base_url }}blog_{{ $art->id }}">{{ $art->title }}</a><span>{{ date("H:i", strtotime($art->publish_time)) }}</span></li>
+                @foreach($latest as $art)
+                    <li><a href="{{  $base_url }}blog_{{ $art->id }}">{{ $art->title }}</a><span>{{ date("m-d H:i", strtotime($art->publish_time)) }}</span></li>
                 @endforeach
             </ul>
         </div>
