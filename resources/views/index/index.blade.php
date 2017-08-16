@@ -19,22 +19,22 @@
 				<img src="{{ asset('images/lunbo4.jpg') }}" title="This is an example of a caption" />
 				<img src="{{ asset('images/lunbo5.jpg') }}" title="This is an example of a caption" />
 			</section>
-			<h2 class="sub-title">即时资讯</h2>
+			<h2 class="sub-title">房事天下</h2>
 			<ul class="news">
-				@foreach($articles as $article)
+				@foreach($house as $article)
 					<li>
 						<a href="{{ $base_url }}watch_{{ $article->id }}">{{ $article->title }}</a>
-						<span>{{ $article->publish_time }}</span>
+						<span>{{ date("d-m H:i", strtotime($article->updated_time)) }}</span>
 					</li>
 				@endforeach
 			</ul>
 
-			<h2 class="sub-title">种植技术</h2>
+			<h2 class="sub-title">饮食生活</h2>
 			<ul class="news">
-				@foreach($articles as $article)
+				@foreach($food as $article)
 					<li>
 						<a href="{{ $base_url }}watch_{{ $article->id }}">{{ $article->title }}</a>
-						<span>{{ $article->publish_time }}</span>
+						<span>{{ date("d-m H:i", strtotime($article->updated_time)) }}</span>
 					</li>
 				@endforeach
 			</ul>
@@ -61,21 +61,22 @@
 				</dl>
 			</div>
 
+			<h2 class="sub-title">健身锻炼</h2>
 			<ul class="news">
-				@foreach($articles as $article)
+				@foreach($exercise as $article)
 					<li>
 						<a href="{{ $base_url }}watch_{{ $article->id }}">{{ $article->title }}</a>
-						<span>{{ $article->publish_time }}</span>
+						<span>{{ date("d-m H:i", strtotime($article->updated_time)) }}</span>
 					</li>
 				@endforeach
 			</ul>
 
-			<h2 class="sub-title">健康讲堂</h2>
+			<h2 class="sub-title">每日回龙观</h2>
 			<ul class="news">
-				@foreach($articles as $article)
+				@foreach($huilongguan as $article)
 					<li>
 						<a href="{{ $base_url }}watch_{{$article->id}}">{{ $article->title }}</a>
-						<span>{{ $article->publish_time }}</span>
+						<span>{{ date("d-m H:i", strtotime($article->updated_time)) }}</span>
 					</li>
 				@endforeach
 			</ul>
@@ -94,43 +95,43 @@
 
 		<div class="main-right">
 			<ul class="tab-title">
-				<li class='current'><a href="#">热门博文</a></li>
-				<li><a href="#">种植技术</a></li>
-				<li><a href="#">天下猎奇</a></li>
+				<li class='current'><a href="#">五常大米</a></li>
+				<li><a href="#">每日健康</a></li>
+				<li><a href="#">生活频道</a></li>
 				<div class="clear"></div>
 			</ul>
 			<section class="hot-blog clear">
-				@foreach($articles as $article)
+				@foreach($rice as $article)
 					<div class="one-blog">
 						<p class="blog-title"><a href="{{ $base_url }}blog_{{ $article->id }}">{{ $article->title }}</a></p>
 						<p class="blog-desc">{{ $article->description }}</p>
 						<div class="blog-info">
 							<span class="blog-time">{{ date("Y-m-d", strtotime($article->publish_time)) }}</span>
-							<span class="blog-author"><a href="#">别山举水</a></span>
+							<span class="blog-author"><a href="#">{{ $article->from_user }}</a></span>
 						</div>
 					</div>
 				@endforeach
 			</section>
 			<section class="hot-blog clear none">
-				@foreach($articles as $article)
+				@foreach($healthy as $article)
 					<div class="one-blog">
 						<p class="blog-title"><a href="{{ $base_url }}blog_{{ $article->id }}">{{ $article->title }}</a></p>
 						<p class="blog-desc">{{ $article->description }}</p>
 						<div class="blog-info">
 							<span class="blog-time">{{ date("Y-m-d", strtotime($article->publish_time)) }}</span>
-							<span class="blog-author"><a href="#">别山举水</a></span>
+							<span class="blog-author"><a href="#">{{ $article->from_user }}</a></span>
 						</div>
 					</div>
 				@endforeach
 			</section>
 			<section class="hot-blog clear none">
-				@foreach($articles as $article)
+				@foreach($live as $article)
 					<div class="one-blog">
 						<p class="blog-title"><a href="{{ $base_url }}blog_{{ $article->id }}">{{ $article->title }}</a></p>
 						<p class="blog-desc">{{ $article->description }}</p>
 						<div class="blog-info">
 							<span class="blog-time">{{ date("Y-m-d", strtotime($article->publish_time)) }}</span>
-							<span class="blog-author"><a href="#">别山举水</a></span>
+							<span class="blog-author"><a href="#">{{ $article->from_user }}</a></span>
 						</div>
 					</div>
 				@endforeach
@@ -175,10 +176,10 @@
 				</dl>
 			</section>
 
-			<h2 class="sub-title">健康频道</h2>
+			<h2 class="sub-title">昌平生活</h2>
 			<section class="healthy">
 				<ul>
-					@foreach($articles as $article)
+					@foreach($changping as $article)
 						<li>
 							<div class="info-text">
 								<h3><a href="/blog_{{ $article->id }}">{{ $article->title }}</a></h3>

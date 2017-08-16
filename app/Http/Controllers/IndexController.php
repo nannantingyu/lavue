@@ -16,9 +16,35 @@ class IndexController extends Controller
         $name = "nannantingyu";
         $password = "abc123";
 
-        $articles = DB::table('weixin_article')->take(10)->get();
+        $articles = DB::table('weixin_article')
+            ->whereNotNull('body')
+            ->orderBy("publish_time", 'desc')
+            ->take(10)
+            ->get();
 
-        return view("index.index", ['name'=>$name, 'password'=>$password, 'articles'=>$articles]);
+        $type_index = [
+            "rice"  =>  ["name"=>"五常大米", "num"=>10],
+            "live"  =>  ["name"=>"生活", "num"=>10],
+            "healthy"   =>  ["name"=>"健康", "num"=>10],
+            "changping"   =>  ["name"=>"昌平", "num"=>5],
+            "huilongguan"   =>  ["name"=>"回龙观", "num"=>5],
+            "food"   =>  ["name"=>"饮食", "num"=>5],
+            "exercise"   =>  ["name"=>"锻炼", "num"=>5],
+            "house"   =>  ["name"=>"房", "num"=>5],
+        ];
+
+        $assign = [];
+        foreach($type_index as $key=>$val) {
+            $assign[$key] = DB::table('weixin_article')
+                ->whereNotNull('body')
+                ->where("type", $val)
+                ->orderBy("publish_time", 'desc')
+                ->take(10)
+                ->get();
+        }
+
+        $assign['articles'] = $articles;
+        return view("index.index", $assign);
     }
 
     public function detail(Request $request) {

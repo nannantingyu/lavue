@@ -11,5 +11,6 @@ Route::get('/forbidden', function() {
     return "您的年龄太小，不能访问哦";
 });
 Route::get('/blog_{id}', "IndexController@detail");
+Route::get('/watch_{id}', "IndexController@detail");
 Route::get('/incre_{id}', "AjaxController@incre");
 Route::get('/search_{keywords}_{page}', "IndexController@search");
