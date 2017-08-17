@@ -68,7 +68,10 @@ class IndexController extends Controller
             ->whereNotNull('body')
             ->orderBy('publish_time', 'desc')
             ->take(5)->get();
-        return view('index.detail', ['article'=>$article, 'hot'=>$hot, 'favor'=>$favor, 'related'=>$related, 'latest'=>$latest ]);
+
+        $seo_title = $article->title . "-粮叔叔";
+        $seo_description = "粮叔叔提供". $article->type ."的资讯新闻，打造一流的" . $article->type ."的服务提供商。";
+        return view('index.detail', ['article'=>$article, 'hot'=>$hot, 'favor'=>$favor, 'related'=>$related, 'latest'=>$latest, "seo_title"=>$seo_title, "seo_description"=>$seo_description]);
     }
 
     public function search(Request $request) {

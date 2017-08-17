@@ -1,19 +1,19 @@
 <html>
     <head>
         <title>
-            @if(defined("seo_title"))
+            @if(isset($seo_title))
             {{ $seo_title }}
             @else
             {{ $default_seo_title }}
             @endif
         </title>
         <meta charset="utf-8">
-        @if(defined("seo_keywords"))
+        @if(isset($seo_keywords))
         <meta name="keywords" content="{{ $seo_keywords }}">
         @else
         <meta name="keywords" content="{{ $default_seo_title }}">
         @endif
-        @if(defined("seo_description"))
+        @if(isset($seo_description))
         <meta name="description" content="{{ $seo_description }}">
         @else
         <meta name="description" content="{{ $default_seo_description }}">
