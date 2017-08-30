@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Cache;
 use App\Services\FoodService;
 
 class IndexController extends Controller
@@ -35,12 +36,22 @@ class IndexController extends Controller
 
         $assign = [];
         foreach($type_index as $key=>$val) {
-            $assign[$key] = DB::table('weixin_article')
+	    $data_in_cache = Cache::store('file')->get($key);
+	    //$data_in_cache = \Redis::get($key);
+	    if(!$data_in_cache) {
+		$assign[$key] = DB::table('weixin_article')
                 ->whereNotNull('body')
                 ->where("type", $val)
                 ->orderBy("publish_time", 'desc')
                 ->take(10)
                 ->get();
+		Cache::store('file')->put($key, json_encode($assign[$key]), 100);
+	    }
+	    else {
+		$assign[$key] = json_decode($data_in_cache);
+	    }
+
+	    //\Redis::set($key, json_encode($assign[$key]), 100);
         }
 
         $assign['articles'] = $articles;

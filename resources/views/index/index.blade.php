@@ -24,7 +24,7 @@
 				@foreach($house as $article)
 					<li>
 						<a href="{{ $base_url }}watch_{{ $article->id }}">{{ $article->title }}</a>
-						<span>{{ date("d-m H:i", strtotime($article->updated_time)) }}</span>
+						<span>{{ date("m-d H:i", strtotime($article->updated_time)) }}</span>
 					</li>
 				@endforeach
 			</ul>
@@ -34,7 +34,7 @@
 				@foreach($food as $article)
 					<li>
 						<a href="{{ $base_url }}watch_{{ $article->id }}">{{ $article->title }}</a>
-						<span>{{ date("d-m H:i", strtotime($article->updated_time)) }}</span>
+						<span>{{ date("m-d H:i", strtotime($article->updated_time)) }}</span>
 					</li>
 				@endforeach
 			</ul>
@@ -66,7 +66,7 @@
 				@foreach($exercise as $article)
 					<li>
 						<a href="{{ $base_url }}watch_{{ $article->id }}">{{ $article->title }}</a>
-						<span>{{ date("d-m H:i", strtotime($article->updated_time)) }}</span>
+						<span>{{ date("m-d H:i", strtotime($article->updated_time)) }}</span>
 					</li>
 				@endforeach
 			</ul>
@@ -76,7 +76,7 @@
 				@foreach($huilongguan as $article)
 					<li>
 						<a href="{{ $base_url }}watch_{{$article->id}}">{{ $article->title }}</a>
-						<span>{{ date("d-m H:i", strtotime($article->updated_time)) }}</span>
+						<span>{{ date("m-d H:i", strtotime($article->updated_time)) }}</span>
 					</li>
 				@endforeach
 			</ul>
