@@ -97,7 +97,7 @@
 			<ul class="tab-title">
 				<li class='current'><a href="#">五常大米</a></li>
 				<li><a href="#">每日健康</a></li>
-				<li><a href="#">生活频道</a></li>
+				<li><a href="#">北京生活</a></li>
 				<div class="clear"></div>
 			</ul>
 			<section class="hot-blog clear">

@@ -18,14 +18,13 @@ class IndexController extends Controller
         $password = "abc123";
 
         $articles = DB::table('weixin_article')
-            ->whereNotNull('body')
             ->orderBy("publish_time", 'desc')
             ->take(10)
             ->get();
 
         $type_index = [
             "rice"  =>  ["name"=>"五常大米", "num"=>10],
-            "live"  =>  ["name"=>"生活", "num"=>10],
+            "live"  =>  ["name"=>"北京", "num"=>10],
             "healthy"   =>  ["name"=>"健康", "num"=>10],
             "changping"   =>  ["name"=>"昌平", "num"=>5],
             "huilongguan"   =>  ["name"=>"回龙观", "num"=>5],
@@ -40,10 +39,10 @@ class IndexController extends Controller
 	    //$data_in_cache = \Redis::get($key);
 	    if(!$data_in_cache) {
 		$assign[$key] = DB::table('weixin_article')
-                ->whereNotNull('body')
                 ->where("type", $val)
                 ->orderBy("publish_time", 'desc')
-                ->take(10)
+                ->select('type', 'title','id','publish_time', 'updated_time', 'description', 'from_user')
+		->take(10)
                 ->get();
 		Cache::store('file')->put($key, json_encode($assign[$key]), 100);
 	    }
@@ -63,21 +62,22 @@ class IndexController extends Controller
         $article = DB::table('weixin_article')->where('id', $id)->first();
 
         $hot = DB::table('weixin_article')
-            ->whereNotNull('body')
-            ->orderBy('hits', 'desc')->take(5)->get();
+            ->orderBy('hits', 'desc')->take(5)
+	    ->select('id', 'title', 'publish_time', 'created_time')
+	    ->get();
         $related = DB::table('weixin_article')
             ->where('type', $article->type)
-            ->whereNotNull('body')
+	    ->select('id', 'title', 'publish_time', 'created_time')
             ->orderBy('hits', 'desc')->take(5)->get();
 
         $favor = DB::table('weixin_article')
-            ->whereNotNull('body')
             ->orderBy('favor', 'desc')
+	    ->select('id', 'title', 'publish_time', 'created_time')
             ->take(5)->get();
 
         $latest = DB::table('weixin_article')
-            ->whereNotNull('body')
             ->orderBy('publish_time', 'desc')
+	    ->select('id', 'title', 'publish_time', 'created_time')
             ->take(5)->get();
 
         $seo_title = $article->title . "-粮叔叔";
@@ -91,7 +91,6 @@ class IndexController extends Controller
             ->where('title', 'like', '%'.$keywords.'%')
             ->orWhere('type', 'like', '%'.$keywords.'%')
             ->orWhere('body', 'like', '%'.$keywords.'%')
-            ->whereNotNull('body')
             ->paginate(20);
 
         return view('index.search', ['articles'=>$articles]);
