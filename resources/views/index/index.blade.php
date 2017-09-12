@@ -13,6 +13,15 @@
 	<div class="main-content">
 		<div class="main-left">
 			<section class="carousel">
+				@foreach($articles as $article)
+					<a href="{{ $base_url }}watch_{{ $article->id }}">
+						@if(empty($article->image))
+							<img src="{{ asset('images/lunbo1.jpg') }}" title="炜煜合作社提供正宗自产自销的稻花香大米，如有需要，请联系18801292741">
+						@else
+							<img src="http://captain-tu.oss-cn-beijing.aliyuncs.com/{{ json_decode($article->image)[0] }}" title="{{$article->description}}">
+						@endif
+					</a>
+				@endforeach
 				<a href="#"><img src="{{ asset('images/lunbo1.jpg') }}" title="This is an example of a caption" ></a>
 				<img src="{{ asset('images/lunbo6.jpg') }}" title="This is an example of a caption" />
 				<a href="http://dev7studios.com"><img src="{{ asset('images/lunbo7.jpg') }}" title="This is an example of a caption" /></a>
@@ -41,24 +50,19 @@
 
 			<h2 class="sub-title">搞笑中场</h2>
 			<div class="sub-img">
-				<dl>
-					<dd><img src="{{ asset('images/lunbo4.jpg') }}"></dd>
-					<dt>
-						去练车的时候，有个美女把安全带系到了副驾驶上
-						教练问她没感觉不对啊
-						姑娘说没有啊
-						教练指着安全带的卡带说
-					</dt>
-				</dl>
-				<dl>
-					<dd><img src="{{ asset('images/lunbo4.jpg') }}"></dd>
-					<dt>
-						去练车的时候，有个美女把安全带系到了副驾驶上
-						教练问她没感觉不对啊
-						姑娘说没有啊
-						教练指着安全带的卡带说
-					</dt>
-				</dl>
+				@foreach($live as $article)
+					<dl>
+						@if(empty($article->image))
+							<dd><a href="{{ $base_url }}watch_{{ $article->id }}"><img src="{{ asset('images/lunbo4.jpg') }}"></a></dd>
+						@else
+							<dd><a href="{{ $base_url }}watch_{{ $article->id }}"><img src="http://captain-tu.oss-cn-beijing.aliyuncs.com/{{ json_decode($article->image)[0] }}"></a></dd>
+						@endif
+						<dt>
+							{{ $article->description }}
+						</dt>
+					</dl>
+				@endforeach
+
 			</div>
 
 			<h2 class="sub-title">健身锻炼</h2>
@@ -125,7 +129,7 @@
 				@endforeach
 			</section>
 			<section class="hot-blog clear none">
-				@foreach($live as $article)
+				@foreach($beijing as $article)
 					<div class="one-blog">
 						<p class="blog-title"><a href="{{ $base_url }}blog_{{ $article->id }}">{{ $article->title }}</a></p>
 						<p class="blog-desc">{{ $article->description }}</p>
@@ -140,38 +144,38 @@
 			<h2 class="sub-title">热卖单品</h2>
 			<section class="hot-goods">
 				<dl>
-					<dd><a href="#"><img src="{{ asset('images/lunbo1.jpg') }}"></a></dd>
+					<dd><a href="{{ $base_url }}search_热卖_1"><img src="{{ asset('images/lunbo1.jpg') }}"></a></dd>
 					<dt>
 					<p>¥20</p>
 					<a href="#">五常稻花香</a>
 					</dt>
 				</dl>
 				<dl>
-					<dd><a href="#"><img src="{{ asset('images/lunbo2.jpg') }}"></a></dd>
+					<dd><a href="{{ $base_url }}search_稻花香_1"><img src="{{ asset('images/lunbo2.jpg') }}"></a></dd>
 					<dt>
 					<p>¥20</p>
-					<a href="#">五常稻花香</a>
+					<a href="#">稻花香</a>
 					</dt>
 				</dl>
 				<dl>
-					<dd><a href="#"><img src="{{ asset('images/lunbo3.jpg') }}"></a></dd>
+					<dd><a href="{{ $base_url }}search_五常大米_1"><img src="{{ asset('images/lunbo3.jpg') }}"></a></dd>
 					<dt>
 					<p>¥20</p>
-					<a href="#">五常稻花香</a>
+					<a href="#">五常大米</a>
 					</dt>
 				</dl>
 				<dl>
-					<dd><a href="#"><img src="{{ asset('images/lunbo4.jpg') }}"></a></dd>
+					<dd><a href="{{ $base_url }}search_特产_1"><img src="{{ asset('images/lunbo4.jpg') }}"></a></dd>
 					<dt>
 					<p>¥20</p>
-					<a href="#">五常稻花香</a>
+					<a href="#">特产</a>
 					</dt>
 				</dl>
 				<dl>
-					<dd><a href="#"><img src="{{ asset('images/lunbo5.jpg') }}"></a></dd>
+					<dd><a href="{{ $base_url }}search_健身_1"><img src="{{ asset('images/lunbo5.jpg') }}"></a></dd>
 					<dt>
 					<p>¥20</p>
-					<a href="#">五常稻花香</a>
+					<a href="#">健身</a>
 					</dt>
 				</dl>
 			</section>
@@ -195,7 +199,11 @@
 								<span>{{ date("Y-m-d H:i:s", strtotime($article->publish_time)) }}</span>
 							</div>
 							<div class="info-img">
-								<img src="{{ asset('images/lunbo4.jpg') }}">
+								@if(empty($article->image))
+									<a href="{{ $base_url }}watch_{{ $article->id }}"><img src="{{ asset('images/lunbo4.jpg') }}"></a>
+								@else
+									<a href="{{ $base_url }}watch_{{ $article->id }}"><img src="http://captain-tu.oss-cn-beijing.aliyuncs.com/{{ json_decode($article->image)[0] }}"></a>
+								@endif
 							</div>
 							<div class="clear"></div>
 						</li>

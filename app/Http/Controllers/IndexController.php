@@ -14,43 +14,38 @@ class IndexController extends Controller
     }
 
     public function index(Request $request) {
-        $name = "nannantingyu";
-        $password = "abc123";
-
         $articles = DB::table('weixin_article')
             ->orderBy("publish_time", 'desc')
-            ->take(10)
+            ->take(4)
             ->get();
 
         $type_index = [
-            "rice"  =>  ["name"=>"五常大米", "num"=>10],
-            "live"  =>  ["name"=>"北京", "num"=>10],
-            "healthy"   =>  ["name"=>"健康", "num"=>10],
+            "rice"  =>  ["name"=>"五常大米", "num"=>6],
+            "beijing"  =>  ["name"=>"北京", "num"=>6],
+            "healthy"   =>  ["name"=>"健康", "num"=>6],
             "changping"   =>  ["name"=>"昌平", "num"=>5],
             "huilongguan"   =>  ["name"=>"回龙观", "num"=>5],
             "food"   =>  ["name"=>"饮食", "num"=>5],
             "exercise"   =>  ["name"=>"锻炼", "num"=>5],
-            "house"   =>  ["name"=>"房", "num"=>5],
+            "house"   =>  ["name"=>"房价", "num"=>5],
+            "live"  =>  ['name'=>"生活", "num"=>2]
         ];
+
+        //后门，清理缓存
+        if($request->tutu) {
+            Cache::flush();
+        }
 
         $assign = [];
         foreach($type_index as $key=>$val) {
-	    $data_in_cache = Cache::store('file')->get($key);
-	    //$data_in_cache = \Redis::get($key);
-	    if(!$data_in_cache) {
-		$assign[$key] = DB::table('weixin_article')
-                ->where("type", $val)
-                ->orderBy("publish_time", 'desc')
-                ->select('type', 'title','id','publish_time', 'updated_time', 'description', 'from_user')
-		->take(10)
-                ->get();
-		Cache::store('file')->put($key, json_encode($assign[$key]), 100);
-	    }
-	    else {
-		$assign[$key] = json_decode($data_in_cache);
-	    }
-
-	    //\Redis::set($key, json_encode($assign[$key]), 100);
+            $assign[$key] = Cache::remember($key, 120, function() use($val) {
+                return DB::table('weixin_article')
+                    ->where("type", $val)
+                    ->orderBy("publish_time", 'desc')
+                    ->select('type', 'title','id','publish_time', 'updated_time', 'description', 'from_user', 'image')
+                    ->take($val['num'])
+                    ->get();
+            });
         }
 
         $assign['articles'] = $articles;
