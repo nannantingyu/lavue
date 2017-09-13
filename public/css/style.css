@@ -323,3 +323,9 @@ div.page span.current{
 div.page a, div.page span{
     font-size: 18px;
 }
+
+/*detail*/
+iframe.video_iframe{
+    width: 90%;
+    height: 665px;
+}
