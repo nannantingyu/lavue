@@ -47,7 +47,9 @@ class AjaxController extends Controller
 
         foreach($all_article as $article) {
             $body = preg_replace('/\ssrc="(.*?)"\sdata-src="\\\g<1>"/', ' src="\\1" data-src="\\1"', $article->body);
-            print_r($body);
+            DB::table('weixin_article')->where("id", $article->id)->update(['body'=>$body]);
+
+            print_r($article->id + " has modyfied.<br/>");
         }
     }
 }
