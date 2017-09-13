@@ -39,4 +39,15 @@ class AjaxController extends Controller
         $result = curl_exec($ch);
         echo $result;
     }
+
+    public function body_src_repl(Request $request) {
+        $all_article = DB::table("weixin_article")
+            ->select("id", "body")
+            ->get();
+
+        foreach($all_article as $article) {
+            $body = preg_replace('/\ssrc="(.*?)"\sdata-src="\\\g<1>"/', ' src="\\1" data-src="\\1"', $article->body);
+            print_r($body);
+        }
+    }
 }
