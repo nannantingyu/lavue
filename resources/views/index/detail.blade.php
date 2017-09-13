@@ -46,4 +46,5 @@
     <script>
         $.get("/incre_{{ $article->id }}", {}, function(){});
     </script>
+    <script src="{{ asset('js/common.js') }}"></script>
 @endsection
