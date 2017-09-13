@@ -16,3 +16,4 @@ Route::get('/incre_{id}', "AjaxController@incre");
 Route::get('/search_{keywords}_{page}', "IndexController@search");
 Route::get('/baidu_tuisong', "AjaxController@baidu_tuisong");
 Route::get('/body_src_repl', "AjaxController@body_src_repl");
+Route::get('/list_{type}', "IndexController@lists");

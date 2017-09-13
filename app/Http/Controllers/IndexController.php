@@ -90,4 +90,17 @@ class IndexController extends Controller
 
         return view('index.search', ['articles'=>$articles]);
     }
+
+    public function lists(Request $request) {
+        $type = $request->type;
+        if($type) {
+            $articles = DB::table('weixin_article')
+                ->where('type', $type)
+                ->paginate(20);
+
+            return view('index.search', ['articles'=>$articles]);
+        }
+
+        return redirect("/");
+    }
 }

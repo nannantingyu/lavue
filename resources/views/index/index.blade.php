@@ -22,13 +22,8 @@
 						@endif
 					</a>
 				@endforeach
-				<a href="#"><img src="{{ asset('images/lunbo1.jpg') }}" title="This is an example of a caption" ></a>
-				<img src="{{ asset('images/lunbo6.jpg') }}" title="This is an example of a caption" />
-				<a href="http://dev7studios.com"><img src="{{ asset('images/lunbo7.jpg') }}" title="This is an example of a caption" /></a>
-				<img src="{{ asset('images/lunbo4.jpg') }}" title="This is an example of a caption" />
-				<img src="{{ asset('images/lunbo5.jpg') }}" title="This is an example of a caption" />
 			</section>
-			<h2 class="sub-title">房事天下</h2>
+			<h2 class="sub-title"><a href="{{ $base_url }}list_房价">房事天下</a></h2>
 			<ul class="news">
 				@foreach($house as $article)
 					<li>
@@ -38,7 +33,7 @@
 				@endforeach
 			</ul>
 
-			<h2 class="sub-title">饮食生活</h2>
+			<h2 class="sub-title"><a href="{{ $base_url }}list_饮食">饮食生活</a></h2>
 			<ul class="news">
 				@foreach($food as $article)
 					<li>
@@ -65,7 +60,7 @@
 
 			</div>
 
-			<h2 class="sub-title">健身锻炼</h2>
+			<h2 class="sub-title"><a href="{{ $base_url }}list_健身">健身锻炼</a></h2>
 			<ul class="news">
 				@foreach($exercise as $article)
 					<li>
@@ -75,7 +70,7 @@
 				@endforeach
 			</ul>
 
-			<h2 class="sub-title">每日回龙观</h2>
+			<h2 class="sub-title"><a href="{{ $base_url }}list_回龙观">每日回龙观</a></h2>
 			<ul class="news">
 				@foreach($huilongguan as $article)
 					<li>
@@ -99,9 +94,9 @@
 
 		<div class="main-right">
 			<ul class="tab-title">
-				<li class='current'><a href="#">五常大米</a></li>
-				<li><a href="#">每日健康</a></li>
-				<li><a href="#">北京生活</a></li>
+				<li class='current'><a href="{{ $base_url }}list_五常大米">五常大米</a></li>
+				<li><a href="{{ $base_url }}list_健康">每日健康</a></li>
+				<li><a href="{{ $base_url }}list_北京">北京生活</a></li>
 				<div class="clear"></div>
 			</ul>
 			<section class="hot-blog clear">
@@ -180,7 +175,7 @@
 				</dl>
 			</section>
 
-			<h2 class="sub-title">昌平生活</h2>
+			<h2 class="sub-title"><a href="{{ $base_url }}list_昌平">昌平生活</a></h2>
 			<section class="healthy">
 				<ul>
 					@foreach($changping as $article)
