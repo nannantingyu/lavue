@@ -41,8 +41,11 @@ class AjaxController extends Controller
     }
 
     public function body_src_repl(Request $request) {
+        $from = $request->from? $request->from:0;
         $all_article = DB::table("weixin_article")
             ->select("id", "body")
+            ->skip($from)
+            ->take(50)
             ->get();
 
         foreach($all_article as $article) {
