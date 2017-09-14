@@ -20,13 +20,13 @@
         @endif
         <script src="{{ URL::asset('js/jquery.js') }}"></script>
         <script src="{{ URL::asset('js/show.js') }}"></script>
+        <link rel="stylesheet" href="{{ URL::asset('css/bootstrap.css') }}">
+        <link rel="stylesheet" href="{{ URL::asset('css/bootstrap-theme.css') }}">
         <link rel="stylesheet" href="{{ URL::asset('css/style.css') }}">
         @yield('css')
         @yield('js')
     </head>
     <body>
-    @php
-    @endphp
         @include('public.header')
         @yield('content')
         @include('public.footer')

@@ -10,6 +10,7 @@
         <div class="clear"></div>
     </div>
 </footer>
+<script src="{{ URL::asset('js/bootstrap.js') }}"></script>
 <script>
     (function(){
         var bp = document.createElement('script');

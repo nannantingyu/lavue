@@ -42,6 +42,15 @@ header .navbar-search input[type="text"] {border: 1px solid #c1c1c1;float: left;
 header .navbar-search {padding: 10px 0; float: left;}
 header .navbar-search button{border: 0;float: left;display: inline;width: 66px;height: 35px;margin-top: 3px;margin-right: 6px;background: #ff8400 url(http://i0.sinaimg.cn/home/main/index2013/0719/bg2.png) 0 0 no-repeat;cursor: pointer;border-radius: 0;}
 
+@media screen and (min-width : 480px){
+    .nav-mod, header .navbar-search, .main-content .main-left{display: none;}
+    .main-content .main-right{width: 100%;}
+    .nav-mod:first-of-type{display: block; width: 100%;}
+    .main-right .hot-goods{width: 100%;}
+    .main-right .hot-goods dl{width: 20%;}
+    .main-right .hot-goods dl dd a{text-align: center;}
+}
+
 header .navbar-login {float: right; margin: 0 20px;}
 header .navbar-login a{padding: 0 5px;}
 header .navbar-follow {float: right; position: relative; margin: 0 20px;}
