@@ -42,15 +42,6 @@ header .navbar-search input[type="text"] {border: 1px solid #c1c1c1;float: left;
 header .navbar-search {padding: 10px 0; float: left;}
 header .navbar-search button{border: 0;float: left;display: inline;width: 66px;height: 35px;margin-top: 3px;margin-right: 6px;background: #ff8400 url(http://i0.sinaimg.cn/home/main/index2013/0719/bg2.png) 0 0 no-repeat;cursor: pointer;border-radius: 0;}
 
-@media screen and (min-width : 480px){
-    .nav-mod, header .navbar-search, .main-content .main-left{display: none;}
-    .main-content .main-right{width: 100%;}
-    .nav-mod:first-of-type{display: block; width: 100%;}
-    .main-right .hot-goods{width: 100%;}
-    .main-right .hot-goods dl{width: 20%;}
-    .main-right .hot-goods dl dd a{text-align: center;}
-}
-
 header .navbar-login {float: right; margin: 0 20px;}
 header .navbar-login a{padding: 0 5px;}
 header .navbar-follow {float: right; position: relative; margin: 0 20px;}
@@ -337,4 +328,63 @@ div.page a, div.page span{
 iframe.video_iframe{
     width: 90%;
     height: 540px;
+}
+
+@media screen and (min-width : 480px){
+    .nav-mod, header .navbar-search, .main-content .main-left{display: none;}
+    .main-content .main-right{width: 100%;}
+    .nav-mod:first-of-type{display: block; width: 100%;}
+    .main-right .hot-goods{width: 100%;}
+    .main-right .hot-goods dl{width: 20%;}
+    .main-right .hot-goods dl dd a{text-align: center;}
+    html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,
+    abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,
+    var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td {
+        margin: 0;padding: 0;border: 0;outline: 0;font-size: 120%;vertical-align: baseline;background: transparent;
+    }
+    nav .nav-mod ul li, .main-right .hot-blog .one-blog .blog-desc, .main-right .hot-goods dl dt{
+        line-height: 86px;
+    }
+    .main-right .hot-blog .one-blog .blog-title{
+        font-size: 47px;
+        font-weight: bold;
+        line-height: 125px;
+    }
+    nav .nav-mod ul:first-of-type li:first-of-type{
+        font-size: 47px;
+        line-height: 80px;
+    }
+    ul.tab-title li{
+        width: 305px;
+        font-size: 50px;
+        line-height: 160px;
+    }
+    .con-list ul li div.title {
+        float: left;
+        line-height: 157px;
+        font-size: 46px;
+    }
+
+    .con-list ul li div.time{
+        line-height: 150px;
+    }
+    .content-right{
+        display: none;
+    }
+    .content-left{
+        width: 100% !important;
+    }
+    .detail-main .content-left h2{
+        font-size: 49px;
+        line-height: 86px;
+    }
+    .rich_media_content{
+        font-size: 30px;
+    }
+    .rich_media_content span, .rich_media_content p{
+        font-size: 50px !important;
+    }
+    .detail-main p strong{
+        line-height: 100px;
+    }
 }
