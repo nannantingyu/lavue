@@ -19,7 +19,7 @@ $(function(){
 		});
 	}
 	else{
-		$(".detail-main p img").css("width", "100%").parents("p").css("margin", "0");
+		$(".detail-main p img").css("width", "100%").parents("p").css({"margin": "0", "padding-left": "0", "padding-right": "0"});
 		$(".detail-main *").css("background-image", "none");
 		$('section').css("width", "100%");
 	}
