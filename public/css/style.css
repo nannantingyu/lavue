@@ -441,4 +441,15 @@ iframe.video_iframe{
     .cofriend{
         display: none;
     }
+    footer div.content{
+        width: 95%;
+    }
+    footer ul{
+        width: 100%;
+    }
+
+    footer ul li{
+        width: 24%;
+        line-height: 2.5rem;
+    }
 }
