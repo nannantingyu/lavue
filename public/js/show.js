@@ -19,6 +19,6 @@ $(function(){
 		});
 	}
 	else{
-		$(".detail-main p img").parents("p").css("margin", "0");
+		$(".detail-main p img").css("width", "100%").parents("p").css("margin", "0");
 	}
 });
