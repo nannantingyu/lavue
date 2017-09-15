@@ -438,4 +438,7 @@ iframe.video_iframe{
     footer{
         min-width: 0;
     }
+    .cofriend{
+        display: none;
+    }
 }
