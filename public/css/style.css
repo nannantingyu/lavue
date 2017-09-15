@@ -12,11 +12,41 @@ Version:1.1 */
 /* ----------------------------------------------------------------------------------- */
 /* CSS Reset & Clear
 /*----------------------------------------------------------------------------------- */
- 
+
 
 html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,
 abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,
-var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td {margin: 0;padding: 0;border: 0;outline: 0;font-size: 100%;vertical-align: baseline;background: transparent;}
+var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent;
+}
+
+html {
+    font-size: 10px;
+}
+
+@media only screen and (max-width:1024px) {
+    html {
+        font-size: 9.411764705882353px;
+    }
+}
+
+@media only screen and (max-width:768px) {
+    html {
+        font-size: 10px;
+    }
+}
+
+@media only screen and (max-width:400px) {
+    html {
+        font-size: 9.411764705882353px;
+    }
+}
 
 .clearfix:after {display: block;visibility: hidden;clear: both;height: 0;content: ".";}
 .clearfix {display: inline-block;display: block;}
@@ -330,7 +360,7 @@ iframe.video_iframe{
     height: 540px;
 }
 
-@media screen and (min-width : 480px){
+@media only screen and (max-width:400px) {
     .nav-mod, header .navbar-search, .main-content .main-left{display: none;}
     .main-content .main-right{width: 100%;}
     .nav-mod:first-of-type{display: block; width: 100%;}
