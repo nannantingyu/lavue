@@ -360,43 +360,51 @@ iframe.video_iframe{
     height: 540px;
 }
 
-@media only screen and (max-width:400px) {
+@media screen and (max-width:480px) {
+    header{
+        width: 100%;
+        min-width: 0;
+    }
+    header .content{
+        width: 100%;
+    }
+    nav{
+        width: 100%;
+    }
+    .main-content{
+        width: 100%;
+    }
+
+
     .nav-mod, header .navbar-search, .main-content .main-left{display: none;}
     .main-content .main-right{width: 100%;}
     .nav-mod:first-of-type{display: block; width: 100%;}
+    .main-right{
+        margin: 0 10px;
+    }
     .main-right .hot-goods{width: 100%;}
     .main-right .hot-goods dl{width: 20%;}
     .main-right .hot-goods dl dd a{text-align: center;}
-    html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,
-    abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,
-    var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td {
-        margin: 0;padding: 0;border: 0;outline: 0;font-size: 120%;vertical-align: baseline;background: transparent;
+    nav .nav-mod ul li{
+        width: 30%;
     }
     nav .nav-mod ul li, .main-right .hot-blog .one-blog .blog-desc, .main-right .hot-goods dl dt{
-        line-height: 86px;
+        padding: 3px 10px 0 0;
     }
     .main-right .hot-blog .one-blog .blog-title{
-        font-size: 47px;
         font-weight: bold;
-        line-height: 125px;
     }
     nav .nav-mod ul:first-of-type li:first-of-type{
-        font-size: 47px;
-        line-height: 80px;
     }
     ul.tab-title li{
-        width: 305px;
-        font-size: 50px;
-        line-height: 160px;
+        width: 33%;
+        text-align: left;
     }
     .con-list ul li div.title {
         float: left;
-        line-height: 157px;
-        font-size: 46px;
     }
 
     .con-list ul li div.time{
-        line-height: 150px;
     }
     .content-right{
         display: none;
@@ -405,16 +413,11 @@ iframe.video_iframe{
         width: 100% !important;
     }
     .detail-main .content-left h2{
-        font-size: 49px;
-        line-height: 86px;
     }
     .rich_media_content{
-        font-size: 30px;
     }
     .rich_media_content span, .rich_media_content p{
-        font-size: 50px !important;
     }
     .detail-main p strong{
-        line-height: 100px;
     }
 }
