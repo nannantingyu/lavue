@@ -278,7 +278,7 @@ footer ul li a{color: #fff;}
 
 /*detail*/
 .detail-main .content-left h2{
-    font-size: 28px;
+    font-size: 2rem;
     text-align: center;
     line-height: 50px;
     padding: 10px 0 20px;
@@ -317,6 +317,7 @@ footer ul li a{color: #fff;}
 .detail-main p{
     text-indent: 1.2em;
     line-height: 35px;
+    padding: 0 10px;
 }
 .detail-main p strong{
     line-height: 50px;
