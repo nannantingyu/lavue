@@ -18,4 +18,7 @@ $(function(){
 			}
 		});
 	}
+	else{
+		$(".detail-main p img").parents("p").css("margin", "0");
+	}
 });
