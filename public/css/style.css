@@ -84,23 +84,23 @@ ul.pagination li{display: inline-block;}
 nav {width: 1200px; margin: 10px auto; overflow: hidden;}
 nav .nav-mod{width: 33%; float: left; border-right: 1px solid #ccc;}
 nav .nav-mod:nth-of-type(3){border: none;}
-nav .nav-mod ul li{float: left; width: 20%; text-align: center; line-height: 28px;}
+nav .nav-mod ul li{float: left; width: 20%; text-align: center; line-height: 28px; font-size: 1.5rem;}
 nav .nav-mod ul:first-of-type li:first-of-type{font-weight: bold; font-size: 21px;}
 nav .nav-mod ul:first-of-type li:first-of-type a{color: #b2e05d}
 .main-left{margin: 30px 10px; float: left; width: 300px;}
 .main-right{width: 840px; margin: 30px 20px; float: left;}
 .main-left .carousel{width: 300px; height: 400px; overflow: hidden; padding-top: 40px;}
 .main-left .carousel img{width: 300px;}
-.main-right .hot-goods{float: left; margin: 0 10px;}
+.main-right .hot-goods{float: left; margin: 0 10px; overflow: hidden;}
 .main-right .hot-goods dl{float: left; padding: 0 10px;}
 .main-right .hot-goods dl dd a{display: block; max-height: 200px; overflow: hidden}
 .main-right .hot-goods dl dd img{width: 143px; }
-.main-right .hot-goods dl dt{text-align: center; line-height: 40px; padding-top: 10px;}
+.main-right .hot-goods dl dt{text-align: center; line-height: 2.1rem; padding-top: 10px;}
 .main-content {width: 1200px; margin: 10px auto; overflow: hidden;}
 .main-content .sub-title{font-size: 16px; line-height: 40px; margin-bottom: 10px; border-bottom: 3px solid #3ac;}
 .main-right .hot-blog .one-blog{margin: 10px 0; border-bottom: 1px solid #ccc;}
 .main-right .hot-blog .one-blog:last-of-type{border: none;}
-.main-right .hot-blog .one-blog .blog-title{font-size: 17px; font-weight: bold; line-height: 30px;}
+.main-right .hot-blog .one-blog .blog-title{font-size: 1.6rem; font-weight: bold; line-height: 30px;}
 .main-right .hot-blog .one-blog .blog-desc{line-height: 28px;}
 .main-right .hot-blog .one-blog .blog-info{width: 100%; height: 40px;}
 .main-right .hot-blog .one-blog .blog-time, .main-right .hot-blog .one-blog .blog-author{font-size: 14px; float: right; padding: 5px 15px;}
@@ -201,7 +201,9 @@ ul.tab-title li.current:after{
     height: 150px;
 }
 .healthy ul li h3{
-    font-size: 18px;
+    font-size: 1.6rem;
+    line-height: 3.5rem;
+    font-weight: bold;
 }
 
 .cofriend .co_title {
@@ -374,8 +376,14 @@ iframe.video_iframe{
     .main-content{
         width: 100%;
     }
-
-
+    header .line{
+        font-size: 1.5rem;
+        margin: 1.2rem;
+    }
+    .healthy ul li h3{
+        line-height: 2.6rem;
+        padding: 3px 0;
+    }
     .nav-mod, header .navbar-search, .main-content .main-left{display: none;}
     .main-content .main-right{width: 100%;}
     .nav-mod:first-of-type{display: block; width: 100%;}
@@ -383,18 +391,17 @@ iframe.video_iframe{
         margin: 0 10px;
     }
     .main-right .hot-goods{width: 100%;}
-    .main-right .hot-goods dl{width: 20%;}
+    .main-right .hot-goods dl{width: 30%;}
     .main-right .hot-goods dl dd a{text-align: center;}
     nav .nav-mod ul li{
-        width: 30%;
+        width: 20%;
     }
     nav .nav-mod ul li, .main-right .hot-blog .one-blog .blog-desc, .main-right .hot-goods dl dt{
-        padding: 3px 10px 0 0;
+        padding: 3px 10px 3px 0;
+        font-size: 1.5rem;
     }
-    .main-right .hot-blog .one-blog .blog-title{
-        font-weight: bold;
-    }
-    nav .nav-mod ul:first-of-type li:first-of-type{
+
+    .main-right .hot-goods dl dt{
     }
     ul.tab-title li{
         width: 33%;
@@ -402,9 +409,11 @@ iframe.video_iframe{
     }
     .con-list ul li div.title {
         float: left;
+        font-size: 1.6rem;
     }
 
-    .con-list ul li div.time{
+    .main-right .hot-goods dl dd img{
+        width: 100%;
     }
     .content-right{
         display: none;
@@ -412,12 +421,21 @@ iframe.video_iframe{
     .content-left{
         width: 100% !important;
     }
-    .detail-main .content-left h2{
+    .healthy ul li div.info-text{
+        width: 63%;
+        padding: 0 2% 0 0;
     }
-    .rich_media_content{
+    .healthy ul li div.info-text p{
+        font-size: 1.5rem;
+        line-height: 2.5rem;
     }
-    .rich_media_content span, .rich_media_content p{
+    .healthy ul li div.info-img img{
+        width: 100%;
     }
-    .detail-main p strong{
+    .ads-img{
+        display: none;
+    }
+    footer{
+        min-width: 0;
     }
 }

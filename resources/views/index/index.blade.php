@@ -135,7 +135,7 @@
 					</div>
 				@endforeach
 			</section>
-			<img src="{{ asset('images/ad1.jpg') }}">
+			<img src="{{ asset('images/ad1.jpg') }}" class="ads-img">
 			<h2 class="sub-title">热卖单品</h2>
 			<section class="hot-goods">
 				<dl>
