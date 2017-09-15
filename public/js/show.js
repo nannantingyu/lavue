@@ -8,7 +8,6 @@ $(function(){
 	});
 
 	if(screen.width > 480){
-		alert(screen.width);
 		$(window).scroll(function(){
 			var top = $(document).scrollTop();
 			if(top >= 100) {

@@ -455,4 +455,10 @@ iframe.video_iframe{
         width: 24%;
         line-height: 2.5rem;
     }
+    .detail-main p{
+        text-indent: 0;
+    }
+    .detail-main p img{
+        width: 100%;
+    }
 }
