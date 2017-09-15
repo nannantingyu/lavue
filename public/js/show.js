@@ -7,13 +7,16 @@ $(function(){
 		$(child_content[_this.index()]).show();
 	});
 
-	$(window).scroll(function(){
-		var top = $(document).scrollTop();
-		if(top >= 100) {
-			$("header").addClass("fixed");
-		}
-		else {
-			$("header").removeClass("fixed");
-		}
-	});
+	if(screen.width > 480){
+		alert(screen.width);
+		$(window).scroll(function(){
+			var top = $(document).scrollTop();
+			if(top >= 100) {
+				$("header").addClass("fixed");
+			}
+			else {
+				$("header").removeClass("fixed");
+			}
+		});
+	}
 });
