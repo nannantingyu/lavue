@@ -13,8 +13,14 @@
             <img src="{{ asset('images/erweima.png') }}" alt="关注粮叔叔">
         </div>
         <div class="navbar-login line">
-            <a href="/login">登录</a>
-            <a href="/register">注册</a>
+            @if(empty($user))
+                <a href="/login">登录</a>
+                <a href="/register">注册</a>
+            @else
+                <span>{{ $user }}</span>
+                <a href="/logout">退出</a>
+            @endif
+
         </div>
         <div class="clear"></div>
     </div>

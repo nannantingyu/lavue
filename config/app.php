@@ -183,6 +183,7 @@ return [
         App\Providers\FoodServiceProvider::class,
         App\Providers\ViewServiceProvider::class,
 
+        Mews\Captcha\CaptchaServiceProvider::class,
     ],
 
     /*
@@ -231,9 +232,11 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+        'Input' => Illuminate\Support\Facades\Input::class,
 
         //mine
         "Food" => App\Facades\FoodFacade::class,
+        'Captcha' => Mews\Captcha\Facades\Captcha::class,
     ],
 
 ];

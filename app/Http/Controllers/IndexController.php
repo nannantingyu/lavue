@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Cache;
 use App\Services\FoodService;
+use App\User;
 
 class IndexController extends Controller
 {
@@ -49,6 +50,7 @@ class IndexController extends Controller
         }
 
         $assign['articles'] = $articles;
+        $assign['user'] = $request->session()->get('user', '');
         return view("index.index", $assign);
     }
 
