@@ -40,7 +40,11 @@
                     </div>
 
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                    <input type="submit" value="注册">
+
+                    <div class="inputs-w3ls regist" style="position: relative;">
+                        <input type="submit" value="注册">
+                        <img src="{{ asset('images/loading.gif') }}" alt="loading">
+                    </div>
                 </div>
             </div>
         </div>
@@ -64,7 +68,7 @@
     <script src="{{ asset('js/jquery.vide.min.js') }}"></script>
     <script>
         $(function(){
-            $('.inputs-w3ls img').click(function(){
+            $('.inputs-w3ls img[alt="验证码"]').click(function(){
                 $(this).attr('src', "/captcha?_r=" + Math.random());
             });
             $('input[type="submit"]').click(function(){
@@ -103,6 +107,8 @@
                     return false;
                 }
 
+                $('.inputs-w3ls.regist input[type="submit"]').val("");
+                $('.inputs-w3ls.regist img').show();
                 $.ajax({
                     url: '/register',
                     type: 'post',
@@ -115,6 +121,10 @@
                         _token: $('input[name="_token"]').val()
                     },
                     success: function(data) {
+                        $('.inputs-w3ls.regist input[type="submit"]').val("注册");
+                        $('.inputs-w3ls.regist img').hide();
+
+                        $('.inputs-w3ls img[alt="验证码"]').click();
                         if(data.msg) {
                             alert(data.msg);
                         }

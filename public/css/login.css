@@ -133,6 +133,15 @@ h2.sub-head-w3-agileits {
 .inputs-w3ls {
     position: relative;
 }
+
+.inputs-w3ls.regist{
+	position: relative;
+}
+
+.inputs-w3ls.regist img{
+	position: absolute;top: 32px;left: 80px; display: none;
+}
+
 .inputs-w3ls i {
 	position: absolute;
 	left: -6px;

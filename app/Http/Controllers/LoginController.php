@@ -30,6 +30,25 @@ class LoginController extends Controller
             return array('msg'=>'验证码不正确');
         }
 
+        $user_in_tb = DB::table('users')->where('name', $request->name)
+            ->orWhere('email', $request->email)
+            ->orWhere('phone', $request->phone)
+            ->get();
+
+        if(!is_null($user_in_tb) and count($user_in_tb) > 0) {
+            foreach($user_in_tb as $val) {
+                if($val->name == $request->name) {
+                    return ['msg'=>'名称已存在!'];
+                }
+                elseif($val->email == $request->email) {
+                    return ['msg'=>'邮箱已注册!'];
+                }
+                elseif($val->phone == $request->phone) {
+                    return ['msg'=>'手机号已注册!'];
+                }
+            }
+        }
+
         $user = new User();
         $user->name = $request->name;
         $user->email = $request->email;
@@ -96,16 +115,15 @@ class LoginController extends Controller
     public function check(Request $request){
         $check_str = $request->check_str;
 
-        $username = $request->session()->get('user');
-        if($username and $check_str) {
-            $user_info = User::where('name', $username)
-                ->select('check_str')
+        $user = $request->session()->get('user');
+        if($user and $check_str) {
+            $user_check_str = DB::table('users')->where('name', $user->name)
+                ->pluck('check_str')
                 ->first();
 
-            if ($user_info and $user_info == $check_str) {
-                User::where('name', $username)
+            if ($user_check_str and $user_check_str == $check_str) {
+                User::where('name', $user->name)
                     ->update(['state'=>1]);
-
             }
         }
     }
