@@ -44,6 +44,7 @@
         width: 30%;
         padding: 10%;
         left: 25%;
+        top: -10%;
     }
     .title h2{text-align: center;}
 </style>
