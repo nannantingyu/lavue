@@ -50,7 +50,6 @@ class IndexController extends Controller
         }
 
         $assign['articles'] = $articles;
-        $assign['user'] = $request->session()->get('user', '');
         return view("index.index", $assign);
     }
 

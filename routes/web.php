@@ -28,3 +28,6 @@ Route::any('/captcha', function()
 {
     return captcha();
 });
+
+Route::get('/test', "TestController@index");
+Route::get('/check/{check_str}', "LoginController@check");

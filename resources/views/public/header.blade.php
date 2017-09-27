@@ -13,11 +13,14 @@
             <img src="{{ asset('images/erweima.png') }}" alt="关注粮叔叔">
         </div>
         <div class="navbar-login line">
-            @if(empty($user))
+            @if(empty(session('user')))
                 <a href="/login">登录</a>
                 <a href="/register">注册</a>
-            @else
-                <span>{{ $user }}</span>
+            @elseif(session('user')->state == 1)
+                <span>{{ session('user')->name }}</span>
+                <a href="/logout">退出</a>
+            @elseif(session('user')->state == 0)
+                <span>{{ session('user')->name }}(未验证，<a href="{{ session('user')->email_link }}">去验证</a>)</span>
                 <a href="/logout">退出</a>
             @endif
 

@@ -20,6 +20,7 @@ class CreateUsersTable extends Migration
             $table->char('phone', 11)->unique();
             $table->char('password', 32);
             $table->smallInteger('state')->default(1);
+            $table->char('check_str', 40);
             $table->timestamps();
         });
     }
