@@ -125,7 +125,7 @@ class LoginController extends Controller
                 User::where('name', $user->name)
                     ->update(['state'=>1]);
 
-                $user->$user_check = $this->get_email_login_link($user->email);
+                $user_check->email_link = $this->get_email_login_link($user_check->email);
                 session(['user' => $user_check]);
                 return view('login.check', ['check'=>true]);
             }
