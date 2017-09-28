@@ -125,7 +125,7 @@ class LoginController extends Controller
                 User::where('name', $user->name)
                     ->update(['state'=>1]);
 
-                $request->session()->set('user', $user_check);
+                session(['user' => $user_check]);
                 return view('login.check', ['check'=>true]);
             }
             else {
