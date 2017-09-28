@@ -126,7 +126,8 @@ class LoginController extends Controller
                     ->update(['state'=>1]);
 
                 $user_check->email_link = $this->get_email_login_link($user_check->email);
-                $request->session()->put('user', $user_check);
+                session()->forget('user');
+                session()->put('user', $user_check);
                 return view('login.check', ['check'=>true]);
             }
             else {
