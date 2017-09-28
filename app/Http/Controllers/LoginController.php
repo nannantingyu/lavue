@@ -100,7 +100,7 @@ class LoginController extends Controller
             $link = 'http://mail.126.com/';
         }
         else if (strpos($email, 'hotmail') !== false) {
-            $link = 'https://login.live.com/';
+            $link = 'https://outlook.live.com/';
         }
         else if (strpos($email, 'gmail') !== false) {
             $link = 'https://accounts.google.com/signin/v2/identifier';

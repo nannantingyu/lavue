@@ -130,7 +130,7 @@
                         }
                         else {
                             alert("注册成功！");
-                            window.location.href = '/';
+                            window.location.href = '/login';
                         }
                     }
                 })
