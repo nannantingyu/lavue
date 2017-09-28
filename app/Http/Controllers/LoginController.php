@@ -117,14 +117,22 @@ class LoginController extends Controller
 
         $user = $request->session()->get('user');
         if($user and $check_str) {
-            $user_check_str = DB::table('users')->where('name', $user->name)
-                ->pluck('check_str')
+            $user_check = DB::table('users')->where('name', $user->name)
+                ->select('id', 'name', 'check_str', 'email')
                 ->first();
 
-            if ($user_check_str and $user_check_str == $check_str) {
+            if ($user_check and $user_check->check_str == $check_str) {
                 User::where('name', $user->name)
                     ->update(['state'=>1]);
+
+                $request->session()->set('user', $user_check);
+                return view('login.check', ['check'=>true]);
+            }
+            else {
+                return view('login.check', ['check'=>false, 'msg'=>'您的地址无效']);
             }
         }
+
+        return view('login.check', ['check'=>false, 'msg'=>'请登录']);
     }
 }
