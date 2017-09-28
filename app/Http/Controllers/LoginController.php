@@ -118,7 +118,7 @@ class LoginController extends Controller
         $user = $request->session()->get('user');
         if($user and $check_str) {
             $user_check = DB::table('users')->where('name', $user->name)
-                ->select('id', 'name', 'check_str', 'email', 'state')
+                ->select('id', 'name', 'check_str', 'email', 'state', 'email_link')
                 ->first();
 
             if ($user_check and $user_check->check_str == $check_str) {
