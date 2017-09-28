@@ -118,13 +118,14 @@ class LoginController extends Controller
         $user = $request->session()->get('user');
         if($user and $check_str) {
             $user_check = DB::table('users')->where('name', $user->name)
-                ->select('id', 'name', 'check_str', 'email', 'state', 'email_link')
+                ->select('id', 'name', 'check_str', 'email', 'state', 'email')
                 ->first();
 
             if ($user_check and $user_check->check_str == $check_str) {
                 User::where('name', $user->name)
                     ->update(['state'=>1]);
 
+                $user->$user_check = $this->get_email_login_link($user->email);
                 session(['user' => $user_check]);
                 return view('login.check', ['check'=>true]);
             }
