@@ -6,7 +6,7 @@
         <div class="title" style="position: absolute;  width: 30%;  padding: 10%;  left: 25%;  top: -10%;">
             <h2 style="text-align: center;">完成邮箱验证</h2>
         </div>
-        <div style="position: absolute; top:33%; left: 40%; width: 50%;">
+        <div style="position: absolute; top:33%; left: 33%; width: 50%;">
             <p style="font-weight: 800;">这是系统邮件，请注意查收，切勿回复！</p>
             <p style="font-weight: 800;">请点击以下链接完成验证：</p>
             <a href="{{ $base_url }}check/{{$user->check_str}}">{{ $base_url }}check/{{$user->check_str}}</a>
