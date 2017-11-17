@@ -109,8 +109,8 @@ return [
         'client' => 'predis',
 
         'default' => [
-            'host' => env('REDIS_HOST', '127.0.0.1'),
-            'password' => env('REDIS_PASSWORD', null),
+            'host' => env('REDIS_HOST', 'r-2zeddf5409805514.redis.rds.aliyuncs.com'),
+            'password' => env('REDIS_PASSWORD', 'Wait12345'),
             'port' => env('REDIS_PORT', 6379),
             'database' => 0,
         ],

@@ -97,6 +97,7 @@ class IndexController extends Controller
         if($type) {
             $articles = DB::table('weixin_article')
                 ->where('type', $type)
+		->orderBy('publish_time', 'desc')
                 ->paginate(20);
 
             return view('index.search', ['articles'=>$articles]);
