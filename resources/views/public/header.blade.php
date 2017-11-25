@@ -1,7 +1,7 @@
 <header>
     <div class="content">
         <div class="navbar-brand">
-            <a href="/"><img src="{{ asset('images/logo.png') }}" alt="粮叔叔logo"></a>
+            <a href="/"><img src="{{ asset('images/logo.png') }}" alt="炜煜合作社提供正宗自产自销的稻花香大米，如有需要，请联系18801292741"></a>
             <h1 class="none">粮叔叔</h1>
         </div>
         <div class="navbar-search">
