@@ -139,38 +139,74 @@
 			<h2 class="sub-title">热卖单品</h2>
 			<section class="hot-goods">
 				<dl>
-					<dd><a href="{{ $base_url }}search_热卖_1"><img src="{{ asset('images/lunbo1.jpg') }}"></a></dd>
+					<dd><a href="{{ $base_url }}login?name=1"><img src="{{ asset('images/rice/IMG_3456.jpg') }}"></a></dd>
 					<dt>
-					<p>¥20</p>
+					<p>¥100</p>
 					<a href="#">五常稻花香</a>
 					</dt>
 				</dl>
 				<dl>
-					<dd><a href="{{ $base_url }}search_稻花香_1"><img src="{{ asset('images/lunbo2.jpg') }}"></a></dd>
+					<dd><a href="{{ $base_url }}login?name=2"><img src="{{ asset('images/rice/IMG_3459.jpg') }}"></a></dd>
 					<dt>
-					<p>¥20</p>
+					<p>¥158</p>
 					<a href="#">稻花香</a>
 					</dt>
 				</dl>
 				<dl>
-					<dd><a href="{{ $base_url }}search_五常大米_1"><img src="{{ asset('images/lunbo3.jpg') }}"></a></dd>
+					<dd><a href="{{ $base_url }}login?name=3"><img src="{{ asset('images/rice/IMG_3481.jpg') }}"></a></dd>
 					<dt>
 					<p>¥20</p>
-					<a href="#">五常大米</a>
+					<a href="#">粥米</a>
 					</dt>
 				</dl>
 				<dl>
-					<dd><a href="{{ $base_url }}search_特产_1"><img src="{{ asset('images/lunbo4.jpg') }}"></a></dd>
+					<dd><a href="{{ $base_url }}login?name=4"><img src="{{ asset('images/rice/IMG_3483.jpg') }}"></a></dd>
 					<dt>
-					<p>¥20</p>
-					<a href="#">特产</a>
+					<p>¥90</p>
+					<a href="#">十斤装</a>
 					</dt>
 				</dl>
 				<dl>
-					<dd><a href="{{ $base_url }}search_健身_1"><img src="{{ asset('images/lunbo5.jpg') }}"></a></dd>
+					<dd><a href="{{ $base_url }}login?name=5"><img src="{{ asset('images/rice/IMG_3486.jpg') }}"></a></dd>
 					<dt>
-					<p>¥20</p>
-					<a href="#">健身</a>
+					<p>¥180</p>
+					<a href="#">二十斤装</a>
+					</dt>
+				</dl>
+
+				<dl>
+					<dd><a href="{{ $base_url }}login?name=6"><img src="{{ asset('images/rice/IMG_3487.jpg') }}"></a></dd>
+					<dt>
+					<p>¥80</p>
+					<a href="#">长粒香20KG</a>
+					</dt>
+				</dl>
+				<dl>
+					<dd><a href="{{ $base_url }}login?name=5"><img src="{{ asset('images/rice/IMG_3491.jpg') }}"></a></dd>
+					<dt>
+					<p>¥148</p>
+					<a href="#">礼品装-中国红</a>
+					</dt>
+				</dl>
+				<dl>
+					<dd><a href="{{ $base_url }}login?name=5"><img src="{{ asset('images/rice/IMG_3498.jpg') }}"></a></dd>
+					<dt>
+					<p>¥35</p>
+					<a href="#">东北木耳</a>
+					</dt>
+				</dl>
+				<dl>
+					<dd><a href="{{ $base_url }}login?name=5"><img src="{{ asset('images/rice/IMG_3503.jpg') }}"></a></dd>
+					<dt>
+					<p>¥50</p>
+					<a href="#">笨榨豆油</a>
+					</dt>
+				</dl>
+				<dl>
+					<dd><a href="{{ $base_url }}login?name=5"><img src="{{ asset('images/rice/IMG_3501.jpg') }}"></a></dd>
+					<dt>
+					<p>¥50</p>
+					<a href="#">米砖</a>
 					</dt>
 				</dl>
 			</section>

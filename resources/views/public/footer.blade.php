@@ -1,6 +1,7 @@
 <footer>
     <div class="content">
         <span class="copyright"><span class="N-nav-bottom-copyright-icon">&copy;</span> 2015-2017 粮叔叔版权所有</span>
+        <span>购米热线：13522168390（刘女士）</span>
         <ul>
             <li><a href="#">关于我们</a></li>
             <li><a href="#">加入我们</a></li>
