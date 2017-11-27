@@ -260,12 +260,14 @@ footer div.content{
     width: 1100px;
     margin: 0 auto;
     color: #fff;
+    font-size: 16px;
 }
 
 footer .copyright{
     display: block;
     float: left;
     margin-right: 100px;
+    font-size: 16px;
 }
 footer ul{
     float: left;
@@ -273,9 +275,13 @@ footer ul{
 footer ul li{
     float: left;
     width: 100px;
+    font-size: 16px;
 }
 footer ul li a{color: #fff;}
 
+footer span{
+    font-size: 16px;
+}
 /*detail*/
 .detail-main .content-left h2{
     font-size: 2rem;
