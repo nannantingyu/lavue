@@ -282,6 +282,11 @@ footer ul li a{color: #fff;}
 footer span{
     font-size: 16px;
 }
+
+footer a{
+    color: #EEE;
+}
+
 /*detail*/
 .detail-main .content-left h2{
     font-size: 2rem;
