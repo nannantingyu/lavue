@@ -87,7 +87,16 @@ class IndexController extends Controller
         $keywords = $request->keywords;
         $articles = DB::table('weixin_article')
             ->where('title', 'like', '%'.$keywords.'%')
-            ->orWhere('type', 'like', '%'.$keywords.'%')
+            ->orWhere('type', 'like', $keywords.'%')
+            ->paginate(20);
+
+        return view('index.search', ['articles'=>$articles]);
+    }
+
+    public function type(Request $request) {
+        $keywords = $request->keywords;
+        $articles = DB::table('weixin_article')
+            ->where('type', $keywords)
             ->paginate(20);
 
         return view('index.search', ['articles'=>$articles]);

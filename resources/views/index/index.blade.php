@@ -28,7 +28,7 @@
 			<ul class="news">
 				@foreach($hotkey as $hot)
 					<li>
-						<a href="{{ $base_url }}search_{{$hot->keyword}}_1">{{ $hot->keyword }}</a>
+						<a href="{{ $base_url }}type_{{$hot->keyword}}_1">{{ $hot->keyword }}</a>
 						<span>{{ date("m-d H:i", strtotime($hot->time)) }}</span>
 					</li>
 				@endforeach
@@ -225,7 +225,7 @@
 								@endphp
 								<span>
 									@foreach($keywords as $keys)
-										<a href="/search_{{ $keys }}_1">{{ $keys }}</a>，
+										<a href="/type_{{ $keys }}_1">{{ $keys }}</a>，
 									@endforeach
 								</span>
 								<span>{{ date("Y-m-d H:i:s", strtotime($article->publish_time)) }}</span>
