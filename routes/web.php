@@ -31,3 +31,6 @@ Route::any('/captcha', function()
 
 Route::get('/test', "TestController@index");
 Route::get('/check/{check_str}', "LoginController@check");
+
+Route::get('/image', "IndexController@img");
+Route::get('/hotkey', "IndexController@hotkey");

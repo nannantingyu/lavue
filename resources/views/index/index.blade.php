@@ -23,6 +23,17 @@
 					</a>
 				@endforeach
 			</section>
+
+			<h2 class="sub-title"><a href="#">热门搜索</a></h2>
+			<ul class="news">
+				@foreach($hotkey as $hot)
+					<li>
+						<a href="{{ $base_url }}search_{{$hot->keyword}}_1">{{ $hot->keyword }}</a>
+						<span>{{ date("m-d H:i", strtotime($hot->time)) }}</span>
+					</li>
+				@endforeach
+			</ul>
+
 			<h2 class="sub-title"><a href="{{ $base_url }}list_房价">房事天下</a></h2>
 			<ul class="news">
 				@foreach($house as $article)
@@ -80,16 +91,6 @@
 				@endforeach
 			</ul>
 
-			<h2 class="sub-title">微博微言</h2>
-			<ul class="news">
-				<li><a href="#">恒大官宣穆里奇自由身回归签半年</a><span>10:00</span></li>
-				<li><a href="#">AC米兰热身赛多将发挥抢眼！中场补腰势在必行</a><span>11:00</span></li>
-				<li><a href="#">《极限》导演揭秘张艺兴为何节目录了还没签约</a><span>12:00</span></li>
-				<li><a href="#">温网场边太太团闪耀！众星女伴大盘点</a><span>13:00</span></li>
-				<li><a href="#">印度山地军后方出现3万游击队：袭击印军缴获武器</a><span>14:00</span></li>
-				<li><a href="#">印度山地军后方出现3万游击队：袭击印军缴获武器</a><span>14:00</span></li>
-				<li><a href="#">印度山地军后方出现3万游击队：袭击印军缴获武器</a><span>14:00</span></li>
-			</ul>
 		</div>
 
 		<div class="main-right">

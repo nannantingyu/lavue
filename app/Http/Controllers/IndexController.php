@@ -50,6 +50,8 @@ class IndexController extends Controller
         }
 
         $assign['articles'] = $articles;
+
+        $assign['hotkey'] = $this->hotkey($request);
         return view("index.index", $assign);
     }
 
@@ -86,7 +88,6 @@ class IndexController extends Controller
         $articles = DB::table('weixin_article')
             ->where('title', 'like', '%'.$keywords.'%')
             ->orWhere('type', 'like', '%'.$keywords.'%')
-            ->orWhere('body', 'like', '%'.$keywords.'%')
             ->paginate(20);
 
         return view('index.search', ['articles'=>$articles]);
@@ -104,5 +105,76 @@ class IndexController extends Controller
         }
 
         return redirect("/");
+    }
+
+    public function img(Request $request)
+    {
+        $name = $request->input('ori', null);
+        if(!is_null($name)) {
+            $hash_dir = substr(base_convert(md5($name), 16, 10), 0, 5) % 99;
+
+            preg_match("/mmbiz_.*\/(.*)\//", $name, $match);
+            $img_name = $name;
+            if(count($match) > 1) {
+                $img_name = $match[1];
+            }
+            else {
+                foreach([":", "/", ">", "?", "=", "."] as $rep) {
+                    $img_name = str_replace($rep, "", $img_name);
+                }
+            }
+
+            $tmp_dir = "images/".$hash_dir;
+            if(!file_exists($tmp_dir)) {
+                mkdir($tmp_dir);
+            }
+
+            $tmp_name = $tmp_dir."/".$img_name;
+
+            $offset = 30*60*60*24; // cache 1 month
+            if(file_exists($tmp_name))
+            {
+                return response(file_get_contents($tmp_name), 200, [
+                    'Content-Type' => 'image/png',
+                    "Cache-Control"=>" public",
+                    "Pragma" => "cache",
+                    "Expires" => gmdate("D, d M Y H:i:s", time() + $offset)." GMT"
+                ]);
+            }
+
+            $img = file_get_contents($name);
+            file_put_contents($tmp_name, $img);
+            return response($img, 200, [
+                'Content-Type' => 'image/png',
+                "Cache-Control"=>" public",
+                "Pragma" => "cache",
+                "Expires" => gmdate("D, d M Y H:i:s", time() + $offset)." GMT"
+            ]);
+        }
+        else {
+            return "图片地址不合法";
+        }
+    }
+
+    public function hotkey(Request $request) {
+        $num = $request->input('num', 20);
+
+        $hotkey = DB::table("weibo_hotkey")->where("state", 1)
+            ->orderBy('time', 'desc')
+            ->orderBy('order', 'asc')
+            ->take($num/2)
+            ->get()
+            ->toArray();
+
+        $hotkey2 = DB::table("baidu_hotkey")->where("state", 1)
+            ->orderBy('time', 'desc')
+            ->orderBy('order', 'asc')
+            ->take($num/2)
+            ->get()
+            ->toArray();
+
+        $all_keys = array_merge($hotkey, $hotkey2);
+
+        return $all_keys;
     }
 }
