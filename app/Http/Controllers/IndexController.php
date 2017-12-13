@@ -184,6 +184,10 @@ class IndexController extends Controller
 
         $all_keys = array_merge($hotkey, $hotkey2);
 
+        usort($all_keys, function($a, $b){
+            return $a['time'] > $b['time'];
+        });
+
         return $all_keys;
     }
 }
