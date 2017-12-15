@@ -57,7 +57,11 @@ class IndexController extends Controller
 
     public function detail(Request $request) {
         $id = $request->id;
-        $article = DB::table('weixin_article')->where('id', $id)->first();
+        $article = DB::table('weixin_article')
+            ->join('weixin_article_detail', 'weixin_article.id', '=', 'weixin_article_detail.id')
+            ->where('id', $id)
+            ->select("weixin_article.*", "weixin_article_detail.body")
+            ->first();
 
         if(!$article) {
             return redirect("/");
