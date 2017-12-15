@@ -4,7 +4,7 @@
         <div class="content-left">
             <h2>{{ $article->title }}</h2>
             <p class="right-con">
-                <span>{{ $article->from_user }}</span>
+                <span>{{ $article->author }}</span>
                 <span>{{ date("Y-m-d H:i", strtotime($article->publish_time)) }}</span>
                 <span>{{ $article->favor }}</span>
             </p>
