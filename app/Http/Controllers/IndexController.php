@@ -59,7 +59,7 @@ class IndexController extends Controller
         $id = $request->id;
         $article = DB::table('weixin_article')
             ->join('weixin_article_detail', 'weixin_article.id', '=', 'weixin_article_detail.id')
-            ->where('id', $id)
+            ->where('weixin_article.id', $id)
             ->select("weixin_article.*", "weixin_article_detail.body")
             ->first();
 
