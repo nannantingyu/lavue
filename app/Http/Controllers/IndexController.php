@@ -43,7 +43,7 @@ class IndexController extends Controller
                 return DB::table('weixin_article')
                     ->where("type", $val)
                     ->orderBy("publish_time", 'desc')
-                    ->select('type', 'title','id','publish_time', 'updated_time', 'description', 'from_user', 'image')
+                    ->select('type', 'title','id','publish_time', 'updated_time', 'description', 'author', 'image')
                     ->take($val['num'])
                     ->get();
             });
@@ -58,6 +58,10 @@ class IndexController extends Controller
     public function detail(Request $request) {
         $id = $request->id;
         $article = DB::table('weixin_article')->where('id', $id)->first();
+
+        if(!$article) {
+            return redirect("/");
+        }
 
         $hot = DB::table('weixin_article')
             ->orderBy('hits', 'desc')->take(5)
@@ -107,7 +111,7 @@ class IndexController extends Controller
         if($type) {
             $articles = DB::table('weixin_article')
                 ->where('type', $type)
-		->orderBy('publish_time', 'desc')
+		        ->orderBy('publish_time', 'desc')
                 ->paginate(20);
 
             return view('index.search', ['articles'=>$articles]);

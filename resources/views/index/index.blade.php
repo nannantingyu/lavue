@@ -5,24 +5,38 @@
 @endsection
 
 @section('css')
-	<link rel="stylesheet" href="{{ asset('css/nivo-slider.css') }}">
+	<link rel="stylesheet" href="{{ asset('css/slider/themes/default/default.css') }}" type="text/css" media="screen" />
+	<link rel="stylesheet" href="{{ asset('css/slider/themes/dark/dark.css') }}" type="text/css" media="screen" />
+	<link rel="stylesheet" href="{{ asset('css/slider/nivo-slider.css') }}" type="text/css" media="screen" />
+	<link rel="stylesheet" href="{{ asset('css/slider/style.css') }}" type="text/css" media="screen" />
 @endsection
 
 @section('content')
-	@include('public.navi')
 	<div class="main-content">
 		<div class="main-left">
-			<section class="carousel">
-				@foreach($articles as $article)
-					<a href="{{ $base_url }}watch_{{ $article->id }}">
-						@if(empty($article->image))
-							<img src="{{ asset('images/lunbo1.jpg') }}" title="炜煜合作社提供正宗自产自销的稻花香大米，如有需要，请联系18801292741">
-						@else
-							<img src="http://captain-tu.oss-cn-beijing.aliyuncs.com/{{ json_decode($article->image)[0] }}" title="{{$article->description}}">
-						@endif
-					</a>
-				@endforeach
-			</section>
+			<div id="wrapper">
+				<div class="slider-wrapper theme-default">
+					<div id="slider" class="nivoSlider">
+						@foreach($articles as $article)
+							<a href="{{ $base_url }}watch_{{ $article->id }}">
+								@if(empty($article->image))
+									<img src="{{ asset('images/lunbo1.jpg') }}" title="炜煜合作社提供正宗自产自销的稻花香大米，如有需要，请联系18801292741">
+								@else
+									<img src="{{ json_decode($article->image)[0] }}" title="{{$article->description}}">
+								@endif
+							</a>
+						@endforeach
+					</div>
+					<div id="htmlcaption" class="nivo-html-caption">
+						<strong>This</strong> is an example of a <em>HTML</em> caption with <a href="#">a link</a>.
+					</div>
+				</div>
+			</div>
+			<script>
+				$(window).load(function() {
+					$('#slider').nivoSlider();
+				});
+			</script>
 
 			<h2 class="sub-title"><a href="#">热门搜索</a></h2>
 			<ul class="news">
@@ -107,7 +121,7 @@
 						<p class="blog-desc">{{ $article->description }}</p>
 						<div class="blog-info">
 							<span class="blog-time">{{ date("Y-m-d", strtotime($article->publish_time)) }}</span>
-							<span class="blog-author"><a href="#">{{ $article->from_user }}</a></span>
+							<span class="blog-author"><a href="#">{{ $article->author }}</a></span>
 						</div>
 					</div>
 				@endforeach
@@ -119,7 +133,7 @@
 						<p class="blog-desc">{{ $article->description }}</p>
 						<div class="blog-info">
 							<span class="blog-time">{{ date("Y-m-d", strtotime($article->publish_time)) }}</span>
-							<span class="blog-author"><a href="#">{{ $article->from_user }}</a></span>
+							<span class="blog-author"><a href="#">{{ $article->author }}</a></span>
 						</div>
 					</div>
 				@endforeach
@@ -131,7 +145,7 @@
 						<p class="blog-desc">{{ $article->description }}</p>
 						<div class="blog-info">
 							<span class="blog-time">{{ date("Y-m-d", strtotime($article->publish_time)) }}</span>
-							<span class="blog-author"><a href="#">{{ $article->from_user }}</a></span>
+							<span class="blog-author"><a href="#">{{ $article->author }}</a></span>
 						</div>
 					</div>
 				@endforeach
@@ -244,6 +258,8 @@
 			</section>
 		</div>
 	</div>
+
+	@include('public.navi')
 
 	<!-- 友情链接 -->
 	@include("public.friendlink")
