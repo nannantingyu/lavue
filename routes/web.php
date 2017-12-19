@@ -17,10 +17,13 @@ Route::get('/search_{keywords}_{page}', "IndexController@search");
 Route::get('/type_{keywords}_{page}', "IndexController@type");
 Route::get('/baidu_tuisong', "AjaxController@baidu_tuisong");
 Route::get('/body_src_repl', "AjaxController@body_src_repl");
-Route::get('/list_{type}', "IndexController@lists");
+Route::get('/list_{type}', "ListController@lists");
 Route::get('/login', "LoginController@index");
 Route::get('/register', "LoginController@register");
 Route::get('/logout', "LoginController@logout");
+
+Route::get('/baidu_{id}', "ListController@baidusearch");
+Route::get('/weibo_{id}', "ListController@weibosearch");
 
 Route::post('/login', "LoginController@login_post");
 Route::post('/register', "LoginController@register_post");
@@ -35,3 +38,4 @@ Route::get('/check/{check_str}', "LoginController@check");
 
 Route::get('/image', "IndexController@img");
 Route::get('/hotkey', "IndexController@hotkey");
+Route::get('/weibo', "IndexController@weibo");

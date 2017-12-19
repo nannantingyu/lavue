@@ -87,8 +87,8 @@ nav .nav-mod:nth-of-type(3){border: none;}
 nav .nav-mod ul li{float: left; width: 20%; text-align: center; line-height: 28px; font-size: 1.5rem;}
 nav .nav-mod ul:first-of-type li:first-of-type{font-weight: bold; font-size: 21px;}
 nav .nav-mod ul:first-of-type li:first-of-type a{color: #b2e05d}
-.main-left{margin: 30px 10px; float: left; width: 300px;}
-.main-right{width: 840px; margin: 30px 20px; float: left;}
+.main-left{margin: 15px 10px; float: left; width: 300px;}
+.main-right{width: 840px; margin: 15px 0px 15px 20px; float: left;}
 .main-left .carousel{width: 300px; height: 400px; overflow: hidden; padding-top: 40px;}
 .main-left .carousel img{width: 300px;}
 .main-right .hot-goods{float: left; margin: 0 10px; overflow: hidden;}
@@ -109,10 +109,23 @@ nav .nav-mod ul:first-of-type li:first-of-type a{color: #b2e05d}
 #wrapper {min-height: 300px; max-height: 300px; overflow-y: hidden; }
 #slider img{width: 100%;}
 
+
+.middle-left{  float: left; width: 70%; }
+.middle-right{  float: left; width: 30%; padding: 0 0 0 2%;}
 /**news**/
 .main-content .news li{line-height: 30px;}
 .main-content .news li a{width: 70%; overflow: hidden; float: left; margin-right: 5%; white-space: nowrap;text-overflow: ellipsis; font-size: 1.5rem;}
 .main-content .news li span{width: 25%; float: right; font-size: 12px;}
+
+ul.weibo{width: 100%;}
+.weibo_left{float: left; width: 20%;}
+.weibo_left img{width: 100%;}
+.weibo_right{ float: left; width: 75%; padding: 0 3% 15px; }
+.weibo_right p{ font-size: 13px; }
+.weibo_content{font-size: 14px; line-height: 18px;}
+.weibo-imgs{width: 100%;}
+.weibo-imgs li{width: 33%; padding: 0 2%; float: left;}
+.weibo-imgs li img{width: 100%;}
 
 /**tab**/
 ul.tab-title{border-bottom: 2px solid #3ac;}

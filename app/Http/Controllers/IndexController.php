@@ -21,15 +21,9 @@ class IndexController extends Controller
             ->get();
 
         $type_index = [
-            "rice"  =>  ["name"=>"五常大米", "num"=>6],
-            "beijing"  =>  ["name"=>"北京", "num"=>6],
-            "healthy"   =>  ["name"=>"健康", "num"=>6],
-            "changping"   =>  ["name"=>"昌平", "num"=>5],
-            "huilongguan"   =>  ["name"=>"回龙观", "num"=>5],
-            "food"   =>  ["name"=>"饮食", "num"=>5],
-            "exercise"   =>  ["name"=>"锻炼", "num"=>5],
-            "house"   =>  ["name"=>"房价", "num"=>5],
-            "live"  =>  ['name'=>"生活", "num"=>2]
+            "rice"  =>  ["name"=>"五常大米", "num"=>5],
+            "beijing"  =>  ["name"=>"北京", "num"=>5],
+            "china"  =>  ["name"=>"中国", "num"=>5],
         ];
 
         //后门，清理缓存
@@ -41,17 +35,18 @@ class IndexController extends Controller
         foreach($type_index as $key=>$val) {
             $assign[$key] = Cache::remember($key, 120, function() use($val) {
                 return DB::table('weixin_article')
-                    ->where("type", $val)
-                    ->orderBy("publish_time", 'desc')
-                    ->select('type', 'title','id','publish_time', 'updated_time', 'description', 'author', 'image')
+                    ->join('keywords_map', 'weixin_article.id', '=', 'keywords_map.s_id')
+                    ->where("keywords_map.keyword", $val['name'])
+                    ->orderBy("weixin_article.publish_time", 'desc')
+                    ->select('weixin_article.title','weixin_article.id','weixin_article.publish_time', 'weixin_article.updated_time', 'weixin_article.description', 'weixin_article.author', 'weixin_article.image')
                     ->take($val['num'])
                     ->get();
             });
         }
 
         $assign['articles'] = $articles;
-
         $assign['hotkey'] = $this->hotkey($request);
+
         return view("index.index", $assign);
     }
 
@@ -110,20 +105,6 @@ class IndexController extends Controller
         return view('index.search', ['articles'=>$articles]);
     }
 
-    public function lists(Request $request) {
-        $type = $request->type;
-        if($type) {
-            $articles = DB::table('weixin_article')
-                ->where('type', $type)
-		        ->orderBy('publish_time', 'desc')
-                ->paginate(20);
-
-            return view('index.search', ['articles'=>$articles]);
-        }
-
-        return redirect("/");
-    }
-
     public function img(Request $request)
     {
         $name = $request->input('ori', null);
@@ -180,15 +161,27 @@ class IndexController extends Controller
             ->orderBy('time', 'desc')
             ->orderBy('order', 'asc')
             ->take($num/2)
+            ->select('id', 'time', 'keyword', 'order')
             ->get()
             ->toArray();
+
+        array_map(function($val) {
+            $val->site = 'weibo';
+            return $val;
+        }, $hotkey);
 
         $hotkey2 = DB::table("baidu_hotkey")->where("state", 1)
             ->orderBy('time', 'desc')
             ->orderBy('order', 'asc')
             ->take($num/2)
+            ->select('id', 'time', 'keyword', 'order')
             ->get()
             ->toArray();
+
+        array_map(function($val) {
+            $val->site = 'baidu';
+            return $val;
+        }, $hotkey2);
 
         $all_keys = array_merge($hotkey, $hotkey2);
 
@@ -197,5 +190,13 @@ class IndexController extends Controller
         });
 
         return $all_keys;
+    }
+
+    public function weibo(Request $request) {
+        $weibo = DB::table('weibo')->orderBy("pub_time", 'desc')
+            ->take(3)
+            ->get();
+
+        return $weibo;
     }
 }
