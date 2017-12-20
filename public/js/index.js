@@ -12,7 +12,7 @@
 		});
 
 		//加载微博
-		setTimeout(refresh_weibo, 20000);
+		setTimeout(refresh_weibo, 60000);
 		$("ul.weibo").on("click", "img",  function(){
 			$(".yj-backdrop").show();
 			$("#big-img").show();
@@ -32,8 +32,9 @@ function refresh_weibo() {
 		success: function(data) {
 			var html = "";
 			for(var i = 0, max = data.length; i < max; i ++) {
-				html += ' <li> <div class="weibo_left"><img src="' + data[i]['author_img'] + '"></div> <div class="weibo_right">'
-						+ '<h4>' + data[i]['author_name'] + '</h4>' + '<p>'+data[i]['pub_time']+'</p>' + '<div class="weibo_content">'
+				html += ' <li> <div class="weibo_left"><a href="'+data[i]['author_link']+'"><img src="' + data[i]['author_img'] + '"></a></div> <div class="weibo_right">'
+						+ '<h4><a href="'+data[i]['author_link']+'">' + data[i]['author_name'] + '</a></h4>'
+						+ '<p><a href="'+data[i]['source_url']+'">'+data[i]['pub_time']+'</a></p>' + '<div class="weibo_content">'
 						+ data[i]['content'] + '</div>';
 				if(data[i]['images']) {
 					html += '<ul class="weibo-imgs">';
