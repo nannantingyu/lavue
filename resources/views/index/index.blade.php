@@ -131,6 +131,26 @@
 				</div>
 				<div class="middle-right">
 					<ul class="weibo">
+						@foreach($weibos as $weibo)
+						<li>
+							<div class="weibo_left">
+								<img src="{{ $weibo->author_img }}">
+							</div>
+							<div class="weibo_right">
+								<h4> {{ $weibo->author_name }} </h4>
+								<p> {{ $weibo->pub_time }}</p>
+								<div class="weibo_content">
+									{ $weibo->content !!}
+								</div>
+
+								<ul class="weibo-imgs">;
+								@foreach(explode(",", $weibo->images) as $img)
+									<li><img src="{{$img}}" alt="{{ $weibo->author_name }}"></li>
+								@endforeach
+								</ul>
+							</div>
+						</li>
+						@endforeach
 					</ul>
 				</div>
 
@@ -244,7 +264,8 @@
 			</section>
 		</div>
 	</div>
-
+	<div id="mask" class="mask"></div>
+	<img id="gallery" />
 	@include('public.navi')
 
 	<!-- 友情链接 -->

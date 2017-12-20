@@ -47,6 +47,7 @@ class IndexController extends Controller
         $assign['articles'] = $articles;
         $assign['hotkey'] = $this->hotkey($request);
 
+	$assign['weibos'] = $this->weibo($request);
         return view("index.index", $assign);
     }
 
