@@ -144,12 +144,13 @@
 								<div class="weibo_content">
 									{!! $weibo->content !!}
 								</div>
-
-								<ul class="weibo-imgs">
-								@foreach(explode(",", $weibo->images) as $img)
-									<li><img src="{{$img}}" alt="{{ $weibo->author_name }}"></li>
-								@endforeach
-								</ul>
+								@if($weibo->images)
+									<ul class="weibo-imgs">
+									@foreach(explode(",", $weibo->images) as $img)
+										<li><img src="{{$img}}" alt="{{ $weibo->author_name }}"></li>
+									@endforeach
+									</ul>
+								@endif
 							</div>
 						</li>
 						@endforeach
@@ -269,7 +270,7 @@
 
 	<div class="yj-modal" id="big-img">
 		<div class="centered">
-			<img src="top.png">
+			<img />
 		</div>
 	</div>
 	<div class="yj-backdrop"></div>

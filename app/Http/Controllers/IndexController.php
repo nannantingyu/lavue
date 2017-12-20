@@ -47,7 +47,7 @@ class IndexController extends Controller
         $assign['articles'] = $articles;
         $assign['hotkey'] = $this->hotkey($request);
 
-	$assign['weibos'] = $this->weibo($request);
+	    $assign['weibos'] = $this->weibo($request);
         return view("index.index", $assign);
     }
 
@@ -194,7 +194,7 @@ class IndexController extends Controller
     }
 
     public function weibo(Request $request) {
-        $weibo = DB::table('weibo')->orderBy("pub_time", 'desc')
+        $weibo = DB::table('weibo')->orderBy("id", 'desc')
             ->take(3)
             ->get();
 

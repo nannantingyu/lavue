@@ -34,13 +34,18 @@ function refresh_weibo() {
 			for(var i = 0, max = data.length; i < max; i ++) {
 				html += ' <li> <div class="weibo_left"><img src="' + data[i]['author_img'] + '"></div> <div class="weibo_right">'
 						+ '<h4>' + data[i]['author_name'] + '</h4>' + '<p>'+data[i]['pub_time']+'</p>' + '<div class="weibo_content">'
-						+ data[i]['content'] + '</div><ul class="weibo-imgs">';
-				var images = data[i]['images'].split(",");
-				for(var k=0; k < images.length; k++) {
+						+ data[i]['content'] + '</div>';
+				if(data[i]['images']) {
+					html += '<ul class="weibo-imgs">';
+					var images = data[i]['images'].split(",");
+					for(var k=0; k < images.length; k++) {
 						html += '<li><img src="' + images[k] + '" alt="'+data[i]['author_name']+'"></li>';
+					}
+
+					html += '</ul>';
 				}
 
-				html += '</ul></div></li>';
+				html += '</div></li>';
 			}
 
 			$("ul.weibo").html(html);
