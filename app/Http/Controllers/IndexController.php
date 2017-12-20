@@ -21,9 +21,9 @@ class IndexController extends Controller
             ->get();
 
         $type_index = [
-            "rice"  =>  ["name"=>"五常大米", "num"=>5],
-            "beijing"  =>  ["name"=>"北京", "num"=>5],
-            "china"  =>  ["name"=>"中国", "num"=>5],
+            "rice"  =>  ["name"=>"五常大米", "num"=>6],
+            "beijing"  =>  ["name"=>"北京", "num"=>6],
+            "china"  =>  ["name"=>"中国", "num"=>6],
         ];
 
         //后门，清理缓存

@@ -1,5 +1,6 @@
 @extends('layout.app')
 @section('js')
+	<base target="_blank" />
 	<script src="{{ asset('js/jquery.nivo.slider.js') }}"></script>
 	<script src="{{ asset('js/index.js') }}"></script>
 @endsection
@@ -70,7 +71,6 @@
 						{{--</dt>--}}
 					{{--</dl>--}}
 				{{--@endforeach--}}
-
 			</div>
 
 			<h2 class="sub-title"><a href="{{ $base_url }}list_健身">健身锻炼</a></h2>
@@ -96,7 +96,7 @@
 						@foreach($rice as $article)
 							<div class="one-blog">
 								<p class="blog-title"><a href="{{ $base_url }}blog_{{ $article->id }}">{{ $article->title }}</a></p>
-								{{--<p class="blog-desc">{{ $article->description }}</p>--}}
+								<p class="blog-desc">{{ $article->description }}</p>
 								<div class="blog-info">
 									<span class="blog-time">{{ date("Y-m-d", strtotime($article->publish_time)) }}</span>
 									<span class="blog-author"><a href="#">{{ $article->author }}</a></span>
@@ -108,7 +108,7 @@
 						@foreach($beijing as $article)
 							<div class="one-blog">
 								<p class="blog-title"><a href="{{ $base_url }}blog_{{ $article->id }}">{{ $article->title }}</a></p>
-								{{--						<p class="blog-desc">{{ $article->description }}</p>--}}
+								<p class="blog-desc">{{ $article->description }}</p>
 								<div class="blog-info">
 									<span class="blog-time">{{ date("Y-m-d", strtotime($article->publish_time)) }}</span>
 									<span class="blog-author"><a href="#">{{ $article->author }}</a></span>
@@ -120,7 +120,7 @@
 						@foreach($china as $article)
 							<div class="one-blog">
 								<p class="blog-title"><a href="{{ $base_url }}blog_{{ $article->id }}">{{ $article->title }}</a></p>
-								{{--							<p class="blog-desc">{{ $article->description }}</p>--}}
+								<p class="blog-desc">{{ $article->description }}</p>
 								<div class="blog-info">
 									<span class="blog-time">{{ date("Y-m-d", strtotime($article->publish_time)) }}</span>
 									<span class="blog-author"><a href="#">{{ $article->author }}</a></span>
@@ -134,16 +134,18 @@
 						@foreach($weibos as $weibo)
 						<li>
 							<div class="weibo_left">
-								<img src="{{ $weibo->author_img }}">
+								<a href="{{ $weibo->author_link }}">
+									<img src="{{ $weibo->author_img }}">
+								</a>
 							</div>
 							<div class="weibo_right">
-								<h4> {{ $weibo->author_name }} </h4>
-								<p> {{ $weibo->pub_time }}</p>
+								<h4> <a href="{{ $weibo->author_link }}">{{ $weibo->author_name }} </a></h4>
+								<p><a href="{{ $weibo->source_url }}">{{ $weibo->pub_time }}</a></p>
 								<div class="weibo_content">
-									{ $weibo->content !!}
+									{!! $weibo->content !!}
 								</div>
 
-								<ul class="weibo-imgs">;
+								<ul class="weibo-imgs">
 								@foreach(explode(",", $weibo->images) as $img)
 									<li><img src="{{$img}}" alt="{{ $weibo->author_name }}"></li>
 								@endforeach
@@ -264,8 +266,14 @@
 			</section>
 		</div>
 	</div>
-	<div id="mask" class="mask"></div>
-	<img id="gallery" />
+
+	<div class="yj-modal" id="big-img">
+		<div class="centered">
+			<img src="top.png">
+		</div>
+	</div>
+	<div class="yj-backdrop"></div>
+
 	@include('public.navi')
 
 	<!-- 友情链接 -->
