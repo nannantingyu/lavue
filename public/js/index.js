@@ -14,11 +14,22 @@
 		//加载微博
 		setInterval(refresh_weibo, 60000);
 		$("ul.weibo").on("click", "img",  function(){
-			$(".yj-backdrop").show();
-			$("#big-img").show();
-			$("#big-img img").attr("src", $(this).attr("src").replace("thumb150", "mw690"));
-			var index = $(this).parent().index();
+			var index = $(this).parent('li').index();
+			$("#big-img").data("index", index);
 		});
+
+		$("#big-img .left").click(function(){
+			var index = $("#big-img").data("index");
+			$("#big-img").data("index", index-1);
+			show_img();
+		});
+
+		$("#big-img .right").click(function(){
+			var index = $("#big-img").data("index");
+			$("#big-img").data("index", index+1);
+			show_img();
+		});
+
 		$(".yj-backdrop,#big-img").click(function(){
 			$("#big-img img").removeAttr("src");
 			$(".yj-backdrop,#big-img").hide();
@@ -27,6 +38,21 @@
 		refresh_rili();
 	});
 })(jQuery);
+
+function show_img() {
+	var length = $("ul.weibo-imgs li").length(), index = $("#big-img").data("index");
+	$("#big-img .left, #big-img .right").show();
+	if(index == length - 1) {
+		$("#big-img .left").hide();
+	}
+	else if(index == 0) {
+		$("#big-img .right").hide();
+	}
+
+	$("#big-img").show();
+	$(".yj-backdrop").show();
+	$("#big-img img").attr("src", $("ul.weibo-imgs li:eq("+index+")").attr("src").replace("thumb150", "mw690"));
+}
 
 function refresh_weibo() {
 	$.ajax({

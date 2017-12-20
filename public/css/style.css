@@ -67,17 +67,21 @@ p{line-height: 2.5rem;}
 .yj-modal .centered {  display: inline-block;  vertical-align: middle; width: 40%; overflow-y: auto; max-height: 90%;}
 .yj-modal .centered img { width: 100%; }
 .yj-modal .centered .left{
-    width: 60px;
-    height: 60px;
+    height: 68px;
     position: absolute;
-    background: url(/images/left.png) 60px no-repeat;
+    background: url(/images/left.png) no-repeat;
+    background-size: 100%;
+    width: 137px;
+    cursor: pointer;
     top: 45%;
 }
 .yj-modal .centered .right{
-    width: 60px;
-    height: 60px;
+    height: 68px;
     position: absolute;
-    background: url(/images/right.png) 60px no-repeat;
+    background: url(/images/right.png) no-repeat;
+    background-size: 100%;
+    width: 137px;
+    cursor: pointer;
     top: 45%;
     right: 0;
 }
