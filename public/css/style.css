@@ -65,8 +65,8 @@ p{line-height: 2.5rem;}
 .yj-backdrop{  position: fixed;  top: 0;  right: 0;  bottom: 0;  left: 0;  z-index: 1040;  background-color: #000;  opacity: 0.6; display: none; }
 .yj-modal:before {  content: '';  display: inline-block;  height: 100%;  vertical-align: middle;  margin-right: -0.25em; /* Adjusts for spacing */  }
 .yj-modal{  position: fixed; display: none; top: 0;  right: 0;  bottom: 0;  left: 0;  z-index: 1050;  overflow: hidden;  outline: 0;  opacity: 1;  text-align: center;  }
-.yj-modal .centered {  display: inline-block;  vertical-align: middle; }
-.yj-modal .centered img { height: 60%; cursor: url("/public/images/magnifier.png"); }
+.yj-modal .centered {  display: inline-block;  vertical-align: middle; width: 40%; overflow-y: auto; }
+.yj-modal .centered img { width: 100%; }
 
 /**index.html**/
 header{width: 100%; border-bottom: 4px solid #A9CB2E; min-width: 1200px;}
@@ -88,9 +88,9 @@ ul.pagination li{display: inline-block;}
 
 /***nav***/
 nav {width: 1200px; margin: 10px auto; overflow: hidden;}
-nav .nav-mod{width: 33%; float: left; border-right: 1px solid #ccc;}
+nav .nav-mod{width: 100%; float: left;}
 nav .nav-mod:nth-of-type(3){border: none;}
-nav .nav-mod ul li{float: left; width: 20%; text-align: center; line-height: 28px; font-size: 1.5rem;}
+nav .nav-mod ul li{float: left; width: 7%; text-align: center; line-height: 28px; font-size: 1.5rem;}
 nav .nav-mod ul:first-of-type li:first-of-type{font-weight: bold; font-size: 21px;}
 nav .nav-mod ul:first-of-type li:first-of-type a{color: #b2e05d}
 .main-left{margin: 15px 10px; float: left; width: 300px;}
@@ -131,7 +131,9 @@ ul.weibo{width: 100%;}
 .weibo_content{font-size: 14px; line-height: 18px;}
 .weibo-imgs{width: 100%;}
 .weibo-imgs li{width: 33%; padding: 0 2%; float: left;}
-.weibo-imgs li img{width: 100%;}
+.weibo-imgs li img{width: 100%;  cursor: url(https://img.t.sinajs.cn/t6/style/images/common/big.cur), auto;}
+
+ul.kuaixun li{position: relative; font-size: 14px;  line-height: 20px;  padding: 5px 0;}
 
 /**tab**/
 ul.tab-title{border-bottom: 2px solid #3ac;}

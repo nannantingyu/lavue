@@ -48,6 +48,7 @@ class IndexController extends Controller
         $assign['hotkey'] = $this->hotkey($request);
 
 	    $assign['weibos'] = $this->weibo($request);
+        $assign['keywords'] = $this->keywords($request, 55);
         return view("index.index", $assign);
     }
 
@@ -199,5 +200,21 @@ class IndexController extends Controller
             ->get();
 
         return $weibo;
+    }
+
+    public function keywords(Request $request, $num=20) {
+        $num = $request->input("num", $num);
+        $skip = rand(1, 200);
+        $last_week = date("Y-m-d H:i:s", strtotime("-5 days"));
+        $hotkeywords = DB::table("keywords_map")
+            ->where("created_time", ">=", $last_week)
+            ->groupBy("keyword")
+            ->select(DB::Raw("count(*) as cou, keyword"))
+            ->orderBy("cou", "desc")
+            ->skip($skip)
+            ->take($num)
+            ->get();
+
+        return $hotkeywords;
     }
 }

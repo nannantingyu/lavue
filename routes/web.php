@@ -39,3 +39,5 @@ Route::get('/check/{check_str}', "LoginController@check");
 Route::get('/image', "IndexController@img");
 Route::get('/hotkey', "IndexController@hotkey");
 Route::get('/weibo', "IndexController@weibo");
+Route::get('/keywords', "IndexController@keywords");
+Route::get('/keys_{key}_{page}', "ListController@keys");

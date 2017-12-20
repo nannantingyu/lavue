@@ -50,4 +50,19 @@ class ListController extends Controller
 
         return $articles;
     }
+
+    public function keys(Request $request, $key, $page=1) {
+        if($key) {
+            $articles = DB::table('keywords_map')
+                ->join("weixin_article", "keywords_map.s_id", "=", "weixin_article.id")
+                ->where("keywords_map.keyword", $key)
+                ->orderBy('weixin_article.publish_time', 'desc')
+                ->select("weixin_article.id", "weixin_article.title", "weixin_article.publish_time", "weixin_article.author")
+                ->paginate(20);
+
+            return view('index.search', ['articles'=>$articles]);
+        }
+
+        return redirect("/");
+    }
 }
