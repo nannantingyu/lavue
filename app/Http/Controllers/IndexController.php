@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Cache;
 use App\Services\FoodService;
 use App\User;
+use App\Models\Kuaixun;
 
 class IndexController extends Controller
 {
@@ -49,6 +50,13 @@ class IndexController extends Controller
 
 	    $assign['weibos'] = $this->weibo($request);
         $assign['keywords'] = $this->keywords($request, 55);
+
+        //快讯
+        $kuaixun = new Kuaixun();
+        $date = $request->input('st', null);
+        $ret = $kuaixun->getKuaixun(1, 5, $date);
+        $assign['kuaixun'] = $ret;
+
         return view("index.index", $assign);
     }
 

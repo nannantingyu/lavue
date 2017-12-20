@@ -12,16 +12,19 @@
 		});
 
 		//加载微博
-		setTimeout(refresh_weibo, 60000);
+		setInterval(refresh_weibo, 60000);
 		$("ul.weibo").on("click", "img",  function(){
 			$(".yj-backdrop").show();
 			$("#big-img").show();
 			$("#big-img img").attr("src", $(this).attr("src").replace("thumb150", "mw690"));
+			var index = $(this).parent().index();
 		});
 		$(".yj-backdrop,#big-img").click(function(){
 			$("#big-img img").removeAttr("src");
 			$(".yj-backdrop,#big-img").hide();
 		});
+
+		refresh_rili();
 	});
 })(jQuery);
 
@@ -50,6 +53,36 @@ function refresh_weibo() {
 			}
 
 			$("ul.weibo").html(html);
+		}
+	});
+}
+
+function refresh_rili() {
+	$.ajax({
+		url: "/getPastorWillFd",
+		data: {limit1: 3, limit2: 3},
+		dataType: 'json',
+		success: function (data) {
+			if(data) {
+				html = "<tr> <th>时间</th> <th>国家/区域</th> <th>指标</th> <th>重要性</th> <th>前值</th> <th>预测值</th> <th>公布值</th> <th>影响</th> </tr>";
+				for(var i = 0, max = data.length; i < max; i++) {
+					html += "<tr> <td>05:30</td>" +
+						'<td class="t-center"><img src="/images/flag/'+data[i]['country_cn']+'.png" alt="'+data[i]['country_cn']+'"></td>' +
+						'<td>' + data[i]['title'] + ' ' + data[i]['UNIT'] +'</td>';
+					var css_class = "jin-star_active";
+					if(data[i]['idx_relevance'] > 2) {
+						css_class = "jin-star_active jin-star_important"
+					}
+					html +=	'<td><div class="jin-star"><i class="'+css_class+'" style="width:'+(data[i]['idx_relevance']*20)+'%;"></i></div></td>' +
+						'<td>'+(data[i]['previous_price']||"-")+'</td>' +
+						'<td>'+(data[i]['surver_price']||"-")+'</td>' +
+						'<td>'+(data[i]['actual_price']||"-")+'</td>' +
+						'<td>'+(data[i]['res']||"-")+'</td>' +
+						"</tr>";
+				}
+
+				$(".cjtb").html(html);
+			}
 		}
 	});
 }

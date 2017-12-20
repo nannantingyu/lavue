@@ -41,3 +41,14 @@ Route::get('/hotkey', "IndexController@hotkey");
 Route::get('/weibo', "IndexController@weibo");
 Route::get('/keywords', "IndexController@keywords");
 Route::get('/keys_{key}_{page}', "ListController@keys");
+Route::get('/kx', "KuaixunController@getkx");
+
+$router->get('/getDates', 'EconomicController@getDates');
+$router->get('/getPastorWillFd', 'EconomicController@getPastorWillFd');
+$router->get('/getWeekData', 'EconomicController@getWeekData');
+$router->get('/getjiedu', 'EconomicController@getjiedu');
+$router->get('/getjiedudata', 'EconomicController@getjiedudata');
+$router->get('/getcjdatas', 'EconomicController@getcjdatas');
+$router->get('/getcjevent', 'EconomicController@getcjevent');
+$router->get('/getcjholiday', 'EconomicController@getcjholiday');
+$router->get('/fedata', 'EconomicController@fedata');

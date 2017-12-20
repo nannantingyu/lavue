@@ -22,7 +22,6 @@ var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbod
     border: 0;
     outline: 0;
     font-size: 100%;
-    vertical-align: baseline;
     background: transparent;
 }
 
@@ -65,8 +64,23 @@ p{line-height: 2.5rem;}
 .yj-backdrop{  position: fixed;  top: 0;  right: 0;  bottom: 0;  left: 0;  z-index: 1040;  background-color: #000;  opacity: 0.6; display: none; }
 .yj-modal:before {  content: '';  display: inline-block;  height: 100%;  vertical-align: middle;  margin-right: -0.25em; /* Adjusts for spacing */  }
 .yj-modal{  position: fixed; display: none; top: 0;  right: 0;  bottom: 0;  left: 0;  z-index: 1050;  overflow: hidden;  outline: 0;  opacity: 1;  text-align: center;  }
-.yj-modal .centered {  display: inline-block;  vertical-align: middle; width: 40%; overflow-y: auto; }
+.yj-modal .centered {  display: inline-block;  vertical-align: middle; width: 40%; overflow-y: auto; max-height: 90%;}
 .yj-modal .centered img { width: 100%; }
+.yj-modal .centered .left{
+    width: 60px;
+    height: 60px;
+    position: absolute;
+    background: url(/images/left.png) 60px no-repeat;
+    top: 45%;
+}
+.yj-modal .centered .right{
+    width: 60px;
+    height: 60px;
+    position: absolute;
+    background: url(/images/right.png) 60px no-repeat;
+    top: 45%;
+    right: 0;
+}
 
 /**index.html**/
 header{width: 100%; border-bottom: 4px solid #A9CB2E; min-width: 1200px;}
@@ -132,6 +146,33 @@ ul.weibo{width: 100%;}
 .weibo-imgs{width: 100%;}
 .weibo-imgs li{width: 33%; padding: 0 2%; float: left;}
 .weibo-imgs li img{width: 100%;  cursor: url(https://img.t.sinajs.cn/t6/style/images/common/big.cur), auto;}
+
+.cjtb tbody, .cjtb tr, .cjtb th, .cjtb td{vertical-align: middle !important;}
+.cjtb tr{line-height: 35px;}
+.cjtb tr:first-of-type{background-color: #EEB422;}
+.cjtb tr:first-of-type th{padding: 3px 5px; color: #fff;}
+.cjtb td{border: 1px solid #dce0e2; font-size: 14px; padding: 3px 5px;}
+.cjtb img{width: 25px;}
+.cjtb .t-center{text-align: center;}
+
+.jin-star {
+    display: inline-block;
+    width: 70px;
+    height: 14px;
+    position: relative;
+    top: 2px;
+    background: url(/images/star.png) 0 0 no-repeat;
+}
+.jin-star_active {
+    top: 0;
+    left: 0;
+    height: 100%;
+    position: absolute;
+    background: url(/images/star-active.png) 0 0 no-repeat;
+}
+.jin-star_important {
+    background: url(/images/star-important.png) 0 0 no-repeat;
+}
 
 ul.kuaixun li{position: relative; font-size: 14px;  line-height: 20px;  padding: 5px 0;}
 

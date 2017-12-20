@@ -51,9 +51,9 @@
 
 			<h2 class="sub-title"><a href="{{ $base_url }}list_房价">财经快讯</a></h2>
 			<ul class="kuaixun">
-				<li><b>21:12</b> 中国央行今日开展500亿元逆回购操作，因今日有2400亿元逆回购到期，当日实现净回笼1900亿元。当日实现净回笼1900亿元。当日实现净回笼1900亿元。当日实现净回笼1900亿元。</li>
-				<li><b>21:12</b> 中国央行今日开展500亿元逆回购操作，因今日有2400亿元逆回购到期，当日实现净回笼1900亿元。</li>
-				<li><b>21:12</b> 中国央行今日开展500亿元逆回购操作，因今日有2400亿元逆回购到期，当日实现净回笼1900亿元。</li>
+				@foreach($kuaixun as $kx)
+					<li><b>{{ date('H:i', strtotime($kx->publish_time)) }}</b> {{ $kx->body }}</li>
+				@endforeach
 			</ul>
 
 			<h2 class="sub-title"><a href="{{ $base_url }}list_饮食">饮食生活</a></h2>
@@ -238,35 +238,10 @@
 				</dl>
 			</section>
 
-			<h2 class="sub-title"><a href="{{ $base_url }}list_昌平">昌平生活</a></h2>
+			<h2 class="sub-title"><a href="#">财经日历</a></h2>
 			<section class="healthy">
-				<ul>
-					{{--@foreach($changping as $article)--}}
-						{{--<li>--}}
-							{{--<div class="info-text">--}}
-								{{--<h3><a href="/blog_{{ $article->id }}">{{ $article->title }}</a></h3>--}}
-								{{--<p>{{ $article->description }}</p>--}}
-								{{--@php--}}
-									{{--$keywords = explode(",", $article->type); $length = count($keywords)-1;--}}
-								{{--@endphp--}}
-								{{--<span>--}}
-									{{--@foreach($keywords as $keys)--}}
-										{{--<a href="/type_{{ $keys }}_1">{{ $keys }}</a>，--}}
-									{{--@endforeach--}}
-								{{--</span>--}}
-								{{--<span>{{ date("Y-m-d H:i:s", strtotime($article->publish_time)) }}</span>--}}
-							{{--</div>--}}
-							{{--<div class="info-img">--}}
-								{{--@if(empty($article->image))--}}
-									{{--<a href="{{ $base_url }}watch_{{ $article->id }}"><img src="{{ asset('images/lunbo4.jpg') }}"></a>--}}
-								{{--@else--}}
-									{{--<a href="{{ $base_url }}watch_{{ $article->id }}"><img src="http://captain-tu.oss-cn-beijing.aliyuncs.com/{{ json_decode($article->image)[0] }}"></a>--}}
-								{{--@endif--}}
-							{{--</div>--}}
-							{{--<div class="clear"></div>--}}
-						{{--</li>--}}
-					{{--@endforeach--}}
-				</ul>
+				<table width="100%" class="cjtb">
+				</table>
 			</section>
 		</div>
 	</div>
@@ -274,6 +249,8 @@
 	<div class="yj-modal" id="big-img">
 		<div class="centered">
 			<img />
+			<div class="left"></div>
+			<div class="right"></div>
 		</div>
 	</div>
 	<div class="yj-backdrop"></div>
