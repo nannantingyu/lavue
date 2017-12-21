@@ -52,7 +52,9 @@
 			<h2 class="sub-title"><a href="{{ $base_url }}kuaixun">财经快讯</a></h2>
 			<ul class="kuaixun">
 				@foreach($kuaixun as $kx)
-					<li><b>{{ date('H:i', strtotime($kx->publish_time)) }}</b> {{ $kx->body }}</li>
+					<li>
+						<a href="/kuaixun_{{ substr($kx->source_site, 0, 2) }}{{ $kx->id }}">{{ date('H:i', strtotime($kx->publish_time)) }}</a> {{ $kx->body }}
+					</li>
 				@endforeach
 			</ul>
 		</div>
@@ -133,6 +135,12 @@
 
 			</div>
 
+			<h2 class="sub-title"><a href="/rili">财经日历</a></h2>
+			<section class="healthy">
+				<table width="100%" class="cjtb">
+				</table>
+			</section>
+
 			<img src="{{ asset('images/ad1.jpg') }}" class="ads-img">
 			<h2 class="sub-title">热卖单品</h2>
 			<section class="hot-goods">
@@ -207,12 +215,6 @@
 					<a href="#">米砖</a>
 					</dt>
 				</dl>
-			</section>
-
-			<h2 class="sub-title"><a href="/rili">财经日历</a></h2>
-			<section class="healthy">
-				<table width="100%" class="cjtb">
-				</table>
 			</section>
 		</div>
 	</div>

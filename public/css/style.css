@@ -219,7 +219,7 @@ ul.weibo{width: 100%;}
     background: url(/images/star-important.png) 0 0 no-repeat;
 }
 
-ul.kuaixun li{position: relative; font-size: 14px;  line-height: 20px;  padding: 5px 0;}
+ul.kuaixun li{position: relative; font-size: 14px;  line-height: 20px;  padding: 5px 0; border-bottom: 1px solid #EEEEFF;}
 
 /**tab**/
 ul.tab-title{border-bottom: 2px solid #3ac;}

@@ -166,7 +166,7 @@ class IndexController extends Controller
     }
 
     public function hotkey(Request $request) {
-        $search = Search();
+        $search = new Search();
         $all_keys = $search->hotSearch();
         return $all_keys;
     }
