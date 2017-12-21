@@ -279,6 +279,9 @@ ul.tab-title li.current:after{
 }
 
 /**healthy**/
+.healthy{
+    padding-right: 15px;
+}
 .healthy ul li {
     padding-bottom: 10px;
     border-bottom: 1px solid #ddd;
@@ -580,7 +583,10 @@ ul.list li{
         line-height: 2.6rem;
         padding: 3px 0;
     }
-    .nav-mod, header .navbar-search, .main-content .main-left{display: none;}
+    .nav-mod, header .navbar-search, .main-content .main-left{
+        width: 100%;
+        padding-right: 15px;
+    }
     .main-content .main-right{width: 100%;}
     .nav-mod:first-of-type{display: block; width: 100%;}
     .main-right{
@@ -607,7 +613,9 @@ ul.list li{
         float: left;
         font-size: 1.6rem;
     }
-
+    header .navbar-search{
+        margin-top: 0;
+    }
     .main-right .hot-goods dl dd img{
         width: 100%;
     }
@@ -653,5 +661,16 @@ ul.list li{
     }
     .detail-main p img{
         width: 100% !important;
+    }
+    .middle-left{
+        width: 100%;
+    }
+    .middle-right {
+        width: 100%;
+    }
+
+    table.cjtb th:nth-of-type(4),table.cjtb td:nth-of-type(4),
+    table.cjtb th:nth-of-type(8),table.cjtb td:nth-of-type(8){
+        display: none;
     }
 }
