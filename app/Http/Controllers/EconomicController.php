@@ -10,6 +10,12 @@ use App\Models\EconomicHoliday;
 
 class EconomicController extends Controller
 {
+    public function rili(Request $request) {
+        $data = $this->getcjdatas($request);
+        session(['country' => false]);
+        return view('index.rili', ['data'=>$data]);
+    }
+
     public function getcjdatas(Request $request) {
         $date = $request->input("d", date("Y-m-d"));
         $cache_key = 'getcjdatas'.$date;
@@ -46,8 +52,18 @@ class EconomicController extends Controller
 
     private function getcountry($request) {
         $country = $request->input("country");
-        $country = empty($country)?'美国,欧元区,德国,英国,法国,中国,日本':$country;
-        $country = explode(",", $country);
+        if(empty($country)) {
+            if(session("country") === false) {
+                $country = false;
+            }
+            else {
+                $country = '美国,欧元区,德国,英国,法国,中国,日本';
+            }
+        }
+
+        if($country) {
+            $country = explode(",", $country);
+        }
 
         return $country;
     }
@@ -57,9 +73,12 @@ class EconomicController extends Controller
         $country = $this->getcountry($request);
 
         $sj_data = EconomicEvent::where('time', ">=", $date['st'])
-            ->where('time', '<=', $date['et'])
-            ->whereIn('country', $country)
-            ->select("id", 'time as event_time', 'country', 'city as area', 'importance', 'event as event_desc')
+            ->where('time', '<=', $date['et']);
+        if($country) {
+            $sj_data = $sj_data->whereIn('country', $country);
+        }
+
+        $sj_data = $sj_data->select("id", 'time as event_time', 'country', 'city as area', 'importance', 'event as event_desc')
             ->get()
             ->toArray();
 
@@ -73,12 +92,14 @@ class EconomicController extends Controller
     }
 
     public function getcjholiday(Request $request) {
-        $date = $this->getDateInparams($request);
+        $date = $request->input("d", date("Y-m-d"));
         $country = $this->getcountry($request);
-        $hj_data = EconomicHoliday::where('time', ">=", $date['st'])
-            ->where('time', '<=', $date['et'])
-            ->whereIn('country', $country)
-            ->select("id", 'time as event_time', 'country', 'market as area', 'detail as event_desc')
+        $hj_data = EconomicHoliday::where('time', $date);
+        if($country) {
+            $hj_data = $hj_data->whereIn('country', $country);
+        }
+
+        $hj_data = $hj_data->select("id", 'time as event_time', 'country', 'market as area', 'detail as event_desc')
             ->get()
             ->toArray();
 
@@ -100,9 +121,12 @@ class EconomicController extends Controller
         $ci = $request->input("ci", 0);
         $country = $this->getcountry($request);
         $calendars = EconomicCalendar::where('pub_time', ">=", $date['st'])
-            ->where('pub_time', '<=', $date['et'])
-            ->whereIn('country', $country)
-            ->orderBy('pub_time', 'asc');
+            ->where('pub_time', '<=', $date['et']);
+        if($country) {
+            $calendars = $calendars->whereIn('country', $country);
+        }
+
+        $calendars = $calendars->orderBy('pub_time', 'asc');
         if(!empty($reg)) {
             $calendars = $calendars->where('country', $reg);
         }
@@ -131,9 +155,12 @@ class EconomicController extends Controller
 
         $country = $this->getcountry($request);
         $today = EconomicCalendar::where('pub_time', ">=", $date['st'])
-            ->where('pub_time', '<=', $date['et'])
-            ->whereIn('country', $country)
-            ->orderBy("pub_time", "asc")
+            ->where('pub_time', '<=', $date['et']);
+        if($country) {
+            $today = $today->whereIn('country', $country);
+        }
+
+        $today = $today->orderBy("pub_time", "asc")
             ->get()
             ->toArray();
 
@@ -298,7 +325,6 @@ class EconomicController extends Controller
      */
     public function fedata(Request $request){
         $date = $request['date'];
-        $country = $request->input('country');
         $rele = $request['rele'];
         $type = $request->input('type', 0);
 
@@ -315,12 +341,17 @@ class EconomicController extends Controller
         $enddate = date('Y-m-d', strtotime($enddate));
 
         $calendarData = EconomicCalendar::whereDate('pub_time', '>=', $date.' 00:00:00')
-            ->whereDate('pub_time', '<=', $enddate. ' 23:59:59')
-            ->whereIn('country', $country);
+            ->whereDate('pub_time', '<=', $enddate. ' 23:59:59');
+        if($country) {
+            $calendarData = $calendarData->whereIn('country', $country);
+        }
+
 
         $eventData = EconomicEvent::whereDate('time', '>=', $date.' 00:00:00')
-            ->whereDate('time', '<=', $enddate. ' 23:59:59')
-            ->whereIn('country', $country);
+            ->whereDate('time', '<=', $enddate. ' 23:59:59');
+        if($country) {
+            $eventData = $eventData->whereIn('country', $country);
+        }
 
         if($rele){
             $releData = explode('_',$rele);

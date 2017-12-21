@@ -482,6 +482,11 @@ iframe.video_iframe{
     width: 100%;
 }
 
+.cj-date{width: 100%; padding: 30px 5%; }
+.cj-date ul li{float: left; width: 11%; padding: 1%; text-align: center; }
+.cj-date ul li a{font-size: 14px; color: #343c4c;}
+.cj-date ul li.active a{ display: block;  background-color: #eeb422;  padding: 2px 5px; border-radius: 5px; }
+
 @media screen and (max-width:480px) {
     header{
         width: 100%;

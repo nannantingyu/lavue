@@ -52,3 +52,5 @@ $router->get('/getcjdatas', 'EconomicController@getcjdatas');
 $router->get('/getcjevent', 'EconomicController@getcjevent');
 $router->get('/getcjholiday', 'EconomicController@getcjholiday');
 $router->get('/fedata', 'EconomicController@fedata');
+
+$router->get('/rili', 'EconomicController@rili');

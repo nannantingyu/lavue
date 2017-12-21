@@ -62,7 +62,9 @@
 .nivo-caption {
 	position:absolute;
 	left:0px;
-	bottom:0px;
+	bottom:12px;
+	line-height: 20px;
+	font-size: 14px;
 	background:#000;
 	color:#fff;
 	width:100%;

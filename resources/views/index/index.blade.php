@@ -55,35 +55,6 @@
 					<li><b>{{ date('H:i', strtotime($kx->publish_time)) }}</b> {{ $kx->body }}</li>
 				@endforeach
 			</ul>
-
-			<h2 class="sub-title"><a href="{{ $base_url }}list_饮食">饮食生活</a></h2>
-			<ul class="news">
-			</ul>
-
-			<h2 class="sub-title">搞笑中场</h2>
-			<div class="sub-img">
-				{{--@foreach($live as $article)--}}
-					{{--<dl>--}}
-						{{--@if(empty($article->image))--}}
-							{{--<dd><a href="{{ $base_url }}watch_{{ $article->id }}"><img src="{{ asset('images/lunbo4.jpg') }}"></a></dd>--}}
-						{{--@else--}}
-							{{--<dd><a href="{{ $base_url }}watch_{{ $article->id }}"><img src="http://captain-tu.oss-cn-beijing.aliyuncs.com/{{ json_decode($article->image)[0] }}"></a></dd>--}}
-						{{--@endif--}}
-						{{--<dt>--}}
-							{{--{{ $article->description }}--}}
-						{{--</dt>--}}
-					{{--</dl>--}}
-				{{--@endforeach--}}
-			</div>
-
-			<h2 class="sub-title"><a href="{{ $base_url }}list_健身">健身锻炼</a></h2>
-			<ul class="news">
-			</ul>
-
-			<h2 class="sub-title"><a href="{{ $base_url }}list_回龙观">每日回龙观</a></h2>
-			<ul class="news">
-			</ul>
-
 		</div>
 
 		<div class="main-right">
@@ -238,7 +209,7 @@
 				</dl>
 			</section>
 
-			<h2 class="sub-title"><a href="#">财经日历</a></h2>
+			<h2 class="sub-title"><a href="/rili">财经日历</a></h2>
 			<section class="healthy">
 				<table width="100%" class="cjtb">
 				</table>
