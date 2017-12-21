@@ -539,6 +539,25 @@ ul.list li{
 }
 /*jin10end*/
 
+.content-related{
+    width: 40%;
+    float: left;
+    margin-right: 10%;
+}
+
+.content-related a{
+    font-size: 14px !important;
+}
+
+.kx-content {
+    padding: 30px 0;
+    line-height: 40px;
+}
+.kx-content .stime{
+    color: #eb7530;
+}
+.kx-content .body{ font-size: 16px; font-weight: bold; border-bottom: 1px solid #EEEEFF; }
+
 @media screen and (max-width:480px) {
     header{
         width: 100%;

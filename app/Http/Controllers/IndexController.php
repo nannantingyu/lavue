@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Cache;
 use App\Services\FoodService;
 use App\User;
 use App\Models\Kuaixun;
+use App\Models\Search;
 
 class IndexController extends Controller
 {
@@ -74,21 +75,21 @@ class IndexController extends Controller
 
         $hot = DB::table('weixin_article')
             ->orderBy('hits', 'desc')->take(5)
-	    ->select('id', 'title', 'publish_time', 'created_time')
-	    ->get();
+            ->select('id', 'title', 'publish_time', 'created_time')
+            ->get();
         $related = DB::table('weixin_article')
             ->where('type', $article->type)
-	    ->select('id', 'title', 'publish_time', 'created_time')
+	        ->select('id', 'title', 'publish_time', 'created_time')
             ->orderBy('hits', 'desc')->take(5)->get();
 
         $favor = DB::table('weixin_article')
             ->orderBy('favor', 'desc')
-	    ->select('id', 'title', 'publish_time', 'created_time')
+	        ->select('id', 'title', 'publish_time', 'created_time')
             ->take(5)->get();
 
         $latest = DB::table('weixin_article')
             ->orderBy('publish_time', 'desc')
-	    ->select('id', 'title', 'publish_time', 'created_time')
+	        ->select('id', 'title', 'publish_time', 'created_time')
             ->take(5)->get();
 
         $seo_title = $article->title . "-粮叔叔";
@@ -165,40 +166,8 @@ class IndexController extends Controller
     }
 
     public function hotkey(Request $request) {
-        $num = $request->input('num', 20);
-
-        $hotkey = DB::table("weibo_hotkey")->where("state", 1)
-            ->orderBy('time', 'desc')
-            ->orderBy('order', 'asc')
-            ->take($num/2)
-            ->select('id', 'time', 'keyword', 'order')
-            ->get()
-            ->toArray();
-
-        array_map(function($val) {
-            $val->site = 'weibo';
-            return $val;
-        }, $hotkey);
-
-        $hotkey2 = DB::table("baidu_hotkey")->where("state", 1)
-            ->orderBy('time', 'desc')
-            ->orderBy('order', 'asc')
-            ->take($num/2)
-            ->select('id', 'time', 'keyword', 'order')
-            ->get()
-            ->toArray();
-
-        array_map(function($val) {
-            $val->site = 'baidu';
-            return $val;
-        }, $hotkey2);
-
-        $all_keys = array_merge($hotkey, $hotkey2);
-
-        usort($all_keys, function($a, $b){
-            return $a->time < $b->time;
-        });
-
+        $search = Search();
+        $all_keys = $search->hotSearch();
         return $all_keys;
     }
 

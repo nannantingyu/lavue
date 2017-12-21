@@ -55,3 +55,4 @@ $router->get('/fedata', 'EconomicController@fedata');
 
 $router->get('/rili', 'EconomicController@rili');
 $router->get('/kuaixun', 'KuaixunController@kuaixun');
+$router->get('/kuaixun_{id}', 'KuaixunController@kuaixun_detail');
