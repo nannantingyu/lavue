@@ -487,6 +487,58 @@ iframe.video_iframe{
 .cj-date ul li a{font-size: 14px; color: #343c4c;}
 .cj-date ul li.active a{ display: block;  background-color: #eeb422;  padding: 2px 5px; border-radius: 5px; }
 
+
+ul.list li{
+    font-size: 14px;
+    line-height: 30px;
+    border-bottom: 1px solid #EEEEFF;
+    padding: 10px 0 20px;
+}
+
+
+/*jin10*/
+.jin-flash_icon, .jin-flash_icon a {
+    color: #fff;
+}
+.jin-flash_icon {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-right: 8px;
+    background-color: #fff;
+    text-align: center;
+}
+.jin-flash_icon, .jin-flash_item {
+    transition: background .2s ease-in-out;
+}
+
+.jin-flash_icon, .jin-flash_icon a {
+    color: #fff;
+}
+.jin-flash_icon .jin-icon {
+    display: block;
+    width: 19px;
+    line-height: 19px;
+    border-radius: 50%;
+    background-color: #5a9df7;
+    font-size: 12px;
+}
+
+.jin-icon, .jin-paging_r .jin-paging_item {
+    font-family: iconfont!important;
+    font-size: 14px;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: .2px;
+    -moz-osx-font-smoothing: grayscale;
+}
+.jin-icon_flashNews:before {
+    content: "\e69b";
+}
+.jin-flash_time, .jin-flash_icon{
+    display: inline-block;
+}
+/*jin10end*/
+
 @media screen and (max-width:480px) {
     header{
         width: 100%;

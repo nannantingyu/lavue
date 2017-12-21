@@ -49,7 +49,7 @@
 				@endforeach
 			</ul>
 
-			<h2 class="sub-title"><a href="{{ $base_url }}list_房价">财经快讯</a></h2>
+			<h2 class="sub-title"><a href="{{ $base_url }}kuaixun">财经快讯</a></h2>
 			<ul class="kuaixun">
 				@foreach($kuaixun as $kx)
 					<li><b>{{ date('H:i', strtotime($kx->publish_time)) }}</b> {{ $kx->body }}</li>

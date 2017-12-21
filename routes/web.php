@@ -54,3 +54,4 @@ $router->get('/getcjholiday', 'EconomicController@getcjholiday');
 $router->get('/fedata', 'EconomicController@fedata');
 
 $router->get('/rili', 'EconomicController@rili');
+$router->get('/kuaixun', 'KuaixunController@kuaixun');

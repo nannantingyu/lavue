@@ -14,4 +14,12 @@ class KuaixunController extends Controller
 
         return ['success'=>1, 'value'=>array_values($ret)];
     }
+
+    public function kuaixun(Request $request) {
+        $kuaixun = new Kuaixun();
+        $date = $request->input('st', null);
+        $ret = $kuaixun->getKuaixun($request->input('page', 1), $request->input('num', 20), $date);
+
+        return view("index.kuaixun", ['kx'=>$ret]);
+    }
 }

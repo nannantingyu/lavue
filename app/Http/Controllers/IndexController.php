@@ -54,7 +54,7 @@ class IndexController extends Controller
         //快讯
         $kuaixun = new Kuaixun();
         $date = $request->input('st', null);
-        $ret = $kuaixun->getKuaixun(1, 5, $date);
+        $ret = $kuaixun->getKuaixun(1, 10, $date);
         $assign['kuaixun'] = $ret;
 
         return view("index.index", $assign);
