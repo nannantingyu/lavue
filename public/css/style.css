@@ -272,6 +272,9 @@ ul.list li{  font-size: 14px;  line-height: 30px;  border-bottom: 1px solid #EEE
     .detail-main p img{  width: 100% !important;  }
     .middle-left{  width: 100%;  }
     .middle-right {  width: 100%;  }
+    .yj-modal .centered{width: 70%;}
     table.cjtb th:nth-of-type(4),table.cjtb td:nth-of-type(4),
     table.cjtb th:nth-of-type(8),table.cjtb td:nth-of-type(8){  display: none;  }
+    .weibo_left{width: 10%;}
+    .weibo_right{width: 87%;}
 }

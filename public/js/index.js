@@ -50,7 +50,8 @@ function show_img() {
 	if(index == length - 1) {
 		$("#big-img .right").hide();
 	}
-	else if(index == 0) {
+
+	if(index == 0) {
 		$("#big-img .left").hide();
 	}
 
