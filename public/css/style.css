@@ -243,7 +243,7 @@ ul.list li{  font-size: 14px;  line-height: 30px;  border-bottom: 1px solid #EEE
 
 .content-related{  width: 40%;  float: left;  margin-right: 10%;  }
 .content-related a{  font-size: 14px !important;  }
-.kx-content {  padding: 30px 0;  line-height: 40px;  }
+.kx-content {  padding: 30px 10px;  line-height: 40px;  }
 .kx-content .stime{  color: #eb7530;  }
 .kx-content .body{ font-size: 16px; font-weight: bold; border-bottom: 1px solid #EEEEFF; }
 
@@ -293,4 +293,5 @@ ul.list li{  font-size: 14px;  line-height: 30px;  border-bottom: 1px solid #EEE
     .weibo_left{width: 10%;}
     .weibo_right{width: 87%;}
     #wrapper{max-height: 380px; }
+    .content-related{width: 96%; padding: 0 2%;}
 }
