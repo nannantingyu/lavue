@@ -5,7 +5,7 @@
 
 @section('content')
 	<div class="main-content">
-		<div class="left wp70">
+		<div class="left wp70 weibo-list-left">
 			<ul class="weibo weibo-list">
 				@foreach($weibos as $weibo)
 					<li>
@@ -35,7 +35,7 @@
 				{{ $weibos->links() }}
 			</div>
 		</div>
-		<div class="left wp30">
+		<div class="left wp30 weibo-list-right">
 			<h2 class="sub-title"><a href="#">热门搜索</a></h2>
 			<ul class="news">
 				@foreach($hotsearch as $hot)

@@ -285,7 +285,8 @@ ul.list li{  font-size: 14px;  line-height: 30px;  border-bottom: 1px solid #EEE
     footer ul li{  width: 24%;  line-height: 2.5rem;  }
     .detail-main p{  text-indent: 0;  }
     .detail-main p img{  width: 100% !important;  }
-    .middle-left{  width: 100%;  }
+    .main-middle{width: 98%;padding-right: 2%; }
+    .middle-left{  width: 100%; }
     .middle-right {  width: 100%;  }
     .yj-modal .centered{width: 70%;}
     table.cjtb th:nth-of-type(4),table.cjtb td:nth-of-type(4),
@@ -294,4 +295,5 @@ ul.list li{  font-size: 14px;  line-height: 30px;  border-bottom: 1px solid #EEE
     .weibo_right{width: 87%;}
     #wrapper{max-height: 380px; }
     .content-related{width: 96%; padding: 0 2%;}
+    .weibo-list-left, .weibo-list-right{width: 100%; padding: 0 0 0 2%;}
 }
