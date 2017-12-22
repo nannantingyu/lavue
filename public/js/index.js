@@ -96,7 +96,7 @@ function refresh_rili() {
 		dataType: 'json',
 		success: function (data) {
 			if(data) {
-				html = "<tr> <th>时间</th> <th>国家/区域</th> <th>指标</th> <th>重要性</th> <th>前值</th> <th>预测值</th> <th>公布值</th> <th>影响</th> </tr>";
+				html = "<tr> <th>时间</th> <th>国家</th> <th>指标</th> <th>重要性</th> <th>前值</th> <th>预测值</th> <th>公布值</th> <th>影响</th> </tr>";
 				for(var i = 0, max = data.length; i < max; i++) {
 					html += "<tr> <td>"+data[i]['stime'].substr(10, 6)+"</td>" +
 						'<td class="t-center"><img src="/images/flag/'+data[i]['country_cn']+'.png" alt="'+data[i]['country_cn']+'"></td>' +

@@ -38,12 +38,12 @@
 		<div class="left wp30">
 			<h2 class="sub-title"><a href="#">热门搜索</a></h2>
 			<ul class="news">
-				@foreach($hotsearch as $hot)
-					<li>
-						<a href="{{ $base_url }}{{ $hot->site }}_{{$hot->id}}">{{ $hot->keyword }}</a>
-						<span>{{ date("m-d H:i", strtotime($hot->time)) }}</span>
-					</li>
-				@endforeach
+				{{--@foreach($hotsearch as $hot)--}}
+					{{--<li>--}}
+						{{--<a href="{{ $base_url }}{{ $hot->site }}_{{$hot->id}}">{{ $hot->keyword }}</a>--}}
+						{{--<span>{{ date("m-d H:i", strtotime($hot->time)) }}</span>--}}
+					{{--</li>--}}
+				{{--@endforeach--}}
 			</ul>
 		</div>
 	</div>
