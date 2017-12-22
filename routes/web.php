@@ -45,6 +45,7 @@ Route::get('/type_{keywords}_{page}', "ListController@type");
 Route::get('/baidu_{id}', "ListController@baidusearch");
 Route::get('/weibo_{id}', "ListController@weibosearch");
 Route::get('/keys_{key}_{page}', "ListController@keys");
+Route::get('/author_{author}', "ListController@author");
 
 
 //Caijing

@@ -68,20 +68,40 @@ class ListController extends Controller
 
     public function type(Request $request) {
         $keywords = $request->keywords;
-        $articles = DB::table('weixin_article')
-            ->where('type', $keywords)
-            ->paginate(20);
+        if($keywords) {
+            $articles = DB::table('weixin_article')
+                ->where('type', $keywords)
+                ->paginate(20);
 
-        return view('index.search', ['articles'=>$articles]);
+            return view('index.search', ['articles'=>$articles]);
+        }
+
+        return redirect("/");
     }
 
     public function search(Request $request) {
         $keywords = $request->keywords;
-        $articles = DB::table('weixin_article')
-            ->where('title', 'like', '%'.$keywords.'%')
-            ->orWhere('type', 'like', $keywords.'%')
-            ->paginate(20);
+        if($keywords) {
+            $articles = DB::table('weixin_article')
+                ->where('title', 'like', '%'.$keywords.'%')
+                ->orWhere('type', 'like', $keywords.'%')
+                ->paginate(20);
 
-        return view('index.search', ['articles'=>$articles]);
+            return view('index.search', ['articles'=>$articles]);
+        }
+
+        return redirect("/");
+    }
+
+    public function author(Request $request, $author) {
+        if($author) {
+            $articles = DB::table('weixin_article')
+                ->where('author', $author)
+                ->paginate(20);
+
+            return view('index.search', ['articles'=>$articles]);
+        }
+
+        return redirect("/");
     }
 }

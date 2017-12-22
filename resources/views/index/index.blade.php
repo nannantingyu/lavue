@@ -75,7 +75,7 @@
 								<p class="blog-desc">{{ $article->description }}</p>
 								<div class="blog-info">
 									<span class="blog-time">{{ date("Y-m-d", strtotime($article->publish_time)) }}</span>
-									<span class="blog-author"><a href="#">{{ $article->author }}</a></span>
+									<span class="blog-author"><a href="{{ $base_url }}author_{{ $article->author }}">{{ $article->author }}</a></span>
 								</div>
 							</div>
 						@endforeach
@@ -87,7 +87,7 @@
 								<p class="blog-desc">{{ $article->description }}</p>
 								<div class="blog-info">
 									<span class="blog-time">{{ date("Y-m-d", strtotime($article->publish_time)) }}</span>
-									<span class="blog-author"><a href="#">{{ $article->author }}</a></span>
+									<span class="blog-author"><a href="{{ $base_url }}author_{{ $article->author }}">{{ $article->author }}</a></span>
 								</div>
 							</div>
 						@endforeach
@@ -99,7 +99,7 @@
 								<p class="blog-desc">{{ $article->description }}</p>
 								<div class="blog-info">
 									<span class="blog-time">{{ date("Y-m-d", strtotime($article->publish_time)) }}</span>
-									<span class="blog-author"><a href="#">{{ $article->author }}</a></span>
+									<span class="blog-author"><a href="{{ $base_url }}author_{{ $article->author }}">{{ $article->author }}</a></span>
 								</div>
 							</div>
 						@endforeach
