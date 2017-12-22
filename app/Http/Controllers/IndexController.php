@@ -50,7 +50,7 @@ class IndexController extends Controller
         $search = new Search();
         $assign['hotkey'] = $search->hotSearch();
 
-	    $assign['weibos'] = $this->weibo($request);
+	    $assign['weibos'] = $this->hotweibo($request);
         $assign['keywords'] = $this->keywords($request, 55);
 
         //快讯
