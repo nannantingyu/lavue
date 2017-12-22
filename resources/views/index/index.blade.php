@@ -106,6 +106,7 @@
 					</section>
 				</div>
 				<div class="middle-right">
+					<h2 class="sub-title"><a href="/weibo">热门微博</a></h2>
 					<ul class="weibo">
 						@foreach($weibos as $weibo)
 						<li>

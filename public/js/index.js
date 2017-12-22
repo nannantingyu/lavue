@@ -62,7 +62,7 @@ function show_img() {
 
 function refresh_weibo() {
 	$.ajax({
-		url: "/weibo",
+		url: "/hotweibo",
 		dataType: 'json',
 		success: function(data) {
 			var html = "";

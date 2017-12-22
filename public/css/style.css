@@ -51,6 +51,16 @@ h1,h2,h3,h4,h5,h6 {font-family: '微软雅黑', '宋体', 'Raleway', sans-serif;
 h3 {font-weight: 400;text-transform: uppercase;}
 a {text-decoration: none!important;color: #000;}
 p{line-height: 2.5rem;}
+.left{float: left; }
+.right{float: right; }
+.wp100{width: 100%; }
+.wp90{width: 90%; }
+.wp80{width: 80%; }
+.wp70{width: 70%; }
+.wp60{width: 60%; }
+.wp50{width: 50%; }
+.wp40{width: 40%; }
+.wp30{width: 30%; }
 
 .yj-backdrop{  position: fixed;  top: 0;  right: 0;  bottom: 0;  left: 0;  z-index: 1040;  background-color: #000;  opacity: 0.6; display: none; }
 .yj-modal:before {  content: '';  display: inline-block;  height: 100%;  vertical-align: middle;  margin-right: -0.25em; /* Adjusts for spacing */  }
@@ -121,16 +131,16 @@ nav .nav-mod ul:first-of-type li:first-of-type a{color: #b2e05d}
 
 
 .middle-left{  float: left; width: 70%; }
-.middle-right{  float: left; width: 30%; padding: 0 0 0 2%; max-height: 850px; overflow-y: hidden;}
+.middle-right{  float: left; width: 30%; padding: 8px 0 0 2%; max-height: 850px; overflow-y: hidden;}
 /**news**/
 .main-content .news li{line-height: 30px;}
 .main-content .news li a{width: 70%; overflow: hidden; float: left; margin-right: 5%; white-space: nowrap;text-overflow: ellipsis; font-size: 1.5rem;}
 .main-content .news li span{width: 25%; float: right; font-size: 12px;}
 
 ul.weibo{width: 100%;}
-.weibo_left{float: left; width: 20%;}
+.weibo_left{float: left; width: 15%;}
 .weibo_left img{width: 100%;}
-.weibo_right{ float: left; width: 75%; padding: 0 3% 15px; }
+.weibo_right{ float: left; width: 82%; padding: 0 3% 15px; }
 .weibo_right p{ font-size: 13px; }
 .weibo_content{font-size: 14px; line-height: 18px;}
 .weibo-imgs{width: 100%;}
@@ -237,6 +247,11 @@ ul.list li{  font-size: 14px;  line-height: 30px;  border-bottom: 1px solid #EEE
 .kx-content .stime{  color: #eb7530;  }
 .kx-content .body{ font-size: 16px; font-weight: bold; border-bottom: 1px solid #EEEEFF; }
 
+/*微博列表页*/
+.weibo-list .weibo_left{width: 6%; padding-top: 10px;}
+.weibo-list .weibo_right{width: 90%; padding: 10px 0 30px 15px; border-bottom: 1px solid #EEEEFF;}
+/*微博列表页结束*/
+
 @media screen and (max-width:480px) {
     header{  width: 100%;  min-width: 0;  }
     header .content{  width: 100%;  }
@@ -277,4 +292,5 @@ ul.list li{  font-size: 14px;  line-height: 30px;  border-bottom: 1px solid #EEE
     table.cjtb th:nth-of-type(8),table.cjtb td:nth-of-type(8){  display: none;  }
     .weibo_left{width: 10%;}
     .weibo_right{width: 87%;}
+    #wrapper{max-height: 380px; }
 }

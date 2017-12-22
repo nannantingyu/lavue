@@ -47,7 +47,8 @@ class IndexController extends Controller
         }
 
         $assign['articles'] = $articles;
-        $assign['hotkey'] = $this->hotkey($request);
+        $search = new Search();
+        $assign['hotkey'] = $search->hotSearch();
 
 	    $assign['weibos'] = $this->weibo($request);
         $assign['keywords'] = $this->keywords($request, 55);
@@ -171,12 +172,22 @@ class IndexController extends Controller
         return $all_keys;
     }
 
-    public function weibo(Request $request) {
+    public function hotweibo(Request $request) {
         $weibo = DB::table('weibo')->orderBy("id", 'desc')
             ->take(3)
             ->get();
 
         return $weibo;
+    }
+
+    public function weibo(Request $request) {
+        $weibos = DB::table('weibo')->orderBy("id", 'desc')
+            ->paginate(10);
+
+        $search = new Search();
+        $hotsearch = $search->hotSearch();
+
+        return view('index.weibo', ['weibos'=>$weibos, 'hotsearch'=>$hotsearch]);
     }
 
     public function keywords(Request $request, $num=20) {
