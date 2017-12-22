@@ -63,13 +63,13 @@
 			<div class="main-middle">
 				<div class="middle-left">
 					<ul class="tab-title">
-						<li class='current'><a href="{{ $base_url }}list_五常大米">五常大米</a></li>
-						<li><a href="{{ $base_url }}list_健康">每日北京</a></li>
-						<li><a href="{{ $base_url }}list_北京">中国</a></li>
+						<li class='current'><a href="{{ $base_url }}list_北京">每日北京</a></li>
+						<li><a href="{{ $base_url }}list_五常大米">五常大米</a></li>
+						<li><a href="{{ $base_url }}list_中国">中国</a></li>
 						<div class="clear"></div>
 					</ul>
 					<section class="hot-blog clear">
-						@foreach($rice as $article)
+						@foreach($beijing as $article)
 							<div class="one-blog">
 								<p class="blog-title"><a href="{{ $base_url }}blog_{{ $article->id }}">{{ $article->title }}</a></p>
 								<p class="blog-desc">{{ $article->description }}</p>
@@ -81,7 +81,7 @@
 						@endforeach
 					</section>
 					<section class="hot-blog clear none">
-						@foreach($beijing as $article)
+						@foreach($rice as $article)
 							<div class="one-blog">
 								<p class="blog-title"><a href="{{ $base_url }}blog_{{ $article->id }}">{{ $article->title }}</a></p>
 								<p class="blog-desc">{{ $article->description }}</p>
@@ -220,15 +220,7 @@
 		</div>
 	</div>
 
-	<div class="yj-modal" id="big-img">
-		<div class="centered">
-			<img id="img-big" />
-			<div class="left"><img src="/images/left.png" alt="上一个"></div>
-			<div class="right"><img src="/images/right.png" alt="下一个"></div>
-		</div>
-	</div>
-	<div class="yj-backdrop"></div>
-
+	@include('public.bigimg')
 	@include('public.navi')
 
 	<!-- 友情链接 -->

@@ -10,9 +10,12 @@ use App\Models\EconomicHoliday;
 
 class EconomicController extends Controller
 {
+    public function __construct() {
+        session(['country' => false]);
+    }
+
     public function rili(Request $request) {
         $data = $this->getcjdatas($request);
-        session(['country' => false]);
         return view('index.rili', ['data'=>$data]);
     }
 

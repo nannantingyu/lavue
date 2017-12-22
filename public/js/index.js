@@ -19,27 +19,6 @@
 			show_img();
 		});
 
-		$("#big-img .left").click(function(event){
-			var index = $("#big-img").data("index");
-			$("#big-img").data("index", index-1);
-			show_img();
-
-			event.stopPropagation();
-		});
-
-		$("#big-img .right").click(function(event){
-			var index = $("#big-img").data("index");
-			$("#big-img").data("index", index+1);
-			show_img();
-
-			event.stopPropagation();
-		});
-
-		$(".yj-backdrop,#big-img").click(function() {
-			$("#img-bigg").removeAttr("src");
-			$(".yj-backdrop,#big-img").hide();
-		});
-
 		refresh_rili();
 	});
 })(jQuery);
@@ -92,7 +71,7 @@ function refresh_weibo() {
 function refresh_rili() {
 	$.ajax({
 		url: "/getPastorWillFd",
-		data: {limit1: 3, limit2: 3},
+		data: {limit1: 5, limit2: 5},
 		dataType: 'json',
 		success: function (data) {
 			if(data) {

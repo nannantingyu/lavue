@@ -28,7 +28,7 @@
 					<th>影响</th>
 					<th>解读</th>
 				</tr>
-				@if(count($data['hdata']) > 0)
+				@if(count($data['cjdata']) > 0)
 				@foreach($data['cjdata'] as $val)
 					@foreach($val['_ch'] as $rili)
 						<tr>

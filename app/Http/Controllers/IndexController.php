@@ -9,6 +9,7 @@ use App\Services\FoodService;
 use App\User;
 use App\Models\Kuaixun;
 use App\Models\Search;
+use App\Models\Keywords;
 
 class IndexController extends Controller
 {
@@ -17,9 +18,10 @@ class IndexController extends Controller
     }
 
     public function index(Request $request) {
+        // 轮播文章
         $articles = DB::table('weixin_article')
             ->orderBy("publish_time", 'desc')
-            ->take(4)
+            ->take(5)
             ->get();
 
         $type_index = [
@@ -34,6 +36,8 @@ class IndexController extends Controller
         }
 
         $assign = [];
+
+        // 热门文章
         foreach($type_index as $key=>$val) {
             $assign[$key] = Cache::remember($key, 120, function() use($val) {
                 return DB::table('weixin_article')
@@ -47,16 +51,29 @@ class IndexController extends Controller
         }
 
         $assign['articles'] = $articles;
+
+        // 热门搜索
         $search = new Search();
         $assign['hotkey'] = $search->hotSearch();
 
-	    $assign['weibos'] = $this->hotweibo($request);
-        $assign['keywords'] = $this->keywords($request, 55);
+        // 热门微博
+        $hotweibo = DB::table('weibo')->orderBy("id", 'desc')
+            ->take(3)
+            ->get();
+	    $assign['weibos'] = $hotweibo;
+
+        // 热门词汇
+        $keynum = 50;
+        $skip = rand(1, 200);
+        $starttime = date("Y-m-d H:i:s", strtotime("-5 days"));
+
+        $key = new Keywords();
+        $assign['keywords'] = $key->hotkeywords($starttime, $skip, $keynum);
 
         //快讯
         $kuaixun = new Kuaixun();
         $date = $request->input('st', null);
-        $ret = $kuaixun->getKuaixun(1, 10, $date);
+        $ret = $kuaixun->getKuaixun(1, 8, $date);
         $assign['kuaixun'] = $ret;
 
         return view("index.index", $assign);
@@ -98,88 +115,6 @@ class IndexController extends Controller
         return view('index.detail', ['article'=>$article, 'hot'=>$hot, 'favor'=>$favor, 'related'=>$related, 'latest'=>$latest, "seo_title"=>$seo_title, "seo_description"=>$seo_description]);
     }
 
-    public function search(Request $request) {
-        $keywords = $request->keywords;
-        $articles = DB::table('weixin_article')
-            ->where('title', 'like', '%'.$keywords.'%')
-            ->orWhere('type', 'like', $keywords.'%')
-            ->paginate(20);
-
-        return view('index.search', ['articles'=>$articles]);
-    }
-
-    public function type(Request $request) {
-        $keywords = $request->keywords;
-        $articles = DB::table('weixin_article')
-            ->where('type', $keywords)
-            ->paginate(20);
-
-        return view('index.search', ['articles'=>$articles]);
-    }
-
-    public function img(Request $request)
-    {
-        $name = $request->input('ori', null);
-        if(!is_null($name)) {
-            $hash_dir = substr(base_convert(md5($name), 16, 10), 0, 5) % 99;
-
-            preg_match("/mmbiz_.*\/(.*)\//", $name, $match);
-            $img_name = $name;
-            if(count($match) > 1) {
-                $img_name = $match[1];
-            }
-            else {
-                foreach([":", "/", ">", "?", "=", "."] as $rep) {
-                    $img_name = str_replace($rep, "", $img_name);
-                }
-            }
-
-            $tmp_dir = "images/".$hash_dir;
-            if(!file_exists($tmp_dir)) {
-                mkdir($tmp_dir);
-            }
-
-            $tmp_name = $tmp_dir."/".$img_name;
-
-            $offset = 30*60*60*24; // cache 1 month
-            if(file_exists($tmp_name))
-            {
-                return response(file_get_contents($tmp_name), 200, [
-                    'Content-Type' => 'image/png',
-                    "Cache-Control"=>" public",
-                    "Pragma" => "cache",
-                    "Expires" => gmdate("D, d M Y H:i:s", time() + $offset)." GMT"
-                ]);
-            }
-
-            $img = file_get_contents($name);
-            file_put_contents($tmp_name, $img);
-            return response($img, 200, [
-                'Content-Type' => 'image/png',
-                "Cache-Control"=>" public",
-                "Pragma" => "cache",
-                "Expires" => gmdate("D, d M Y H:i:s", time() + $offset)." GMT"
-            ]);
-        }
-        else {
-            return "图片地址不合法";
-        }
-    }
-
-    public function hotkey(Request $request) {
-        $search = new Search();
-        $all_keys = $search->hotSearch();
-        return $all_keys;
-    }
-
-    public function hotweibo(Request $request) {
-        $weibo = DB::table('weibo')->orderBy("id", 'desc')
-            ->take(3)
-            ->get();
-
-        return $weibo;
-    }
-
     public function weibo(Request $request) {
         $weibos = DB::table('weibo')->orderBy("id", 'desc')
             ->paginate(10);
@@ -188,21 +123,5 @@ class IndexController extends Controller
         $hotsearch = $search->hotSearch();
 
         return view('index.weibo', ['weibos'=>$weibos, 'hotsearch'=>$hotsearch]);
-    }
-
-    public function keywords(Request $request, $num=20) {
-        $num = $request->input("num", $num);
-        $skip = rand(1, 200);
-        $last_week = date("Y-m-d H:i:s", strtotime("-5 days"));
-        $hotkeywords = DB::table("keywords_map")
-            ->where("created_time", ">=", $last_week)
-            ->groupBy("keyword")
-            ->select(DB::Raw("count(*) as cou, keyword"))
-            ->orderBy("cou", "desc")
-            ->skip($skip)
-            ->take($num)
-            ->get();
-
-        return $hotkeywords;
     }
 }

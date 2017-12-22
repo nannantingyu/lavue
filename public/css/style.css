@@ -144,7 +144,7 @@ ul.weibo{width: 100%;}
 .weibo_right p{ font-size: 13px; }
 .weibo_content{font-size: 14px; line-height: 18px;}
 .weibo-imgs{width: 100%;}
-.weibo-imgs li{width: 33%; padding: 0 2%; float: left;}
+.weibo-imgs li{width: 33%; padding: 2%; float: left;}
 .weibo-imgs li img{width: 100%;  cursor: url(https://img.t.sinajs.cn/t6/style/images/common/big.cur), auto;}
 
 .cjtb tbody, .cjtb tr, .cjtb th, .cjtb td{vertical-align: middle !important;}
