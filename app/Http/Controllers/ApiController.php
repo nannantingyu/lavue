@@ -90,8 +90,8 @@ class ApiController extends Controller
     public function getkx(Request $request) {
         $kuaixun = new Kuaixun();
         $date = $request->input('st', null);
-        $page = $request->inpuit('page', 1);
-        $num = $request->inpuit('num', 10);
+        $page = $request->input('page', 1);
+        $num = $request->input('num', 10);
 
         $ret = $kuaixun->getKuaixun($page, $num, $date);
         return $ret;

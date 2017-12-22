@@ -32,6 +32,7 @@
     });
 
     function show_img() {
+        $(".centered").scrollTop(0);
         var index = $("#big-img").data("index"), pindex = $("#big-img").data("pindex"), length = $("ul.weibo>li:eq("+pindex+") ul.weibo-imgs li").length;
         $("#big-img .left, #big-img .right").show();
         if(index == length - 1) {

@@ -13,6 +13,8 @@
 
 		//加载微博
 		setInterval(refresh_weibo, 60000);
+		setInterval(refresh_kx, 10000);
+
 		$("ul.weibo").on("click", "img",  function(){
 			var index = $(this).parent('li').index(), pindex = $(this).parents(".weibo_right").parent("li").index();
 			$("#big-img").data("index", index).data("pindex", pindex);
@@ -93,6 +95,23 @@ function refresh_rili() {
 				}
 
 				$(".cjtb").html(html);
+			}
+		}
+	});
+}
+
+function refresh_kx() {
+	$.ajax({
+		url: "/kx",
+		dataType: 'json',
+		success: function (data) {
+			if(data) {
+				html = "";
+				for(var i = 0, max = data.length; i < max; i++) {
+					html += '<li> <a href="/kuaixun_'+data[i]['source_site'].substr(0, 2)+data[i]['id']+'">'+data[i]['publish_time'].substr(11)+'</a> '+data[i]['body']+' </li>';
+				}
+
+				$("ul.kuaixun").html(html);
 			}
 		}
 	});

@@ -53,7 +53,7 @@
 			<ul class="kuaixun">
 				@foreach($kuaixun as $kx)
 					<li>
-						<a href="/kuaixun_{{ substr($kx->source_site, 0, 2) }}{{ $kx->id }}">{{ date('H:i', strtotime($kx->publish_time)) }}</a> {{ $kx->body }}
+						<a href="/kuaixun_{{ substr($kx->source_site, 0, 2) }}{{ $kx->id }}">{{ date('H:i:s', strtotime($kx->publish_time)) }}</a> {{ $kx->body }}
 					</li>
 				@endforeach
 			</ul>
