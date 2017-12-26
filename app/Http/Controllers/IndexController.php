@@ -124,7 +124,7 @@ class IndexController extends Controller
         $search = new Search();
         $hotsearch = $search->hotSearch();
 
-        return view('index.weibo', ['weibos'=>$weibos, 'hotsearch'=>$hotsearch]);
+        return view('index.weibo', ['weibos'=>$weibos, 'hotsearch'=>$hotsearch, "seo_title"=>"微博好玩的有趣的-粮叔叔", "seo_description"=>"微博上有什么好玩的东西呀, 你的爱豆最近在干嘛呢，快点关注粮叔叔来看看吧！", "seo_keywords"=>"热搜,热门微博,微博,爱豆,有趣,有料"]);
     }
 
     public function hotsearch(Request $request) {
