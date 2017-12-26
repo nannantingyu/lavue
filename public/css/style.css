@@ -138,6 +138,7 @@ nav .nav-mod ul:first-of-type li:first-of-type a{color: #b2e05d}
 .main-content .news li{line-height: 30px;}
 .main-content .news li a{width: 70%; overflow: hidden; float: left; margin-right: 5%; white-space: nowrap;text-overflow: ellipsis; font-size: 1.5rem;}
 .main-content .news li span{width: 25%; float: right; font-size: 12px;}
+.__bg_gif{width: 10% !important;}
 
 ul.weibo{width: 100%;}
 .weibo_left{float: left; width: 15%;}
@@ -305,4 +306,5 @@ ul.list li{  font-size: 14px;  line-height: 30px;  border-bottom: 1px solid #EEE
     #wrapper{max-height: 380px; }
     .content-related{width: 96%; padding: 0 2%;}
     .weibo-list-left, .weibo-list-right{width: 100%; padding: 0 0 0 2%;}
+    .__bg_gif{width: 10% !important;}
 }
