@@ -67,9 +67,10 @@ p{line-height: 2.5rem;}
 .yj-modal:before {  content: '';  display: inline-block;  height: 100%;  vertical-align: middle;  margin-right: -0.25em; /* Adjusts for spacing */  }
 .yj-modal{  position: fixed; display: none; top: 0;  right: 0;  bottom: 0;  left: 0;  z-index: 1050;  overflow: hidden;  outline: 0;  opacity: 1;  text-align: center;  }
 .yj-modal .centered {  display: inline-block;  vertical-align: middle; width: 40%; overflow-y: auto; max-height: 90%; position: relative; }
-.yj-modal .centered img { width: 100%; }
+.yj-modal .centered img { width: 100%; cursor: url(https://img.t.sinajs.cn/t6/style/images/common/pic_next.cur), auto;}
 .yj-modal .centered .left{  position: fixed; width: 12%; height: 30%; cursor: pointer;  top: 32%; padding-top: 30%; left: 2%;  }
 .yj-modal .centered .right{  position: fixed; width: 12%; height: 30%; cursor: pointer;  top: 32%;  padding-top: 30%; right: 2%;  }
+.yj-modal .centered .left img, .yj-modal .centered .right img{ position: absolute; left: 0; top: 30%;}
 
 @font-face {  font-family: 'wbficonregular';  src: url("/fonts/wbficon.eot?id=f0cd81380febec0f#iefix") format('embedded-opentype'), url("/fonts/wbficon.svg?id=f0cd81380febec0f") format('svg'), url("/fonts/wbficon.woff?id=f0cd81380febec0f") format('woff'), url("/fonts/wbficon.ttf?id=f0cd81380febec0f") format('truetype');  font-weight: normal;  font-style: normal;  }
 .WB_feed_v3 .WB_text {  margin-bottom: 2px;  padding-bottom: 0;  }
