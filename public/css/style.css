@@ -306,5 +306,5 @@ ul.list li{  font-size: 14px;  line-height: 30px;  border-bottom: 1px solid #EEE
     #wrapper{max-height: 380px; }
     .content-related{width: 96%; padding: 0 2%;}
     .weibo-list-left, .weibo-list-right{width: 100%; padding: 0 0 0 2%;}
-    .__bg_gif{width: 10% !important;}
+    .detail-main p img.__bg_gif{width: 10% !important;}
 }
