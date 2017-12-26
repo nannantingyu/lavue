@@ -130,6 +130,6 @@ class IndexController extends Controller
     public function hotsearch(Request $request) {
         // 热门搜索
         $search = new Search();
-        return view('index.hotsearch', ['search'=>$search->search()]);
+        return view('index.hotsearch', ['search'=>$search->search(), "seo_title"=>"看看大家都在搜什么-粮叔叔", "seo_description"=>"最近有什么好玩的事情呢，快点关注粮叔叔吧！", "seo_keywords"=>"热搜,热门搜索,百度热搜,微博热搜"]);
     }
 }
