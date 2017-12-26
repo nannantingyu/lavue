@@ -111,8 +111,10 @@ class IndexController extends Controller
             ->take(5)->get();
 
         $seo_title = $article->title . "-粮叔叔";
-        $seo_description = "粮叔叔提供". $article->type ."的资讯新闻，打造一流的" . $article->type ."的服务提供商。";
-        return view('index.detail', ['article'=>$article, 'hot'=>$hot, 'favor'=>$favor, 'related'=>$related, 'latest'=>$latest, "seo_title"=>$seo_title, "seo_description"=>$seo_description]);
+        $seo_description = "粮叔叔提供【". $article->type ."】的资讯新闻";
+        $seo_keywords = DB::table('keywords_map')->where('s_id', $id)->pluck("keyword")->toArray();
+        $seo_keywords = implode(",", $seo_keywords);
+        return view('index.detail', ['article'=>$article, 'hot'=>$hot, 'favor'=>$favor, 'related'=>$related, 'latest'=>$latest, "seo_title"=>$seo_title, "seo_description"=>$seo_description, "seo_keywords"=>$seo_keywords]);
     }
 
     public function weibo(Request $request) {
@@ -123,5 +125,11 @@ class IndexController extends Controller
         $hotsearch = $search->hotSearch();
 
         return view('index.weibo', ['weibos'=>$weibos, 'hotsearch'=>$hotsearch]);
+    }
+
+    public function hotsearch(Request $request) {
+        // 热门搜索
+        $search = new Search();
+        return view('index.hotsearch', ['search'=>$search->search()]);
     }
 }

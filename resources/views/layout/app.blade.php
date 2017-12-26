@@ -11,7 +11,7 @@
         @if(isset($seo_keywords))
         <meta name="keywords" content="{{ $seo_keywords }}">
         @else
-        <meta name="keywords" content="{{ $default_seo_title }}">
+        <meta name="keywords" content="{{ $default_seo_keywords }}">
         @endif
         @if(isset($seo_description))
         <meta name="description" content="{{ $seo_description }}">

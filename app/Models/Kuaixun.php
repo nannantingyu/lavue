@@ -54,7 +54,7 @@ class Kuaixun extends Model
     }
 
     public function detail($id) {
-        $table = strpos($id, "fx") === 0?"fx678_kuaixun": strpos($id, "ji") === 0?"jin10_kuaixun":"wallstreetcn_kuaixun";
+        $table = strpos($id, "fx") === 0?"fx678_kuaixun": (strpos($id, "ji") === 0?"jin10_kuaixun":"wallstreetcn_kuaixun");
         $id = substr($id, 2);
         return DB::table($table)->where("id", $id)->first();
     }

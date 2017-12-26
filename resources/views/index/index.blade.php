@@ -39,7 +39,7 @@
 				});
 			</script>
 
-			<h2 class="sub-title"><a href="#">热门搜索</a></h2>
+			<h2 class="sub-title"><a href="{{ $base_url }}hotsearch">热门搜索</a></h2>
 			<ul class="news">
 				@foreach($hotkey as $hot)
 					<li>

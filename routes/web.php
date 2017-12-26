@@ -19,6 +19,7 @@ Route::get('/hotkey', "IndexController@hotkey");
 Route::get('/hotweibo', "IndexController@hotweibo");
 Route::get('/weibo', "IndexController@weibo");
 Route::get('/keywords', "IndexController@keywords");
+Route::get('/hotsearch', "IndexController@hotsearch");
 
 //Ajax
 Route::get('/baidu_tuisong', "AjaxController@baidu_tuisong");
@@ -46,7 +47,6 @@ Route::get('/baidu_{id}', "ListController@baidusearch");
 Route::get('/weibo_{id}', "ListController@weibosearch");
 Route::get('/keys_{key}_{page}', "ListController@keys");
 Route::get('/author_{author}', "ListController@author");
-
 
 //Caijing
 $router->get('/getDates', 'EconomicController@getDates');

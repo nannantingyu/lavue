@@ -8,7 +8,7 @@
 		<div class="kx-content">
 			<div class="stime">{{ $kx->publish_time }}</div>
 			<div class="body">
-				{{ $kx->body }}
+				{!! $kx->body !!}
 			</div>
 		</div>
 

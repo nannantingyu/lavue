@@ -61,6 +61,7 @@ p{line-height: 2.5rem;}
 .wp50{width: 50%; }
 .wp40{width: 40%; }
 .wp30{width: 30%; }
+.mpr10{margin-right: 10%;}
 
 .yj-backdrop{  position: fixed;  top: 0;  right: 0;  bottom: 0;  left: 0;  z-index: 1040;  background-color: #000;  opacity: 0.6; display: none; }
 .yj-modal:before {  content: '';  display: inline-block;  height: 100%;  vertical-align: middle;  margin-right: -0.25em; /* Adjusts for spacing */  }
@@ -162,6 +163,12 @@ ul.weibo{width: 100%;}
 ul.kuaixun li{position: relative; font-size: 14px;  line-height: 25px;  padding: 5px 0; border-bottom: 1px solid #EEEEFF;}
 ul.kuaixun li a {  color: #aa2213;  }
 
+/*search*/
+.search-list li{font-size: 16px; padding: 3px 10px !important;}
+.search-list li:hover{ background: #8eb8d1; color: #FFF; border-radius: 10px;}
+.search-list li:hover a{color: #FFF;}
+.search-list h2{padding: 10px 10px; font-size: 20px;}
+
 /**tab**/
 ul.tab-title{border-bottom: 2px solid #3ac;}
 ul.tab-title li{  float: left;  width: 100px;  text-align: center;  font-size: 18px;  line-height: 49px;  position: relative;  }
@@ -241,6 +248,7 @@ ul.list li{  font-size: 14px;  line-height: 30px;  border-bottom: 1px solid #EEE
 .jin-flash_time, .jin-flash_icon{  display: inline-block;  }
 /*jin10end*/
 
+.search-list{}
 .content-related{  width: 40%;  float: left;  margin-right: 10%;  }
 .content-related a{  font-size: 14px !important;  }
 .kx-content {  padding: 30px 10px;  line-height: 40px;  }

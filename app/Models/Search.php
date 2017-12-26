@@ -43,6 +43,22 @@ class Search extends Model
         return $all_keys;
     }
 
+    public function search() {
+        $weibo = DB::table("weibo_hotkey")->where("state", 1)
+            ->orderBy('time', 'desc')
+            ->orderBy('order', 'asc')
+            ->select('id', 'time', 'keyword', 'order')
+            ->paginate(30);
+
+        $baidu = DB::table("baidu_hotkey")->where("state", 1)
+            ->orderBy('time', 'desc')
+            ->orderBy('order', 'asc')
+            ->select('id', 'time', 'keyword', 'order')
+            ->paginate(30);
+
+        return ['weibo'=>$weibo, 'baidu'=>$baidu];
+    }
+
     public function detail($id) {
         $table = strpos($id, "fx") === 0?"fx678_kuaixun": strpos($id, "ji") === 0?"jin10_kuaixun":"wallstreetcn_kuaixun";
         $id = substr($id, 2);

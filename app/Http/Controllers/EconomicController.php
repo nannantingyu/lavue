@@ -16,7 +16,7 @@ class EconomicController extends Controller
 
     public function rili(Request $request) {
         $data = $this->getcjdatas($request);
-        return view('index.rili', ['data'=>$data]);
+        return view('index.rili', ['data'=>$data, 'seo_title'=>"财经日历-粮叔叔", "seo_description"=>"粮叔叔提供实时的财经日历信息, 为你的投资之旅提供便捷服务", "seo_keywords"=>"财经日历,财经事件,财经大事,假期安排"]);
     }
 
     public function getcjdatas(Request $request) {

@@ -22,7 +22,7 @@ class KuaixunController extends Controller
         $date = $request->input('st', null);
         $ret = $kuaixun->getKuaixun($request->input('page', 1), $request->input('num', 20), $date);
 
-        return view("index.kuaixun", ['kx'=>$ret]);
+        return view("index.kuaixun", ['kx'=>$ret, 'seo_title'=>'最新、最快、最全的财经快讯-粮叔叔', "seo_keywords"=>"快讯,财经", "seo_description"=>"粮叔叔提供最新、最快、最全的财经快讯，为你的投资理财保驾护航"]);
     }
 
     public function kuaixun_detail(Request $request, $id) {
@@ -48,7 +48,13 @@ class KuaixunController extends Controller
                 ->select('id', 'title', 'publish_time', 'created_time')
                 ->take(5)->get();
 
-            return view("index.kx_detail", ['kx'=>$kx, 'hot'=>$hot, 'favor'=>$favor, 'hotsearch'=>$hotsearch, 'latest'=>$latest]);
+            $params = [
+                "seo_title"=>mb_substr(strip_tags($kx->body), 0, 30)."-粮叔叔",
+                "seo_description"=>"粮叔叔为您呈现关于的最新资讯, 搜索结果, 如有需要纯正五常大米,请联系13522168390(刘女士)",
+                'kx'=>$kx, 'hot'=>$hot, 'favor'=>$favor, 'hotsearch'=>$hotsearch, 'latest'=>$latest
+            ];
+
+            return view("index.kx_detail", $params);
         }
     }
 }
