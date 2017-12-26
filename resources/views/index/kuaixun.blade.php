@@ -17,7 +17,7 @@
 						<div class="jin-flash_text is-only-text ">
 
 							<div id="J_flash_text20171221161954030100" class="jin-flash_text-box">
-								<p class="J_flash_text">{{ $val->body }}</p>
+								<p class="J_flash_text">{!! $val->body !!}</p>
 							</div>
 						</div>
 
