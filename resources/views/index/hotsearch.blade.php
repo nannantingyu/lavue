@@ -9,7 +9,7 @@
 			<ul class="list">
 				@foreach($search['weibo'] as $val)
 					<li>
-						<a href="{{ $base_url }}weibo_{{$val->id}}">{{ $val->keyword }}</a>
+						<a href="{{ $base_url }}weibo_{{$val->id}}" target="_blank">{{ $val->keyword }}</a>
 						<span class="right">{{ date("m-d H:i", strtotime($val->time)) }}</span>
 					</li>
 				@endforeach
@@ -20,7 +20,7 @@
 			<ul class="list">
 				@foreach($search['baidu'] as $val)
 					<li>
-						<a href="{{ $base_url }}baidu_{{$val->id}}">{{ $val->keyword }}</a>
+						<a href="{{ $base_url }}baidu_{{$val->id}}" target="_blank">{{ $val->keyword }}</a>
 						<span class="right">{{ date("m-d H:i", strtotime($val->time)) }}</span>
 					</li>
 				@endforeach
