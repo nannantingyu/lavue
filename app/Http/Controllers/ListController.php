@@ -35,9 +35,11 @@ class ListController extends Controller
     public function weibosearch(Request $request, $id) {
         if($id) {
             $articles = $this->getsearchlist("weibo_hotkey", $id);
-            $key = $articles[0]->keyword;
-            return view('index.search', ['articles'=>$articles, "seo_title"=>$key."_粮叔叔_炜煜稻花香合作社", "seo_description"=>"粮叔叔为您呈现关于".$key."的最新资讯, 搜索结果, 如有需要纯正五常大米,请联系13522168390(刘女士)"]);
+            if(count($articles) > 0) {
+		$key = $articles[0]->keyword;
+        	return view('index.search', ['articles'=>$articles, "seo_title"=>$key."_粮叔叔_炜煜稻花香合作社", "seo_description"=>"粮叔叔为您呈现关于".$key."的最新资讯, 搜索结果, 如有需要纯正五常大米,请联系13522168390(刘女士)"]);
         }
+	    }
 
         return redirect("/");
     }

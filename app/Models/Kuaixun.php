@@ -35,7 +35,12 @@ class Kuaixun extends Model
 
             $ret[$key]->body = strip_tags($val->body);
         }
-        return $ret;
+
+	$kx = [];
+	foreach($ret as $val){
+	    $kx[] = $val;
+	}
+        return $kx;
     }
 
     private function inWords($str, $keys) {
