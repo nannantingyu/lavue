@@ -119,7 +119,7 @@ nav .nav-mod ul:first-of-type li:first-of-type a{color: #b2e05d}
 .main-right .hot-goods dl dd img{width: 143px; }
 .main-right .hot-goods dl dt{text-align: center; line-height: 2.1rem; padding-top: 10px;}
 .main-content {width: 1200px; margin: 10px auto; overflow: hidden; font-size: 1.5rem;}
-.main-content .sub-title{font-size: 16px; line-height: 40px; margin-bottom: 10px; border-bottom: 3px solid #3ac;}
+.main-content .sub-title{font-size: 16px; line-height: 40px; margin-bottom: 10px; border-bottom: 3px solid #3ac; font-weight: bold;}
 .main-right .hot-blog .one-blog{margin: 10px 0; border-bottom: 1px solid #ccc;}
 .main-right .hot-blog .one-blog:last-of-type{border: none;}
 .main-right .hot-blog .one-blog .blog-title{font-size: 1.6rem; font-weight: bold; line-height: 30px;}

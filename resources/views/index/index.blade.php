@@ -39,7 +39,7 @@
 				});
 			</script>
 
-			<h2 class="sub-title"><a href="{{ $base_url }}hotsearch">热门搜索</a></h2>
+			<p class="sub-title"><a href="{{ $base_url }}hotsearch">热门搜索</a></p>
 			<ul class="news">
 				@foreach($hotkey as $hot)
 					<li>
@@ -49,7 +49,7 @@
 				@endforeach
 			</ul>
 
-			<h2 class="sub-title"><a href="{{ $base_url }}kuaixun">财经快讯</a></h2>
+			<h3 class="sub-title"><a href="{{ $base_url }}kuaixun">粮蔬快讯</a></h3>
 			<ul class="kuaixun">
 				@foreach($kuaixun as $kx)
 					<li>
@@ -106,7 +106,7 @@
 					</section>
 				</div>
 				<div class="middle-right">
-					<h2 class="sub-title"><a href="/weibo">热门微博</a></h2>
+					<p class="sub-title"><a href="/weibo">热门微博</a></p>
 					<ul class="weibo">
 						@foreach($weibos as $weibo)
 						<li>
@@ -135,14 +135,14 @@
 				</div>
 			</div>
 			<div class="main-middle clear">
-				<h2 class="sub-title"><a href="/rili">财经日历</a></h2>
+				<p class="sub-title"><a href="/rili">财经日历</a></p>
 				<section class="healthy">
 					<table width="100%" class="cjtb">
 					</table>
 				</section>
 
 				<img src="{{ asset('images/ad1.jpg') }}" class="ads-img">
-				<h2 class="sub-title">热卖单品</h2>
+				<h3 class="sub-title">粮叔叔热卖</h3>
 				<section class="hot-goods">
 					<dl>
 						<dd><a href="{{ $base_url }}login?name=1"><img src="{{ asset('images/rice/IMG_3456.JPG') }}"></a></dd>
