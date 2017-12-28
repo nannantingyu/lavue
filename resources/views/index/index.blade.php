@@ -111,13 +111,13 @@
 						@foreach($weibos as $weibo)
 						<li>
 							<div class="weibo_left">
-								<a href="{{ $weibo->author_link }}">
+								<a href="{{ $weibo->author_link }}" rel="nofollow">
 									<img src="{{ $weibo->author_img }}">
 								</a>
 							</div>
 							<div class="weibo_right">
-								<h4> <a href="{{ $weibo->author_link }}">{{ $weibo->author_name }} </a></h4>
-								<p><a href="{{ $weibo->source_url }}">{{ $weibo->pub_time }}</a></p>
+								<h4> <a href="{{ $weibo->author_link }}" rel="nofollow">{{ $weibo->author_name }} </a></h4>
+								<p><a href="{{ $weibo->source_url }}" rel="nofollow">{{ $weibo->pub_time }}</a></p>
 								<div class="weibo_content">
 									{!! $weibo->content !!}
 								</div>
