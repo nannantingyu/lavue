@@ -16,7 +16,6 @@ Route::get('/blog_{id}', "IndexController@detail");
 Route::get('/watch_{id}', "IndexController@detail");
 Route::get('/incre_{id}', "AjaxController@incre");
 Route::get('/hotkey', "IndexController@hotkey");
-Route::get('/hotweibo', "IndexController@hotweibo");
 Route::get('/weibo', "IndexController@weibo");
 Route::get('/keywords', "IndexController@keywords");
 Route::get('/hotsearch', "IndexController@hotsearch");
@@ -26,6 +25,7 @@ Route::get('/baidu_tuisong', "AjaxController@baidu_tuisong");
 Route::get('/body_src_repl', "AjaxController@body_src_repl");
 Route::get('/image', "ApiController@img");
 Route::get('/kx', "ApiController@getkx");
+Route::get('/hotweibo', "ApiController@hotweibo");
 
 //Login
 Route::get('/login', "LoginController@index");
