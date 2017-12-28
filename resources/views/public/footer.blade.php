@@ -13,6 +13,5 @@
 </footer>
 <script src="{{ URL::asset('js/bootstrap.js') }}"></script>
 <script src="{{ URL::asset('js/footer.js') }}"></script>
-
 </body>
 </html>

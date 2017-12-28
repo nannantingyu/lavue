@@ -47,6 +47,7 @@ function show_img() {
     $("#img-big").attr("src", $("ul.weibo>li:eq("+pindex+") ul.weibo-imgs li:eq("+index+") img").attr("src").replace("thumb150", "mw690"));
 }
 
+//百度提交
 (function(){
     var bp = document.createElement('script');
     var curProtocol = window.location.protocol.split(':')[0];
@@ -59,10 +60,16 @@ function show_img() {
     var s = document.getElementsByTagName("script")[0];
     s.parentNode.insertBefore(bp, s);
 })();
+//百度统计
 var _hmt = _hmt || [];
 (function() {
     var hm = document.createElement("script");
     hm.src = "https://hm.baidu.com/hm.js?ef2742dc05c0e157a799b41794930778";
     var s = document.getElementsByTagName("script")[0];
     s.parentNode.insertBefore(hm, s);
+})();
+
+//360搜索
+var src = (document.location.protocol == "http:") ? "http://js.passport.qihucdn.com/11.0.1.js?c6df82d8117d4f772d9a9ba46a5f87a1":"https://jspassport.ssl.qhimg.com/11.0.1.js?c6df82d8117d4f772d9a9ba46a5f87a1";
+    document.write('<script src="' + src + '" id="sozz"><\/script>');
 })();

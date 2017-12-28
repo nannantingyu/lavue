@@ -21,6 +21,7 @@
         <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <meta name="HandheldFriendly" content="true">
+        <meta name="shenma-site-verification" content="fd28a192f28f88f803811ece04994b7c_1514423713">
         <script src="{{ URL::asset('js/jquery.js') }}"></script>
         <script src="{{ URL::asset('js/show.js') }}"></script>
         <link rel="stylesheet" href="{{ URL::asset('css/bootstrap.css') }}">
