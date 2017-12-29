@@ -191,7 +191,7 @@ ul.tab-title li.current:after{  height: 4px;  transform: translateY(0);  -ms-tra
 .healthy ul li div.info-img {  width: 30%;  float: left;  }
 .healthy ul li div.info-img img{  width: 250px;  height: 150px;  }
 .healthy ul li h3{  font-size: 1.6rem;  line-height: 3.5rem;  font-weight: bold;  }
-.cofriend .co_title {  width: 1170px;  height: 27px;  margin: 0 auto;  font: 18px/18px "\5fae\8f6f\96c5\9ed1";  color: #2e9c82;  text-align: center;  background: url(http://img2.cache.netease.com/f2e/health/jiankangindex/images/youqing_71.png) no-repeat center center;  }
+.cofriend .co_title {  width: 1170px;  height: 27px;  margin: 0 auto;  font: 18px/18px "\5fae\8f6f\96c5\9ed1";  color: #2e9c82;  text-align: center;  background: url(/images/youqing_71.png) no-repeat center center;  }
 .cofriend .link_friend li {  width: 1170px;  margin: 0 auto;  overflow: hidden;  }
 .cofriend .link_friend li .cnt {  display: inline;  float: right;  width: 1170px;  }
 .cofriend .link_friend li .cnt a {  float: left;  padding: 0 6px;  display: block;  white-space: nowrap;  font: 12px/30px "SimSun";  color: #333;  }
