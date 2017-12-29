@@ -92,7 +92,7 @@ header .navbar-brand {float: left;}
 header .navbar-brand img {height: 60px;}
 header .navbar-search input[type="text"] {border: 1px solid #c1c1c1;float: left;display: inline;margin-top: 3px;border-radius: 0;font-family: "Arial","SimSun","宋体";height: 33px;width: 258px;font-size: 14px;padding: 0 6px;}
 header .navbar-search {padding: 10px 0; float: left; margin: 20px 0 0 10px;}
-header .navbar-search button{border: 0;float: left;display: inline;width: 66px;height: 35px;margin-top: 3px;margin-right: 6px;background: #ff8400 url(http://i0.sinaimg.cn/home/main/index2013/0719/bg2.png) 0 0 no-repeat;cursor: pointer;border-radius: 0;}
+header .navbar-search button{border: 0;float: left;display: inline;width: 66px;height: 35px;margin-top: 3px;margin-right: 6px;background: #ff8400 url(https://i0.sinaimg.cn/home/main/index2013/0719/bg2.png) 0 0 no-repeat;cursor: pointer;border-radius: 0;}
 
 header .navbar-login {float: right; margin: 0 20px;}
 header .navbar-login a{padding: 0 5px;}
