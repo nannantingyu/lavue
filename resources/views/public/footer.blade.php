@@ -11,7 +11,7 @@
         <div class="clear"></div>
     </div>
 </footer>
-<script src="{{ URL::asset('js/bootstrap.js') }}"></script>
+<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="{{ URL::asset('js/footer.js') }}"></script>
 </body>
 </html>

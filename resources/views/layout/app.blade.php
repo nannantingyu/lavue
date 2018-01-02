@@ -22,17 +22,17 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <meta name="HandheldFriendly" content="true">
         <meta name="shenma-site-verification" content="fd28a192f28f88f803811ece04994b7c_1514423713">
-        <script src="{{ URL::asset('js/jquery.js') }}"></script>
+        <script src="https://cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
         <script src="{{ URL::asset('js/show.js') }}"></script>
-        <link rel="stylesheet" href="{{ URL::asset('css/bootstrap.css') }}">
-        <link rel="stylesheet" href="{{ URL::asset('css/bootstrap-theme.css') }}">
+        <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
         <link rel="stylesheet" href="{{ URL::asset('css/style.css') }}">
-        @yield('css')
-        @yield('js')
     </head>
     <body>
         @include('public.header')
         @yield('content')
         @include('public.footer')
+        @yield('css')
+        @yield('js')
     </body>
 </html>
