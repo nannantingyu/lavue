@@ -62,6 +62,7 @@ p{line-height: 2.5rem;}
 .wp40{width: 40%; }
 .wp30{width: 30%; }
 .mpr10{margin-right: 10%;}
+.mpr5{margin-right: 5%;}
 
 .yj-backdrop{  position: fixed;  top: 0;  right: 0;  bottom: 0;  left: 0;  z-index: 1040;  background-color: #000;  opacity: 0.6; display: none; }
 .yj-modal:before {  content: '';  display: inline-block;  height: 100%;  vertical-align: middle;  margin-right: -0.25em; /* Adjusts for spacing */  }
@@ -164,7 +165,7 @@ ul.weibo{width: 100%;}
 
 ul.kuaixun li{position: relative; font-size: 14px;  line-height: 25px;  padding: 5px 0; border-bottom: 1px solid #EEEEFF;}
 ul.kuaixun li a {  color: #aa2213;  }
-
+ul.keywords li{ float: left; padding: 5px 20px;}
 /*search*/
 .search-list li{font-size: 16px; padding: 3px 10px !important;}
 .search-list li:hover{ background: #8eb8d1; color: #FFF; border-radius: 10px;}
@@ -222,6 +223,7 @@ footer a{  color: #EEE;  }
 .gg200x300{  display: none;  }
 
 /*list*/
+.con-list h2{padding-bottom: 20px;}
 .con-list{  padding: 20px;  min-height: 650px;  }
 .con-list ul li{  line-height: 35px;  }
 .con-list ul li div.title{  float: left;  }

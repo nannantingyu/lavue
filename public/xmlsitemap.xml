@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<urlset>
+    <url>
+        <loc>https://www.yjshare.cn/</loc>
+        <lastmod>2018-01-02</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>1.0</priority>
+    </url>
+    <url>
+        <loc>https://www.yjshare.cn/weibo/</loc>
+        <lastmod>2018-01-02</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>1.0</priority>
+    </url>
+    <url>
+        <loc>https://www.yjshare.cn/hotsearch</loc>
+        <lastmod>2018-01-02</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>1.0</priority>
+    </url>
+    <url>
+        <loc>https://www.yjshare.cn/rili/</loc>
+        <lastmod>2018-01-02</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>1.0</priority>
+    </url>
+    <url>
+        <loc>https://www.yjshare.cn/kuaixun/</loc>
+        <lastmod>2018-01-02</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>1.0</priority>
+    </url>
+</urlset>

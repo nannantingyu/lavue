@@ -44,6 +44,14 @@ class ListController extends Controller
         return redirect("/");
     }
 
+    public function keywords(Request $request) {
+        $allkeys = DB::table("keywords_map")->groupBy("keyword")->select(DB::raw("count(*) as cou, keyword"))
+            ->orderBy("cou", "desc")
+            ->paginate(200);
+
+        return view('index.keywords', ['keywords'=>$allkeys, "seo_title"=>"关键词_热门搜索_热门关键词_粮叔叔_炜煜稻花香合作社", "seo_description"=>"粮叔叔为您呈现最热门的搜索, 搜索结果, 如有需要纯正五常大米,请联系13522168390(刘女士)"]);
+    }
+
     private function getsearchlist($tb, $id) {
         $articles = DB::table('weixin_article')
             ->join($tb, $tb.".keyword", "=", "weixin_article.type")
@@ -62,7 +70,7 @@ class ListController extends Controller
                 ->where("keywords_map.keyword", $key)
                 ->orderBy('weixin_article.publish_time', 'desc')
                 ->select("weixin_article.id", "weixin_article.title", "weixin_article.publish_time", "weixin_article.author")
-                ->paginate(20);
+                ->paginate(25);
 
             return view('index.search', ['articles'=>$articles, "seo_title"=>$key."_粮叔叔_炜煜稻花香合作社", "seo_description"=>"粮叔叔为您呈现关于".$key."的最新资讯, 如有需要纯正五常大米,请联系13522168390(刘女士)"]);
         }
@@ -75,7 +83,7 @@ class ListController extends Controller
         if($keywords) {
             $articles = DB::table('weixin_article')
                 ->where('type', $keywords)
-                ->paginate(20);
+                ->paginate(25);
 
             return view('index.search', ['articles'=>$articles, "seo_title"=>$keywords."_粮叔叔_炜煜稻花香合作社", "seo_description"=>"粮叔叔为您呈现关于".$keywords."的最新资讯, 如有需要纯正五常大米,请联系13522168390(刘女士)"]);
         }
@@ -89,9 +97,10 @@ class ListController extends Controller
             $articles = DB::table('weixin_article')
                 ->where('title', 'like', '%'.$keywords.'%')
                 ->orWhere('type', 'like', $keywords.'%')
-                ->paginate(20);
+                ->paginate(25);
 
-            return view('index.search', ['articles'=>$articles, "seo_title"=>$keywords."_粮叔叔_炜煜稻花香合作社", "seo_description"=>"粮叔叔为您呈现关于".$keywords."的最新资讯, 如有需要纯正五常大米,请联系13522168390(刘女士)"]);
+            $allkeywords = DB::table('keywords_map')->where("keyword", 'like', "%".$keywords."%")->select(DB::raw('distinct(keyword)'))->get();
+            return view('index.search', ['articles'=>$articles, 'keywords'=>$allkeywords, "seo_title"=>$keywords."_粮叔叔_炜煜稻花香合作社", "seo_description"=>"粮叔叔为您呈现关于".$keywords."的最新资讯, 如有需要纯正五常大米,请联系13522168390(刘女士)"]);
         }
 
         return redirect("/");
