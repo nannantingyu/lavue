@@ -20,9 +20,10 @@ class KuaixunController extends Controller
     public function kuaixun(Request $request) {
         $kuaixun = new Kuaixun();
         $date = $request->input('st', null);
-        $ret = $kuaixun->getKuaixun($request->input('page', 1), $request->input('num', 20), $date);
+        $page = $request->input('page', 1);
+        $ret = $kuaixun->getKuaixun($page, $request->input('num', 20), $date);
 
-        return view("index.kuaixun", ['kx'=>$ret, 'seo_title'=>'最新、最快、最全的财经快讯-粮叔叔', "seo_keywords"=>"快讯,财经", "seo_description"=>"粮叔叔提供最新、最快、最全的财经快讯，为你的投资理财保驾护航"]);
+        return view("index.kuaixun", ['kx'=>$ret, 'next'=>$page+1, 'seo_title'=>'最新、最快、最全的财经快讯-粮叔叔', "seo_keywords"=>"快讯,财经", "seo_description"=>"粮叔叔提供最新、最快、最全的财经快讯，为你的投资理财保驾护航"]);
     }
 
     public function kuaixun_detail(Request $request, $id) {

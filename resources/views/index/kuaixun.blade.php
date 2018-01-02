@@ -8,7 +8,7 @@
 			@foreach($kx as $val)
 				<li>
 					<div class="jin-flash_icon">
-						<a href="/kuaixun_{{ substr($val->source_site, 0, 2) }}{{ $val->id }}" target="_blank"><i class="jin-icon jin-icon_flashNews"></i></a>
+						<a href="{{ $base_url }}kuaixun_{{ substr($val->source_site, 0, 2) }}{{ $val->id }}" target="_blank"><i class="jin-icon jin-icon_flashNews"></i></a>
 					</div>
 					<div class="jin-flash_time">{{ $val->publish_time }}</div>
 					<div class="jin-flash_b">
@@ -22,5 +22,9 @@
 				</li>
 			@endforeach
 		</ul>
+
+		<div class="page">
+			<a href="{{ $base_url }}kuaixun?page={{ $next }}">下一页</a>
+		</div>
 	</div>
 @endsection
