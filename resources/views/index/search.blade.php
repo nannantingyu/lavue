@@ -5,6 +5,7 @@
             @if(isset($keywords))
             <div class="left wp70 mpr5">
             @endif
+            @if(count($articles) > 0)
                 <ul>
                     @foreach($articles as $vo)
                         <li>
@@ -17,6 +18,12 @@
                 <div class="page">
                     {{ $articles->links() }}
                 </div>
+            @else
+                <p class="info-msg">
+                    实在抱歉，暂时没有您想要的结果，我们的爬虫会尽量帮您抓取的，请稍后再试试吧！<br>
+                    如有需要，请联系 <a href="mainto:939259192@qq.com">939259192@qq.com</a>
+                </p>
+            @endif
             @if(isset($keywords))
             </div>
             @endif

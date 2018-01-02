@@ -25,8 +25,7 @@ class ListController extends Controller
     public function baidusearch(Request $request, $id) {
         if($id) {
             $articles = $this->getsearchlist("baidu_hotkey", $id);
-            $key = $articles[0]->keyword;
-            return view('index.search', ['articles'=>$articles, "seo_title"=>$key."_粮叔叔_炜煜稻花香合作社", "seo_description"=>"粮叔叔为您呈现关于".$key."的最新资讯, 搜索结果, 如有需要纯正五常大米,请联系13522168390(刘女士)"]);
+            return view('index.search', ['articles'=>$articles['articles'], "seo_title"=>$articles['keyword']."_粮叔叔_炜煜稻花香合作社", "seo_description"=>"粮叔叔为您呈现关于".$articles['keyword']."的最新资讯, 搜索结果, 如有需要纯正五常大米,请联系13522168390(刘女士)"]);
         }
 
         return redirect("/");
@@ -35,10 +34,7 @@ class ListController extends Controller
     public function weibosearch(Request $request, $id) {
         if($id) {
             $articles = $this->getsearchlist("weibo_hotkey", $id);
-            if(count($articles) > 0) {
-		$key = $articles[0]->keyword;
-        	return view('index.search', ['articles'=>$articles, "seo_title"=>$key."_粮叔叔_炜煜稻花香合作社", "seo_description"=>"粮叔叔为您呈现关于".$key."的最新资讯, 搜索结果, 如有需要纯正五常大米,请联系13522168390(刘女士)"]);
-        }
+            return view('index.search', ['articles'=>$articles['articles'], "seo_title"=>$articles['keyword']."_粮叔叔_炜煜稻花香合作社", "seo_description"=>"粮叔叔为您呈现关于".$articles['keyword']."的最新资讯, 搜索结果, 如有需要纯正五常大米,请联系13522168390(刘女士)"]);
 	    }
 
         return redirect("/");
@@ -60,7 +56,14 @@ class ListController extends Controller
             ->select($tb.".keyword", "weixin_article.id", "weixin_article.title", "weixin_article.publish_time", "weixin_article.author")
             ->paginate(20);
 
-        return $articles;
+        if(count($articles) > 0) {
+            $key = $articles[0]['keyword'];
+        }
+        else {
+            $key = DB::table($tb)->where("id", $id)->pluck("keyword")[0];
+        }
+
+        return ["articles"=>$articles, "keyword"=>$key];
     }
 
     public function keys(Request $request, $key, $page=1) {

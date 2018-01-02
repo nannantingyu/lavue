@@ -38,6 +38,7 @@ html {
     html {  font-size: 9.411764705882353px;  }
 }
 
+.info-msg{line-height: 60px;text-align: center;font-size: 27px;color: brown;font-weight: bold; margin-top:200px;}
 .clearfix:after {display: block;visibility: hidden;clear: both;height: 0;content: ".";}
 .clearfix {display: inline-block;display: block;}
 .none {display: none;}
