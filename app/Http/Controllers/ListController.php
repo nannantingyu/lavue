@@ -57,7 +57,7 @@ class ListController extends Controller
             ->paginate(20);
 
         if(count($articles) > 0) {
-            $key = $articles[0]['keyword'];
+            $key = $articles[0]->keyword;
         }
         else {
             $key = DB::table($tb)->where("id", $id)->pluck("keyword")[0];
