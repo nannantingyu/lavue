@@ -3,7 +3,7 @@
     <div class="main-content">
         <div class="con-list">
             @if(isset($keywords))
-            <div class="left wp80 mpr5">
+            <div class="left wp70 mpr5">
             @endif
                 <ul>
                     @foreach($articles as $vo)
@@ -22,7 +22,7 @@
             @endif
 
             @if(isset($keywords))
-            <div class="left mp20">
+            <div class="left wp25">
                 <h2>相关搜索</h2>
                 <ul>
                     @foreach($keywords as $val)

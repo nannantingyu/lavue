@@ -99,7 +99,13 @@ class ListController extends Controller
                 ->orWhere('type', 'like', $keywords.'%')
                 ->paginate(25);
 
-            $allkeywords = DB::table('keywords_map')->where("keyword", 'like', "%".$keywords."%")->select(DB::raw('distinct(keyword)'))->get();
+            $allkeywords = DB::table('keywords_map')->where("keyword", 'like', "%".$keywords."%")
+                ->groupBy("keyword")
+                ->select(DB::raw('count(keyword) as cou, keyword'))
+                ->orderBy("cou", "desc")
+                ->take(20)
+                ->get();
+
             return view('index.search', ['articles'=>$articles, 'keywords'=>$allkeywords, "seo_title"=>$keywords."_粮叔叔_炜煜稻花香合作社", "seo_description"=>"粮叔叔为您呈现关于".$keywords."的最新资讯, 如有需要纯正五常大米,请联系13522168390(刘女士)"]);
         }
 
