@@ -11,7 +11,7 @@ use App\Models\EconomicHoliday;
 class ToolController extends Controller
 {
     public function __construct() {
-        $this->pagecount = 1000;
+        $this->pagecount = 10000;
         $this->sitePath = "../public/xmlsitemap/sitemap.xml";
     }
 
