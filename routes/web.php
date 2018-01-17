@@ -65,4 +65,8 @@ $router->get('/rili', 'EconomicController@rili');
 $router->get('/kuaixun', 'KuaixunController@kuaixun');
 $router->get('/kuaixun_{id}', 'KuaixunController@kuaixun_detail');
 
+//other
+$router->get('/sitemap', 'ToolController@sitemap');
+$router->get('/xmlsitemap/article{page}.xml', 'ToolController@site');
+
 Route::get('/test', "TestController@index");
