@@ -142,7 +142,7 @@ class ToolController extends Controller
 
         $content = $content->orderBy('created_time', 'desc')
             ->skip(($page-1) * $this->pagecount)
-            ->take($page*$this->pagecount)
+            ->take($this->pagecount)
             ->select('id', 'created_time')
             ->get();
 
