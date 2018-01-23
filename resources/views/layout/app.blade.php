@@ -22,6 +22,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <meta name="HandheldFriendly" content="true">
         <meta name="shenma-site-verification" content="fd28a192f28f88f803811ece04994b7c_1514423713">
+        <meta name="shenma-site-verification" content="3e57730f15f25aaacebe45772e8c49f8_1516669781">
         <script src="https://cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
         <script src="{{ URL::asset('js/show.js') }}"></script>
         <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
