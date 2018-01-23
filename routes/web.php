@@ -69,4 +69,4 @@ $router->get('/kuaixun_{id}', 'KuaixunController@kuaixun_detail');
 $router->get('/sitemap.xml', 'ToolController@sitemap');
 $router->get('/xmlsitemap/article{page}.xml', 'ToolController@site');
 
-Route::get('/test', "TestController@index");
+Route::get('/test', "Test2Controller@index");
