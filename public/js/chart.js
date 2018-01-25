@@ -18,7 +18,7 @@ $(function () {
     });
 });
 
-const socket = io('http://image.yjshare.cn:8088', {
+const socket = io('https://image.yjshare.cn:8088', {
     transports: ['websocket']
 });
 
