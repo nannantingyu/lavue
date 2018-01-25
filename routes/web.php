@@ -65,6 +65,9 @@ $router->get('/rili', 'EconomicController@rili');
 $router->get('/kuaixun', 'KuaixunController@kuaixun');
 $router->get('/kuaixun_{id}', 'KuaixunController@kuaixun_detail');
 
+//hq
+$router->get('/hq_btc', 'HqController@index');
+
 //other
 $router->get('/sitemap.xml', 'ToolController@sitemap');
 $router->get('/xmlsitemap/article{page}.xml', 'ToolController@site');

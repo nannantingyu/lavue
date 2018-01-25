@@ -66,6 +66,12 @@ p{line-height: 2.5rem;}
 .mpr10{margin-right: 10%;}
 .mpr5{margin-right: 5%;}
 
+.hq h2{
+    text-align: center;
+    font-size: 25px;
+    line-height: 130px;
+}
+
 .yj-backdrop{  position: fixed;  top: 0;  right: 0;  bottom: 0;  left: 0;  z-index: 1040;  background-color: #000;  opacity: 0.6; display: none; }
 .yj-modal:before {  content: '';  display: inline-block;  height: 100%;  vertical-align: middle;  margin-right: -0.25em; /* Adjusts for spacing */  }
 .yj-modal{  position: fixed; display: none; top: 0;  right: 0;  bottom: 0;  left: 0;  z-index: 1050;  overflow: hidden;  outline: 0;  opacity: 1;  text-align: center;  }
