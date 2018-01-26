@@ -19,6 +19,7 @@ $(function () {
 });
 
 const socket = io('https://image.yjshare.cn:8088', {
+    secure: true,
     transports: ['websocket']
 });
 
