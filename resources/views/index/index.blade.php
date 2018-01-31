@@ -63,13 +63,25 @@
 			<div class="main-middle">
 				<div class="middle-left">
 					<ul class="tab-title">
-						<li class='current'><a href="{{ $base_url }}list_北京">每日北京</a></li>
+						<li class='current'><a href="{{ $base_url }}news">最新资讯</a></li>
+						<li><a href="{{ $base_url }}hots">全国热议</a></li>
 						<li><a href="{{ $base_url }}list_五常大米">五常大米</a></li>
-						<li><a href="{{ $base_url }}list_中国">中国</a></li>
 						<div class="clear"></div>
 					</ul>
 					<section class="hot-blog clear">
-						@foreach($beijing as $article)
+						@foreach($newest as $article)
+							<div class="one-blog">
+								<p class="blog-title"><a href="{{ $base_url }}blog_{{ $article->id }}">{{ $article->title }}</a></p>
+								<p class="blog-desc">{{ $article->description }}</p>
+								<div class="blog-info">
+									<span class="blog-time">{{ date("Y-m-d", strtotime($article->publish_time)) }}</span>
+									<span class="blog-author"><a href="{{ $base_url }}author_{{ $article->author }}">{{ $article->author }}</a></span>
+								</div>
+							</div>
+						@endforeach
+					</section>
+					<section class="hot-blog clear none">
+						@foreach($hotest as $article)
 							<div class="one-blog">
 								<p class="blog-title"><a href="{{ $base_url }}blog_{{ $article->id }}">{{ $article->title }}</a></p>
 								<p class="blog-desc">{{ $article->description }}</p>
@@ -82,18 +94,6 @@
 					</section>
 					<section class="hot-blog clear none">
 						@foreach($rice as $article)
-							<div class="one-blog">
-								<p class="blog-title"><a href="{{ $base_url }}blog_{{ $article->id }}">{{ $article->title }}</a></p>
-								<p class="blog-desc">{{ $article->description }}</p>
-								<div class="blog-info">
-									<span class="blog-time">{{ date("Y-m-d", strtotime($article->publish_time)) }}</span>
-									<span class="blog-author"><a href="{{ $base_url }}author_{{ $article->author }}">{{ $article->author }}</a></span>
-								</div>
-							</div>
-						@endforeach
-					</section>
-					<section class="hot-blog clear none">
-						@foreach($china as $article)
 							<div class="one-blog">
 								<p class="blog-title"><a href="{{ $base_url }}blog_{{ $article->id }}">{{ $article->title }}</a></p>
 								<p class="blog-desc">{{ $article->description }}</p>

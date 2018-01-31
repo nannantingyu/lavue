@@ -48,6 +48,8 @@ Route::get('/weibo_{id}', "ListController@weibosearch");
 Route::get('/keys_{key}_{page}', "ListController@keys");
 Route::get('/author_{author}', "ListController@author");
 Route::get('/keys', "ListController@keywords");
+Route::get('/news', "ListController@news");
+Route::get('/hots', "ListController@hots");
 
 //Caijing
 $router->get('/getDates', 'EconomicController@getDates');

@@ -24,10 +24,9 @@ class IndexController extends Controller
             ->take(5)
             ->get();
 
+        $index_num = 6;
         $type_index = [
-            "rice"  =>  ["name"=>"五常大米", "num"=>6],
-            "beijing"  =>  ["name"=>"北京", "num"=>6],
-            "china"  =>  ["name"=>"中国", "num"=>6],
+            "rice"  =>  ["name"=>"五常大米", "num"=>$index_num]
         ];
 
         //后门，清理缓存
@@ -49,6 +48,22 @@ class IndexController extends Controller
                     ->get();
             });
         }
+
+        //最新文章
+        $assign['newest'] = DB::table('weixin_article')
+            ->where("type", "<>", "五常大米")
+            ->orderBy("weixin_article.publish_time", 'desc')
+            ->select('weixin_article.title','weixin_article.id','weixin_article.publish_time', 'weixin_article.updated_time', 'weixin_article.description', 'weixin_article.author')
+            ->take($index_num)
+            ->get();
+
+        //最热文章
+        $assign['hotest'] = DB::table('weixin_article')
+            ->where("publish_time", ">", date("Y-m-d H:i:s", strtotime("-1 month")))
+            ->orderBy("weixin_article.favor", 'desc')
+            ->select('weixin_article.title','weixin_article.id','weixin_article.publish_time', 'weixin_article.updated_time', 'weixin_article.description', 'weixin_article.author')
+            ->take($index_num)
+            ->get();
 
         $assign['articles'] = $articles;
 

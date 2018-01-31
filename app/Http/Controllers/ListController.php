@@ -16,10 +16,30 @@ class ListController extends Controller
                 ->orderBy('publish_time', 'desc')
                 ->paginate(20);
 
-            return view('index.search', ['articles'=>$articles, "seo_title"=>$type."_粮叔叔_炜煜稻花香合作社", "seo_description"=>"粮叔叔为您呈现关于".$type."的最新资讯, 搜索结果, 如有需要纯正五常大米,请联系13522168390(刘女士)"]);
+            return view('index.search', ['articles'=>$articles, "seo_title"=>$type."_粮叔叔_炜煜_稻花香_水稻合作社", "seo_description"=>"粮叔叔为您呈现关于".$type."的最新资讯, 搜索结果, 如有需要纯正五常大米,请联系13522168390(刘女士)"]);
         }
 
         return redirect("/");
+    }
+
+    public function news(Request $request) {
+        $articles = DB::table('weixin_article')
+            ->where("publish_time", ">", date("Y-m-d H:i:s", strtotime("-10 days")))
+            ->orderBy("weixin_article.publish_time", 'desc')
+            ->paginate(20);
+
+        return view('index.search', ['articles'=>$articles, "seo_title"=>"最新资讯_粮叔叔_炜煜_稻花香_水稻合作社", "seo_description"=>"粮叔叔为您呈现最新资讯, 如有需要纯正五常大米,请联系13522168390(刘女士)"]);
+    }
+
+    public function hots(Request $request) {
+//        dump(date("Y-m-d H:i:s", strtotime("-2 month")));
+//        die;
+        $articles = DB::table('weixin_article')
+            ->where("publish_time", ">", date("Y-m-d H:i:s", strtotime("-10 days")))
+            ->orderBy("weixin_article.favor", 'desc')
+            ->paginate(20);
+
+        return view('index.search', ['articles'=>$articles, "seo_title"=>"最新资讯_粮叔叔_炜煜_稻花香_水稻合作社", "seo_description"=>"粮叔叔为您呈现最新资讯, 如有需要纯正五常大米,请联系13522168390(刘女士)"]);
     }
 
     public function baidusearch(Request $request, $id) {
