@@ -51,6 +51,7 @@ class IndexController extends Controller
 
         //最新文章
         $assign['newest'] = DB::table('weixin_article')
+            ->join("weixin_article_detail", "weixin_article.id", "=", "weixin_article_detail.id")
             ->where("type", "<>", "五常大米")
             ->orderBy("weixin_article.publish_time", 'desc')
             ->select('weixin_article.title','weixin_article.id','weixin_article.publish_time', 'weixin_article.updated_time', 'weixin_article.description', 'weixin_article.author')
