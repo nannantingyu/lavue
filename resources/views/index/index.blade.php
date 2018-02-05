@@ -225,4 +225,21 @@
 
 	<!-- 友情链接 -->
 	@include("public.friendlink")
+	<script src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+	<script>
+		wx.onMenuShareAppMessage({
+			title: '这个是标题哦哦哦哦哦', // 分享标题
+			desc: '这个是描述哦哦哦哦哦', // 分享描述
+			link: 'https://www.yjshare.cn', // 分享链接
+			imgUrl: 'https://image.yjshare.cn/2018/2/5/AvZz7MAy9Bn4ngTyTBok0sdr5U3lVVTcpq0NtwU3aHlecOYltyBBREqfD3NSJjsRFuLicbTCbTq8AlrcK0z6XDA.jpg', // 分享图标
+			type: '', // 分享类型,music、video或link，不填默认为link
+			dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+			success: function () {
+				// 用户确认分享后执行的回调函数
+			},
+			cancel: function () {
+				// 用户取消分享后执行的回调函数
+			}
+		});
+	</script>
 @endsection
