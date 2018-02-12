@@ -108,20 +108,25 @@ class IndexController extends Controller
         }
 
         $hot = DB::table('weixin_article')
+            ->where("publish_time", ">", date("Y-m-d H:i:s", strtotime("-1 month")))
             ->orderBy('hits', 'desc')->take(5)
             ->select('id', 'title', 'publish_time', 'created_time')
             ->get();
+
         $related = DB::table('weixin_article')
+            ->where("publish_time", ">", date("Y-m-d H:i:s", strtotime("-1 month")))
             ->where('type', $article->type)
 	        ->select('id', 'title', 'publish_time', 'created_time')
             ->orderBy('hits', 'desc')->take(5)->get();
 
         $favor = DB::table('weixin_article')
+            ->where("publish_time", ">", date("Y-m-d H:i:s", strtotime("-1 month")))
             ->orderBy('favor', 'desc')
 	        ->select('id', 'title', 'publish_time', 'created_time')
             ->take(5)->get();
 
         $latest = DB::table('weixin_article')
+            ->where("publish_time", ">", date("Y-m-d H:i:s", strtotime("-1 month")))
             ->orderBy('publish_time', 'desc')
 	        ->select('id', 'title', 'publish_time', 'created_time')
             ->take(5)->get();
