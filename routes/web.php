@@ -73,5 +73,6 @@ $router->get('/hq_btc', 'HqController@index');
 //other
 $router->get('/sitemap.xml', 'ToolController@sitemap');
 $router->get('/xmlsitemap/article{page}.xml', 'ToolController@site');
+$router->post('/trans', 'ToolController@trans_downfile');
 
 Route::get('/test', "Test2Controller@index");

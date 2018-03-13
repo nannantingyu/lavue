@@ -3,10 +3,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use App\Models\EconomicCalendar;
-use App\Models\EconomicJiedu;
-use App\Models\EconomicEvent;
-use App\Models\EconomicHoliday;
+use Illuminate\Support\Facades\Redis;
 
 class ToolController extends Controller
 {
@@ -172,5 +169,19 @@ class ToolController extends Controller
 
         $newsite->saveXML($maxSite);
         print_r($newsite->asXML());
+    }
+
+    public function trans_downfile(Request $request) {
+
+        $down_files = $request->input("files");
+        if(!is_null($down_files)) {
+            $down_files = explode(",", $down_files);
+            Redis::sadd("downfile_queue_ex", $down_files);
+
+            return response()->json([
+                "state" => 1,
+                "message" => "请求成功！一共上传".count($down_files)."个文件",
+            ]);
+        }
     }
 }
