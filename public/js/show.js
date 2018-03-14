@@ -7,7 +7,8 @@ $(function(){
 		$(child_content[_this.index()]).show();
 	});
 
-	if(screen.width > 480){
+	console.log(location.href);
+	if(screen.width > 480 && location.href.indexOf("residential") == -1){
 		$(window).scroll(function(){
 			var top = $(document).scrollTop();
 			if(top >= 100) {

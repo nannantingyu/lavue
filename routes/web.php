@@ -76,3 +76,9 @@ $router->get('/xmlsitemap/article{page}.xml', 'ToolController@site');
 $router->post('/trans', 'ToolController@trans_downfile');
 
 Route::get('/test', "Test2Controller@index");
+
+//candy
+$router->get('/residential', 'HouseController@residential');
+$router->get('/house', 'HouseController@history');
+$router->get('/areahouse', 'HouseController@getAreaResidential');
+$router->get('/crawl/{name}', 'HouseController@crawl');

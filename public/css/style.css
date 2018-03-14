@@ -272,6 +272,59 @@ ul.list li{  font-size: 14px;  line-height: 30px;  border-bottom: 1px solid #EEE
 .weibo-list .weibo_right{width: 90%; padding: 10px 0 30px 15px; border-bottom: 1px solid #EEEEFF;}
 /*微博列表页结束*/
 
+/*房子*/
+ul.area li {
+    float: left;
+    padding: 8px 20px;
+    display: block;
+    border: 1px solid #ccc;
+    margin-right: 14px;
+    margin-bottom: 9px;
+}
+
+ul.area li:hover, ul.area li:hover a, ul.area li.cur, ul.area li.cur a {
+    background: #0f0f0f;
+    color: #fff;
+}
+
+.area-house .area-init {
+    line-height: 50px;
+    font-size: 22px;
+    font-weight: bold;
+    width: 100%;
+    border: 1px solid #ccc;
+    padding-left: 2%;
+    cursor: pointer;
+}
+
+.area-house .area-init:hover {
+    background: #0f0f0f;
+    color: #fff;
+}
+
+.area-house .lists ul.show {
+    display: block;
+}
+
+.area-house .lists ul{
+    display: none;
+}
+
+.area-house .lists li {
+    line-height: 30px;
+    font-size: 18px;
+    padding: 2px 30px;
+}
+
+.area-house span.up {
+    float: right;
+    margin-right: 4%;
+}
+
+ul.nav li {
+    float: left;
+}
+
 @media screen and (max-width:480px) {
     header{  width: 100%;  min-width: 0;  }
     header .content{  width: 100%;  }

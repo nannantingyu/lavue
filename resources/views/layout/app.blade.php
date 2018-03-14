@@ -22,10 +22,10 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <meta name="HandheldFriendly" content="true">
         <script src="https://cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
-        <script src="{{ URL::asset('js/show.js') }}"></script>
+        <script src="{{ URL::asset('js/show.js') }}?1"></script>
         <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
-        <link rel="stylesheet" href="{{ URL::asset('css/style.css') }}">
+        <link rel="stylesheet" href="{{ URL::asset('css/style.css') }}?3">
     </head>
     <body>
         @include('public.header')
