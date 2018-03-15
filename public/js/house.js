@@ -135,8 +135,8 @@ function showhistory(id, name) {
                 let crawl_html = `
                     <p id="crawl_state">暂无该小区数据，是否进行爬取？</p>
                     <p class="text-right">
-                        <button onclick="crawl_history(${id}, '${name}')">爬取</button>
-                        <button onclick="$('#myModal').modal('hide');">取消</button>
+                        <button class="btn btn-default" onclick="crawl_history(${id}, '${name}')">爬取</button>
+                        <button class="btn btn-info" onclick="$('#myModal').modal('hide');">取消</button>
                     </p>`;
 
                 $("#chartx").html(crawl_html);
