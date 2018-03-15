@@ -192,6 +192,7 @@ function showinfo(id, name) {
                         <button class="btn btn-info" onclick="$('#myModal').modal('hide');">取消</button>
                     </p>`;
 
+                $("#myModalLabel").html("是否抓取");
                 $("#chartx").html(crawl_html);
                 $("#myModal").modal("show");
             }
@@ -227,7 +228,9 @@ function crawl_info(id, name) {
             if(data.state == 1) {
                 $("#crawl_state").html("爬取成功，重新加载中...");
                 $("#myModal").modal("hide");
-                showinfo(id, name);
+                $('#myModal').on('hiden.bs.modal', function (e) {
+                    showinfo(id, name);
+                });
             }
         }
     })
