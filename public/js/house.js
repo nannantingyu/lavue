@@ -185,10 +185,6 @@ function showinfo(id, name) {
                 $("#info-modal").modal("show");
             }
             else if(result.state == 0) {
-                if(chart) {
-                    chart.destroy();
-                }
-
                 let crawl_html = `
                     <p id="crawl_state">暂无该小区数据，是否进行爬取？</p>
                     <p class="text-right">
