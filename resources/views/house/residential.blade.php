@@ -76,10 +76,10 @@
 
     <input type="hidden" id="_token" value="{{ csrf_token() }}">
     <script src="{{ asset('js/common.js') }}"></script>
-    <script src="{{ asset('js/house.js') }}?9"></script>
+    <script src="{{ asset('js/house.js') }}?10"></script>
     <script src="{{ asset('js/bootstrap.js') }}"></script>
     <script src="{{ asset('js/highcharts.js') }}"></script>
     <script src="{{ asset('js/highcharts-zh_CN.js') }}"></script>
     {{--<script type="text/javascript" src="https://webapi.amap.com/maps?v=1.4.4&key=cdcc3108ec75857cf1efeea348a68519"></script>--}}
-    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=8ilGs4NIQN9rxbeACZCteObPswym2EtQ"></script>
+    <script type="text/javascript" src="https://api.map.baidu.com/api?v=2.0&ak=8ilGs4NIQN9rxbeACZCteObPswym2EtQ"></script>
 @endsection
