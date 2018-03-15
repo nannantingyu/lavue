@@ -169,17 +169,24 @@ function showinfo(id, name) {
                 $("#rent").html(result.data.rent_num);
 
                 $('#info-modal').on('shown.bs.modal', function (e) {
-                    let map = new AMap.Map('map', {
-                        resizeEnable: true,
-                        zoom: 15,
-                        center: [result.data.longitude, result.data.latitude],
-                    });
 
-                    let marker = new AMap.Marker({
-                        position: [result.data.longitude, result.data.latitude],
-                        title: result.data.residential,
-                        map: map
-                    });
+                    var map = new BMap.Map("map");          // 创建地图实例
+                    var point = new BMap.Point(result.data.longitude, result.data.latitude);  // 创建点坐标
+                    map.centerAndZoom(point, 15);
+                    map.enableScrollWheelZoom(true);
+                    var marker = new BMap.Marker(point);        // 创建标注
+                    map.addOverlay(marker);
+                    // let map = new AMap.Map('map', {
+                    //     resizeEnable: true,
+                    //     zoom: 15,
+                    //     center: [result.data.longitude, result.data.latitude],
+                    // });
+                    //
+                    // let marker = new AMap.Marker({
+                    //     position: [result.data.longitude, result.data.latitude],
+                    //     title: result.data.residential,
+                    //     map: map
+                    // });
                 });
 
                 $("#info-modal").modal("show");
