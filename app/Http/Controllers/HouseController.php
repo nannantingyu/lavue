@@ -136,7 +136,7 @@ class HouseController extends Controller
 
     public function crawl(Request $request, $name) {
         if($name) {
-            shell_exec("cd /d E:/Captain/spider-scrapy/crawl && D:/soft/Python2.7/Scripts/scrapy.exe crawl crawl_house_history -a args=name:$name");
+            shell_exec("cd /data/spider-scrapy/crawl && /usr/bin/scrapy crawl crawl_house_history -a args=name:$name");
             return [
                 "state" => 1,
                 "message" => "爬取成功"
@@ -149,11 +149,19 @@ class HouseController extends Controller
         $id = $request->input('id');
 
         if($name && $id) {
-            shell_exec("cd /d E:/Captain/spider-scrapy/crawl && D:/soft/Python2.7/Scripts/scrapy.exe crawl crawl_anjuke_lianjia_residential -a args=name:$name,id:$id");
-            return [
-                "state" => 1,
-                "message" => "爬取成功"
-            ];
+            $var = shell_exec("cd /data/spider-scrapy/crawl && /usr/bin/scrapy crawl crawl_anjuke_lianjia_residential -a args=name:$name,id:$id");
+            if(trim($var) == 'No') {
+		return [
+                	"state" => 0,
+	                "message" => "没有数据"
+            	];
+	    }
+	    else {
+		return [
+              		"state" => 1,
+	               	"message" => "爬取成功"
+	            ];
+	    }
         }
     }
 }
