@@ -41,7 +41,11 @@ class HouseController extends Controller
             }
         }
 
-        return view("house/residential", ['areas'=>$areas, 'residential'=>$residential]);
+
+        $seo_title = "天津小区历史房价-粮叔叔";
+        $seo_description = "粮叔叔提供【天津各个小区的历史房价】，如需别的房价信息，请联系939259192@qq.com";
+        $seo_keywords = "天津小区房价,历史房价,房价,小区";
+        return view("house/residential", ['areas'=>$areas, 'residential'=>$residential, "seo_title"=>$seo_title, "seo_description"=>$seo_description, "seo_keywords"=>$seo_keywords]);
     }
 
     public function getAreaResidential(Request $request) {
