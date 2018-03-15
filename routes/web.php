@@ -81,4 +81,4 @@ Route::get('/test', "Test2Controller@index");
 $router->get('/residential', 'HouseController@residential');
 $router->get('/house', 'HouseController@history');
 $router->get('/areahouse', 'HouseController@getAreaResidential');
-$router->get('/crawl/{name}', 'HouseController@crawl');
+$router->post('/crawl/{name}', 'HouseController@crawl');

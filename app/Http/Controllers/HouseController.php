@@ -73,13 +73,42 @@ class HouseController extends Controller
     }
 
     public function history(Request $request) {
-        return view('house/history');
+        $residential_id = $request->input("rid");
+        if(!is_null($residential_id)) {
+            $rkey = "residential:".$residential_id;
+            $history_data = Redis::get($rkey);
+            $history_data = json_decode($history_data, true);
+            if(!isset($history_data['data']) || empty($history_data['data'])) {
+                $history_data_db = DB::table("house_history")
+                    ->where("residential_id", $residential_id)
+                    ->orderBy("year", "asc")
+                    ->orderBy("month", "asc")
+                    ->select("year", "month", "price")
+                    ->get();
+
+                if(count($history_data_db) > 0) {
+                    $history_data['data'] = $history_data_db;
+                    Redis::set($rkey, json_encode($history_data));
+                }
+                else{
+                    return [
+                        "state" => 0,
+                        "message" => "暂无数据，可以进行抓取，请点击抓取"
+                    ];
+                }
+            }
+
+            return ['state' => 1, "data" => $history_data];
+        }
     }
 
     public function crawl(Request $request, $name) {
         if($name) {
             shell_exec("cd /d E:/Captain/spider-scrapy/crawl && D:/soft/Python2.7/Scripts/scrapy.exe crawl crawl_house_history -a args=name:$name");
-            return "爬取成功";
+            return [
+                "state" => 1,
+                "message" => "爬取成功"
+            ];
         }
     }
 
