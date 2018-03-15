@@ -228,9 +228,7 @@ function crawl_info(id, name) {
             if(data.state == 1) {
                 $("#crawl_state").html("爬取成功，重新加载中...");
                 $("#myModal").modal("hide");
-                $('#myModal').on('hidden.bs.modal', function (e) {
-                    showinfo(id, name);
-                });
+                showinfo(id, name);
             }
             else {
                 $("#crawl_state").html("爬取失败，没有数据");
