@@ -78,7 +78,7 @@ function showhistory(id, name) {
             $("#crawl_state").html("");
             if(result.state == 1) {
                 let xdata = [], ydata = [];
-                for(let d of result.data.data) {
+                for(let d of result.data) {
                     xdata.push(d["year"] + "-" + d["month"]);
                     ydata.push(d["price"]);
                 }
