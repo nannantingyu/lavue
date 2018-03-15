@@ -186,7 +186,7 @@ function showinfo(id, name) {
             }
             else if(result.state == 0) {
                 let crawl_html = `
-                    <p id="crawl_state">暂无该小区数据，是否进行爬取？</p>
+                    <p id="crawl_state">暂无该小区信息，是否进行爬取？</p>
                     <p class="text-right">
                         <button class="btn btn-default" onclick="crawl_info(${id}, '${name}')">爬取</button>
                         <button class="btn btn-info" onclick="$('#myModal').modal('hide');">取消</button>
