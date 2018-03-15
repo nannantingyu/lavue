@@ -151,17 +151,17 @@ class HouseController extends Controller
         if($name && $id) {
             $var = shell_exec("cd /data/spider-scrapy/crawl && /usr/bin/scrapy crawl crawl_anjuke_lianjia_residential -a args=name:$name,id:$id");
             if(trim($var) == 'No') {
-		return [
+                return [
                 	"state" => 0,
 	                "message" => "没有数据"
             	];
-	    }
-	    else {
-		return [
+	        }
+	        else {
+		        return [
               		"state" => 1,
 	               	"message" => "爬取成功"
 	            ];
-	    }
+	        }
         }
     }
 }

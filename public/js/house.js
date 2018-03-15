@@ -232,6 +232,9 @@ function crawl_info(id, name) {
                     showinfo(id, name);
                 });
             }
+            else {
+                $("#crawl_state").html("爬取失败，没有数据");
+            }
         }
     })
 }
