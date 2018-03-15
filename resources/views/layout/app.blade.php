@@ -25,7 +25,7 @@
         <script src="{{ URL::asset('js/show.js') }}?1"></script>
         <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
-        <link rel="stylesheet" href="{{ URL::asset('css/style.css') }}?3">
+        <link rel="stylesheet" href="{{ URL::asset('css/style.css') }}?4">
     </head>
     <body>
         @include('public.header')

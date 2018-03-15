@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redis;
 use App\Common\Pinyinfirstchar;
+use Think\Exception;
 
 class HouseController extends Controller
 {
@@ -36,8 +37,7 @@ class HouseController extends Controller
                     $residential[] = $re;
                 }
 
-                Redis::sadd("area:".$re->area, $re->residential_id.":".$re->residential);
-                Redis::set("residential:".$re->residential_id, json_encode($re));
+                Redis::sadd("area:".$re->area, $re->residential_id.":".$re->residential.":".$re->build_year);
             }
         }
 
@@ -49,7 +49,6 @@ class HouseController extends Controller
     }
 
     public function getAreaResidential(Request $request) {
-
         $area = $request->input("area", "北辰区");
         $key = Redis::keys("area:".$area);
         $residential = [];
@@ -76,6 +75,36 @@ class HouseController extends Controller
         return response()->json($ret);
     }
 
+    public function getResidentialInfo(Request $request) {
+        $id = $request->input("id");
+        $rkey = "residential:".$id;
+
+        if($id) {
+            $info = null;
+            if(Redis::keys($rkey) && Redis::type($rkey) == 'hash') {
+                $info = Redis::hget($rkey, "info");
+            }
+
+            if($info) {
+                $info = json_decode($info, true);
+            }
+            else {
+                $info = DB::table("anjuke_residential")
+                    ->where("residential_id", $id)
+                    ->first();
+
+                if($info && $info->lianjia_id) {
+                    Redis::hset($rkey, "info", json_encode($info));
+                }
+                else {
+                    return ['state'=>0, "message"=>"没有详情，点击获取"];
+                }
+            }
+
+            return ["state"=>1, "data"=>$info];
+        }
+    }
+
     public function history(Request $request) {
         $residential_id = $request->input("rid");
         if(!is_null($residential_id)) {
@@ -83,16 +112,15 @@ class HouseController extends Controller
             $history_data = Redis::get($rkey);
             $history_data = json_decode($history_data, true);
             if(!isset($history_data['data']) || empty($history_data['data'])) {
-                $history_data_db = DB::table("house_history")
+                $history_data = DB::table("house_history")
                     ->where("residential_id", $residential_id)
                     ->orderBy("year", "asc")
                     ->orderBy("month", "asc")
                     ->select("year", "month", "price")
                     ->get();
 
-                if(count($history_data_db) > 0) {
-                    $history_data['data'] = $history_data_db;
-                    Redis::set($rkey, json_encode($history_data));
+                if(count($history_data) > 0) {
+                    Redis::hset($rkey, "history", json_encode($history_data));
                 }
                 else{
                     return [
@@ -116,4 +144,16 @@ class HouseController extends Controller
         }
     }
 
+    public function crawlinfo(Request $request) {
+        $name = $request->input("name");
+        $id = $request->input('id');
+
+        if($name && $id) {
+            shell_exec("cd /d E:/Captain/spider-scrapy/crawl && D:/soft/Python2.7/Scripts/scrapy.exe crawl crawl_anjuke_lianjia_residential -a args=name:$name,id:$id");
+            return [
+                "state" => 1,
+                "message" => "爬取成功"
+            ];
+        }
+    }
 }

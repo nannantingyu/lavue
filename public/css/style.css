@@ -311,9 +311,15 @@ ul.area li:hover, ul.area li:hover a, ul.area li.cur, ul.area li.cur a {
 }
 
 .area-house .lists li {
-    line-height: 30px;
+    line-height: 50px;
     font-size: 18px;
-    padding: 2px 30px;
+    padding: 2px 3px;
+    width: 94%;
+    margin: 0 2%;
+    border-bottom: 1px solid #C2CCD1;
+}
+.area-house .lists li button {
+    margin: 7px 0;
 }
 
 .area-house span.up {
@@ -323,6 +329,11 @@ ul.area li:hover, ul.area li:hover a, ul.area li.cur, ul.area li.cur a {
 
 ul.nav li {
     float: left;
+}
+
+#map {
+    width: 100%;
+    height: 300px;
 }
 
 @media screen and (max-width:480px) {
