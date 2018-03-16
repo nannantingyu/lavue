@@ -160,7 +160,7 @@ function showinfo(id, name) {
             if(result.state == 1) {
                 $("#rname").html(result.data.residential);
                 $("#ajk").attr("href", result.data.residential_url);
-                $("#lj").attr("href", "https://tj.lianjia.com/ershoufang/"+result.data.lianjia_id+".html");
+                $("#lj").attr("href", "https://tj.lianjia.com/xiaoqu/"+result.data.lianjia_id+".html");
                 $("#year").html(result.data.build_year);
                 $("#type").html(result.data.build_type);
                 $("#area").html(result.data.area);
