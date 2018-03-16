@@ -109,7 +109,7 @@ class HouseController extends Controller
         $residential_id = $request->input("rid");
         if(!is_null($residential_id)) {
             $rkey = "residential:".$residential_id;
-            $history_data = Redis::get($rkey);
+            $history_data = Redis::hget($rkey, "history");
             $history_data = json_decode($history_data, true);
             if(!isset($history_data['data']) || empty($history_data['data'])) {
                 $history_data = DB::table("house_history")
