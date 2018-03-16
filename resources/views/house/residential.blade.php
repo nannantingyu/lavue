@@ -50,8 +50,8 @@
                         <table class="table table-hover">
                             <tr>
                                 <td id="rname"></td>
-                                <td><a id="ajk" href="javascript:;">安居客</a></td>
-                                <td><a id="lj" href="javascript:;">链家</a></td>
+                                <td><a id="ajk" target="_blank" href="javascript:;">安居客</a></td>
+                                <td><a id="lj" target="_blank" href="javascript:;">链家</a></td>
                             </tr>
                             <tr>
                                 <td>年代：<span id="year"></span></td>
