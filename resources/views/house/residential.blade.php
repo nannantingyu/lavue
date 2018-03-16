@@ -76,7 +76,7 @@
 
     <input type="hidden" id="_token" value="{{ csrf_token() }}">
     <script src="{{ asset('js/common.js') }}"></script>
-    <script src="{{ asset('js/house.js') }}?12"></script>
+    <script src="{{ asset('js/house.js') }}?13"></script>
     <script src="{{ asset('js/bootstrap.js') }}"></script>
     <script src="{{ asset('js/highcharts.js') }}"></script>
     <script src="{{ asset('js/highcharts-zh_CN.js') }}"></script>
