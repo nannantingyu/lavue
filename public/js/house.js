@@ -168,14 +168,18 @@ function showinfo(id, name) {
                 $("#sell").html(result.data.sell_num);
                 $("#rent").html(result.data.rent_num);
 
+                $("#residentialinfo").html(result.data.residential + "-小区详情");
+
                 $('#info-modal').on('shown.bs.modal', function (e) {
 
                     var map = new BMap.Map("map");          // 创建地图实例
                     var point = new BMap.Point(result.data.longitude, result.data.latitude);  // 创建点坐标
-                    map.centerAndZoom(point, 15);
+                    map.centerAndZoom(point, 11);
                     map.enableScrollWheelZoom(true);
-                    var marker = new BMap.Marker(point);        // 创建标注
+                    var marker = new BMap.Marker(point, {Label: result.data.residential});        // 创建标注
                     map.addOverlay(marker);
+                    map.addControl(new BMap.NavigationControl());    
+                    map.addControl(new BMap.ScaleControl());
                     // let map = new AMap.Map('map', {
                     //     resizeEnable: true,
                     //     zoom: 15,
