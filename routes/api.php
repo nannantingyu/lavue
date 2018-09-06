@@ -16,3 +16,13 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('accountType', "AccountController@getAccountType");
+Route::get('account', "AccountController@getAccount");
+Route::get('accountLog', "AccountController@getAccountLog");
+Route::post('addAccountType', "AccountController@addOrUpdateAccountType");
+Route::post('addAccount', "AccountController@addOrUpdateAccount");
+Route::post('addAccountLog', "AccountController@addOrUpdateAccountLog");
+Route::get('getSentence', "SentenceController@index");
+Route::post('addWxUser', "WxController@addOrUpdateWxUser");
+Route::get('getUserInfo', 'WxController@getUserInfo');
