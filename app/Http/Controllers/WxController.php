@@ -39,7 +39,7 @@ class WxController extends Controller
             $info->save();
             $id = $info->id;
         }
-        return ['success' => 1, 'data' => ['id' => $id]];
+        return ['success' => 1, 'data' => ['id' => $user->id]];
     }
 
     /**

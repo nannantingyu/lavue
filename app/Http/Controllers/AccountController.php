@@ -76,6 +76,7 @@ class AccountController extends Controller
             'account_type' => $request->input('account_type'),
             'wx_id' => $request->input('wx_id'),
             'account_name' => $request->input('account_name'),
+            'account_description' => $request->input('account_description'),
             'single_price' => $request->input('single_price'),
         ];
 
@@ -203,9 +204,11 @@ class AccountController extends Controller
      */
     public function getAccount(Request $request) {
         $wx_id = $request->input('wx_id');
-        if(!is_null($wx_id)) {
+        $account_type = $request->input('account_type');
+        if(!is_null($wx_id) and !is_null($account_type)) {
             $types = WxAccount::where('wx_id', $wx_id)
-                ->orderBy('created_time', 'desc')
+                ->where('account_type', $account_type)
+                ->orderBy('created_at', 'desc')
                 ->get();
 
             return ['success'=>1, 'data'=>$types];

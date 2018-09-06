@@ -12,6 +12,7 @@ class WxAccount extends Model
         'wx_id',
         'account_type',
         'account_name',
-        'account_single_price',
+        'single_price',
+        'account_description'
     ];
 }
