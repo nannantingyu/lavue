@@ -18,20 +18,22 @@ class WxController extends Controller
         if ($validator->fails()) {
             return ['success' => 0, 'msg' => $validator->errors()];
         }
+
+        $wx_id = $request->input('wx_id');
         $form = [
             'wx_name' => $request->input('wx_name'),
             'avatar' => $request->input('avatar'),
-            'wx_id' => $request->input('wx_id'),
+            'wx_id' => $wx_id,
             'country' => $request->input('country'),
             'province' => $request->input('province'),
             'city' => $request->input('city'),
             'gender' => $request->input('gender'),
         ];
 
-        $id = $request->input('id');
+        $user = WxUser::where('wx_id', $wx_id)->first();
 
-        if (!is_null($id)) {
-            WxUser::where('id', $id)->update($form);
+        if (!is_null($user)) {
+            WxUser::where('id', $user->id)->update($form);
         } else {
             $info = new WxUser($form);
             $info->save();
