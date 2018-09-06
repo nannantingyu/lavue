@@ -26,3 +26,4 @@ Route::post('addAccountLog', "AccountController@addOrUpdateAccountLog");
 Route::get('getSentence', "SentenceController@index");
 Route::post('addWxUser', "WxController@addOrUpdateWxUser");
 Route::get('getUserInfo', 'WxController@getUserInfo');
+Route::get('getWxOpenid', 'WxController@getWxOpenid');

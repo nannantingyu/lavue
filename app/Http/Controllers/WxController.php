@@ -86,4 +86,20 @@ class WxController extends Controller
         ];
         return Validator::make($request->all(), $rules, $messages);
     }
+
+    /**
+     * @param Request $request
+     */
+    public function getWxOpenid(Request $request) {
+        $code = $request->input('code');
+        if(!is_null($code)) {
+            $appid = "wx8e4e12d6284850a5";
+            $secret = "4f30b527ab7a9c1f19c34146dece52f7";
+            $openid_url = "https://api.weixin.qq.com/sns/jscode2session?appid=$appid&secret=$secret&js_code=$code&grant_type=authorization_code";
+            $data = https_request($openid_url);
+            return ['success'=>1, "data"=>$data];
+        }
+
+        return ['success'=>0];
+    }
 }
