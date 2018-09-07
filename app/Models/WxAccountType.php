@@ -11,6 +11,7 @@ class WxAccountType extends Model
     protected $fillable = [
         'wx_id',
         'account_type',
-        'account_description'
+        'account_description',
+        'icon'
     ];
 }

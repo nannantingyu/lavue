@@ -24,6 +24,7 @@ class AccountController extends Controller
             'account_type' => $request->input('account_type'),
             'account_description' => $request->input('account_description'),
             'wx_id' => $request->input('wx_id'),
+            'icon' => $request->input('icon')
         ];
 
         $id = $request->input('id');
@@ -78,6 +79,7 @@ class AccountController extends Controller
             'account_name' => $request->input('account_name'),
             'account_description' => $request->input('account_description'),
             'single_price' => $request->input('single_price'),
+            'icon' => $request->input('icon')
         ];
 
         $id = $request->input('id');
