@@ -14,4 +14,8 @@ class WxAccountType extends Model
         'account_description',
         'icon'
     ];
+
+    public function accounts() {
+        return $this->hasMany('App\Models\WxAccount', 'account_type', 'id');
+    }
 }

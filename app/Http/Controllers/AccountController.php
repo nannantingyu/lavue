@@ -236,6 +236,7 @@ class AccountController extends Controller
         if(!is_null($wx_id)) {
             $types = WxAccountType::where('wx_id', $wx_id)
                 ->orderBy('created_at', 'desc')
+                ->with("accounts")
                 ->get();
 
             return ['success'=>1, 'data'=>$types];
@@ -255,6 +256,7 @@ class AccountController extends Controller
         if(!is_null($wx_id) and !is_null($account_type)) {
             $types = WxAccount::where('wx_id', $wx_id)
                 ->where('account_type', $account_type)
+                ->with("logs")
                 ->orderBy('created_at', 'desc')
                 ->get();
 
