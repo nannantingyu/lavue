@@ -20,6 +20,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::get('accountType', "AccountController@getAccountType");
 Route::get('account', "AccountController@getAccount");
 Route::get('accountLog', "AccountController@getAccountLog");
+Route::get('removeAccountType', "AccountController@removeAccountType");
+Route::get('removeAccount', "AccountController@removeAccount");
+Route::get('removeAccountLog', "AccountController@removeAccountLog");
 Route::post('addAccountType', "AccountController@addOrUpdateAccountType");
 Route::post('addAccount', "AccountController@addOrUpdateAccount");
 Route::post('addAccountLog', "AccountController@addOrUpdateAccountLog");

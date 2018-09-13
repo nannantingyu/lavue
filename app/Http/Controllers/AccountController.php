@@ -40,6 +40,21 @@ class AccountController extends Controller
     }
 
     /**
+     * 删除账单类型
+     * @param Request $request
+     */
+    public function removeAccountType(Request $request) {
+        $id = $request->input('id');
+        $wx_id = $request->input('wx_id');
+        if(!is_null($id)) {
+            WxAccountType::where('id', $id)->where('wx_id', $wx_id)->delete();
+            return ['success' => 1];
+        }
+
+        return ['success' => 0];
+    }
+
+    /**
      * 账单类型表单验证
      * @param $request
      * @return mixed
@@ -92,6 +107,21 @@ class AccountController extends Controller
             $id = $info->id;
         }
         return ['success' => 1, 'data' => ['id' => $id]];
+    }
+
+    /**
+     * 删除账单类型
+     * @param Request $request
+     */
+    public function removeAccount(Request $request) {
+        $id = $request->input('id');
+        $wx_id = $request->input('wx_id');
+        if(!is_null($id)) {
+            WxAccount::where('id', $id)->where('wx_id', $wx_id)->delete();
+            return ['success' => 1];
+        }
+
+        return ['success' => 0];
     }
 
     /**
@@ -148,6 +178,21 @@ class AccountController extends Controller
             $id = $info->id;
         }
         return ['success' => 1, 'data' => ['id' => $id]];
+    }
+
+    /**
+     * 删除账单类型
+     * @param Request $request
+     */
+    public function removeAccountLog(Request $request) {
+        $id = $request->input('id');
+        $wx_id = $request->input('wx_id');
+        if(!is_null($id)) {
+            WxAccountLog::where('id', $id)->where('wx_id', $wx_id)->delete();
+            return ['success' => 1];
+        }
+
+        return ['success' => 0];
     }
 
     /**
