@@ -273,8 +273,11 @@ class AccountController extends Controller
      */
     public function getAccountLog(Request $request) {
         $wx_id = $request->input('wx_id');
-        if(!is_null($wx_id)) {
+        $account_id = $request->input('account_id');
+
+        if(!is_null($wx_id) and !is_null($account_id)) {
             $types = WxAccountLog::where('wx_id', $wx_id)
+                ->where('account_id', $account_id)
                 ->orderBy('created_at', 'desc')
                 ->get();
 
