@@ -160,26 +160,29 @@ class AccountController extends Controller
             return ['success' => 0, 'msg' => $validator->errors()];
         }
 
-        $form = [
-            'amount' => $request->input('amount'),
-            'wx_id' => $request->input('wx_id'),
-            'account_name' => $request->input('account_name'),
-            'single_price' => $request->input('single_price'),
-            'start_time' => $request->input('start_time'),
-            'end_time' => $request->input('end_time'),
-            'type' => $request->input('type') == '收入'?1:0
-        ];
+        $start_time = $request->input('start_time');
+        $end_time = $request->input('end_time');
 
-        $id = $request->input('id');
+        $st = stttotime($start_time);
+        $et = strtotime($end_time);
+        $t = $st;
 
-        if (!is_null($id)) {
-            WxAccountLog::where('id', $id)->update($form);
-        } else {
-            $info = new WxAccountLog($form);
+        while ($t <= $et) {
+            $info = new WxAccountLog([
+                'amount' => $request->input('amount'),
+                'wx_id' => $request->input('wx_id'),
+                'account_name' => $request->input('account_name'),
+                'single_price' => $request->input('single_price'),
+                'start_time' => 1,
+                'end_time' => $request->input('end_time'),
+                'type' => $request->input('type') == '收入'?1:0
+            ]);
+
             $info->save();
-            $id = $info->id;
+            $t += 3600*24;
         }
-        return ['success' => 1, 'data' => ['id' => $id]];
+
+        return ['success' => 1];
     }
 
     /**
@@ -287,5 +290,29 @@ class AccountController extends Controller
         }
 
         return ['success'=>0];
+    }
+
+    /**
+     * 获取每个月的总支出和总收入
+     * @param Request $request
+     */
+    public function getMonthAll(Request $request) {
+        $wx_id = $request->input('wx_id');
+        $all_data = WxAccountLog::where('wx_id', $wx_id)->get();
+        $all_out = 0;
+        $all_in = 0;
+        $all_days = [];
+        foreach ($all_data as $key=>$val) {
+            if($val->type === 1) {
+                $all_out += $val->single_price * $val->amount;
+            }
+            else {
+                $all_in += $val->single_price * $val->amount;
+            }
+
+            array_push($all_days[date('Y-m-d', strtotime($val->start_time))], $val);
+        }
+
+        return ['success'=>1, 'data'=>['all_in'=>$all_in, 'all_out'=>$all_out, 'days'=>$all_days]];
     }
 }
