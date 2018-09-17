@@ -14,6 +14,7 @@ class WxAccountLog extends Model
         'single_price',
         'amount',
         'start_time',
-        'end_time'
+        'end_time',
+        'type'
     ];
 }

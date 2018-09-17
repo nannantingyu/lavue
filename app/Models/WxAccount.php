@@ -18,6 +18,6 @@ class WxAccount extends Model
     ];
 
     public function logs() {
-        return $this->hasMany('App\Models\WxAccountLog', 'account_id', 'id');
+        return $this->hasMany('App\Models\WxAccountLog', 'account_name', 'id');
     }
 }
