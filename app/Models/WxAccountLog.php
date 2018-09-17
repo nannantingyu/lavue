@@ -10,7 +10,7 @@ class WxAccountLog extends Model
 
     protected $fillable = [
         'wx_id',
-        'account_type',
+        'account_name',
         'single_price',
         'amount',
         'start_time',
