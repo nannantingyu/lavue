@@ -163,7 +163,7 @@ class AccountController extends Controller
         $start_time = $request->input('start_time');
         $end_time = $request->input('end_time');
 
-        $st = stttotime($start_time);
+        $st = strtotime($start_time);
         $et = strtotime($end_time);
         $t = $st;
 
