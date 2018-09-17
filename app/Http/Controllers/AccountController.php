@@ -159,6 +159,7 @@ class AccountController extends Controller
         if ($validator->fails()) {
             return ['success' => 0, 'msg' => $validator->errors()];
         }
+
         $form = [
             'amount' => $request->input('amount'),
             'wx_id' => $request->input('wx_id'),
@@ -166,6 +167,7 @@ class AccountController extends Controller
             'single_price' => $request->input('single_price'),
             'start_time' => $request->input('start_time'),
             'end_time' => $request->input('end_time'),
+            'type' => $request->input('type') == '收入'?1:0
         ];
 
         $id = $request->input('id');
