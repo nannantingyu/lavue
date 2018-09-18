@@ -314,7 +314,7 @@ class AccountController extends Controller
                 $all_in += $val->single_price * $val->amount;
             }
 
-            if(!in_array(date('Y-m-d', strtotime($val->start_time)), $all_days)) {
+            if(!isset($all_days[date('Y-m-d', strtotime($val->start_time))])) {
                 $all_days[date('Y-m-d', strtotime($val->start_time))] = [];
             }
 
