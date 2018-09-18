@@ -94,7 +94,8 @@ class AccountController extends Controller
             'account_name' => $request->input('account_name'),
             'account_description' => $request->input('account_description'),
             'single_price' => $request->input('single_price'),
-            'icon' => $request->input('icon')
+            'icon' => $request->input('icon'),
+            'type' => $request->input('type') == '收入'?1:0,
         ];
 
         $id = $request->input('id');

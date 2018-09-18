@@ -15,6 +15,7 @@ class WxAccount extends Model
         'single_price',
         'account_description',
         'icon',
+        'type',
     ];
 
     public function logs() {
