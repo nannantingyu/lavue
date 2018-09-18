@@ -286,7 +286,7 @@ class AccountController extends Controller
 
         if(!is_null($wx_id) and !is_null($account_id)) {
             $types = WxAccountLog::where('wx_id', $wx_id)
-                ->where('account_id', $account_id)
+                ->where('account_name', $account_id)
                 ->orderBy('created_at', 'desc')
                 ->get();
 
@@ -302,7 +302,24 @@ class AccountController extends Controller
      */
     public function getMonthAll(Request $request) {
         $wx_id = $request->input('wx_id');
-        $all_data = WxAccountLog::where('wx_id', $wx_id)->get();
+        $year = $request->input('year');
+        $month = $request->input('month');
+
+        $startday = date("Y-m-d 00:00:00", strtotime("$year-$month-01"));
+        $endday = date('Y-m-d 23:59:59', strtotime("$startday +1 month -1 day"));
+
+        $account_name = $request->input('account_name');
+
+        $all_data = WxAccountLog::where('wx_id', $wx_id)
+            ->where('start_time', '>=', $startday)
+            ->where('start_time', '<=', $endday);
+
+        if(!is_null($account_name)) {
+            $all_data = $all_data->where('account_name', $account_name);
+        }
+
+        $all_data = $all_data->get();
+
         $all_out = 0;
         $all_in = 0;
         $all_days = [];
