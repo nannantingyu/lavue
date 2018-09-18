@@ -173,9 +173,10 @@ class AccountController extends Controller
                 'wx_id' => $request->input('wx_id'),
                 'account_name' => $request->input('account_name'),
                 'single_price' => $request->input('single_price'),
-                'start_time' => 1,
-                'end_time' => $request->input('end_time'),
-                'type' => $request->input('type') == '收入'?1:0
+                'start_time' => date("Y-m-d H:i:s", $t),
+                'end_time' => date("Y-m-d 23:59:59", $t),
+                'type' => $request->input('type') == '收入'?1:0,
+                'account_description' => $request->input('account_description')
             ]);
 
             $info->save();
@@ -258,10 +259,13 @@ class AccountController extends Controller
     public function getAccount(Request $request) {
         $wx_id = $request->input('wx_id');
         $account_type = $request->input('account_type');
-        if(!is_null($wx_id) and !is_null($account_type)) {
-            $types = WxAccount::where('wx_id', $wx_id)
-                ->where('account_type', $account_type)
-                ->with("logs")
+        if(!is_null($wx_id)) {
+            $types = WxAccount::where('wx_id', $wx_id);
+            if(!is_null($account_type)) {
+                $types = $types->where('account_type', $account_type);
+            }
+
+            $types = $types->with("logs")
                 ->orderBy('created_at', 'desc')
                 ->get();
 
@@ -308,6 +312,10 @@ class AccountController extends Controller
             }
             else {
                 $all_in += $val->single_price * $val->amount;
+            }
+
+            if(!in_array(date('Y-m-d', strtotime($val->start_time)), $all_days)) {
+                $all_days[date('Y-m-d', strtotime($val->start_time))] = [];
             }
 
             array_push($all_days[date('Y-m-d', strtotime($val->start_time))], $val);

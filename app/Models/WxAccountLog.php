@@ -15,6 +15,7 @@ class WxAccountLog extends Model
         'amount',
         'start_time',
         'end_time',
-        'type'
+        'type',
+        'account_description'
     ];
 }
