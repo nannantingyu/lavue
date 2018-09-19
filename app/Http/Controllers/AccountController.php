@@ -371,4 +371,47 @@ class AccountController extends Controller
 
         return ['success'=>1, 'data'=>['all_in'=>$all_in, 'all_out'=>$all_out, 'days'=>$all_days]];
     }
+
+    /**
+     * 获取统计数据
+     * @param Request $request
+     */
+    public function accountData(Request $request) {
+        $type = $request->input('type');
+        $wx_id = $request->input('wx_id');
+        $start_date = $request->input('st', date("Y-m-d", strtotime("-3 month")));
+        $end_date = $request->input('st', date("Y-m-d"));
+        $keyid = $request->input('keyid');
+
+        if(!is_null($type) && !is_null($wx_id) && !is_null($keyid)) {
+            if($type === 'account') {
+                $data = WxAccountLog::where('account_name', $keyid)
+                    ->where('wx_id', $wx_id)
+                    ->where('start_time', '>=', $start_date)
+                    ->where('end_time', '>=', $end_date)
+                    ->get();
+            }
+            elseif($type === 'account_type') {
+                $accounts = WxAccount::where('account_type', $keyid)->select('id')->get();
+                $data = WxAccountLog::whereIn('account_name', $accounts)
+                    ->where('wx_id', $wx_id)
+                    ->where('start_time', '>=', $start_date)
+                    ->where('end_time', '>=', $end_date)
+                    ->get();
+            }
+            elseif($type === 'type') {
+                $data = WxAccountLog::where('type', $keyid)
+                    ->where('wx_id', $wx_id)
+                    ->where('start_time', '>=', $start_date)
+                    ->where('end_time', '>=', $end_date)
+                    ->get();
+            }
+
+            return ['success'=>1, 'data'=>$data];
+        }
+
+        return ['success'=>0];
+    }
+
+
 }
