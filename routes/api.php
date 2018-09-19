@@ -28,6 +28,7 @@ Route::post('addAccount', "AccountController@addOrUpdateAccount");
 Route::post('addAccountLog', "AccountController@addOrUpdateAccountLog");
 Route::get('getMonthAll', 'AccountController@getMonthAll');
 
+Route::post('favorAccount', "AccountController@favorAccount");
 Route::get('getSentence', "SentenceController@index");
 Route::post('addWxUser', "WxController@addOrUpdateWxUser");
 Route::get('getUserInfo', 'WxController@getUserInfo');

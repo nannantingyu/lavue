@@ -126,6 +126,22 @@ class AccountController extends Controller
     }
 
     /**
+     * 收藏账单
+     * @param Request $request
+     */
+    public function favorAccount(Request $request) {
+        $id = $request->input('id');
+        $wx_id = $request->input('wx_id');
+        $favor = $request->input('favor');
+        if(!is_null($id)) {
+            WxAccount::where('id', $id)->where('wx_id', $wx_id)->update(['favor'=>$favor]);
+            return ['success' => 1];
+        }
+
+        return ['success' => 0];
+    }
+
+    /**
      * 账单类型表单验证
      * @param $request
      * @return mixed
@@ -326,10 +342,10 @@ class AccountController extends Controller
         $all_days = [];
         foreach ($all_data as $key=>$val) {
             if($val->type === 1) {
-                $all_out += $val->single_price * $val->amount;
+                $all_in += $val->single_price * $val->amount;
             }
             else {
-                $all_in += $val->single_price * $val->amount;
+                $all_out += $val->single_price * $val->amount;
             }
 
             if(!isset($all_days[date('Y-m-d', strtotime($val->start_time))])) {
