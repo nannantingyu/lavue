@@ -126,6 +126,20 @@ class AccountController extends Controller
     }
 
     /**
+     * 获取收藏的账单
+     * @param Request $request
+     */
+    public function getFavorAccount(Request $request) {
+        $wx_id = $request->input('wx_id');
+        if(!is_null($wx_id)) {
+            $account = WxAccount::where('favor', 1)->get();
+            return ['success'=>1, 'data'=>$account];
+        }
+
+        return ['success'=>0];
+    }
+
+    /**
      * 收藏账单
      * @param Request $request
      */

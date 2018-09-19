@@ -19,16 +19,17 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::get('accountType', "AccountController@getAccountType");
 Route::get('account', "AccountController@getAccount");
+Route::get('favoraccount', "AccountController@getFavorAccount");
 Route::get('accountLog', "AccountController@getAccountLog");
-Route::get('removeAccountType', "AccountController@removeAccountType");
-Route::get('removeAccount', "AccountController@removeAccount");
-Route::get('removeAccountLog', "AccountController@removeAccountLog");
+Route::post('removeAccountType', "AccountController@removeAccountType");
+Route::post('removeAccount', "AccountController@removeAccount");
+Route::post('removeAccountLog', "AccountController@removeAccountLog");
 Route::post('addAccountType', "AccountController@addOrUpdateAccountType");
 Route::post('addAccount', "AccountController@addOrUpdateAccount");
+Route::post('favorAccount', "AccountController@favorAccount");
 Route::post('addAccountLog', "AccountController@addOrUpdateAccountLog");
 Route::get('getMonthAll', 'AccountController@getMonthAll');
 
-Route::post('favorAccount', "AccountController@favorAccount");
 Route::get('getSentence', "SentenceController@index");
 Route::post('addWxUser', "WxController@addOrUpdateWxUser");
 Route::get('getUserInfo', 'WxController@getUserInfo');
