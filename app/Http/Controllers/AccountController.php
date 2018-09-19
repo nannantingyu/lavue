@@ -379,9 +379,13 @@ class AccountController extends Controller
     public function accountData(Request $request) {
         $type = $request->input('type');
         $wx_id = $request->input('wx_id');
-        $start_date = $request->input('st', date("Y-m-d", strtotime("-3 month")));
-        $end_date = $request->input('st', date("Y-m-d"));
+        $start_date = $request->input('st', date("Y-m-01 00:00:00", strtotime("-3 month")));
+        $end_date = $request->input('st', date("Y-m-01 00:00:00", strtotime("+1 month")));
         $keyid = $request->input('keyid');
+
+//        dump($start_date);
+//        dump($end_date);
+//        die;
 
         if(!is_null($type) && !is_null($wx_id) && !is_null($keyid)) {
             if($type === 'account') {
