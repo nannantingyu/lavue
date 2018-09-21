@@ -329,6 +329,29 @@ class AccountController extends Controller
     }
 
     /**
+     * 获取账户日志
+     * @param Request $request
+     * @return array
+     */
+    public function getAccountLogInfo(Request $request) {
+        $wx_id = $request->input('wx_id');
+        $account_id = $request->input('account_id');
+
+        if(!is_null($wx_id) and !is_null($account_id)) {
+            $types = WxAccountLog::where('wx_account_log.wx_id', $wx_id)
+                ->where('wx_account_log.id', $account_id)
+                ->join('wx_account', 'wx_account_log.account_name', 'wx_account.id')
+                ->orderBy('wx_account_log.created_at', 'desc')
+                ->select('wx_account_log.*', 'wx_account.account_name')
+                ->get();
+
+            return ['success'=>1, 'data'=>$types];
+        }
+
+        return ['success'=>0];
+    }
+
+    /**
      * 获取每个月的总支出和总收入
      * @param Request $request
      */

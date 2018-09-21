@@ -21,6 +21,7 @@ Route::get('accountType', "AccountController@getAccountType");
 Route::get('account', "AccountController@getAccount");
 Route::get('favoraccount', "AccountController@getFavorAccount");
 Route::get('accountLog', "AccountController@getAccountLog");
+Route::get('accountLogInfo', "AccountController@getAccountLogInfo");
 Route::post('removeAccountType', "AccountController@removeAccountType");
 Route::post('removeAccount', "AccountController@removeAccount");
 Route::post('removeAccountLog', "AccountController@removeAccountLog");
