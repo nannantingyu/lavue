@@ -29,6 +29,7 @@ Route::post('addAccountType', "AccountController@addOrUpdateAccountType");
 Route::post('addAccount', "AccountController@addOrUpdateAccount");
 Route::post('favorAccount', "AccountController@favorAccount");
 Route::post('addAccountLog', "AccountController@addOrUpdateAccountLog");
+Route::post('updateAccountLog', "AccountController@updateAccountLog");
 Route::get('getMonthAll', 'AccountController@getMonthAll');
 
 Route::get('accountData', "AccountController@accountData");

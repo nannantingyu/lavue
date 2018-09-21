@@ -219,6 +219,36 @@ class AccountController extends Controller
     }
 
     /**
+     * 添加或者更新账单记录
+     * @param Request $request
+     */
+    public function updateAccountLog(Request $request) {
+        $validator = $this->accountLogValidator($request);
+        if ($validator->fails()) {
+            return ['success' => 0, 'msg' => $validator->errors()];
+        }
+
+        $start_time = $request->input('start_time');
+        $end_time = $request->input('end_time');
+
+
+        $info = [
+            'amount' => $request->input('amount'),
+            'wx_id' => $request->input('wx_id'),
+            'account_name' => $request->input('account_name'),
+            'single_price' => $request->input('single_price'),
+            'start_time' => $start_time,
+            'end_time' => $end_time,
+            'type' => $request->input('type') == '收入'?1:0,
+            'account_description' => $request->input('account_description')
+        ];
+
+        WxAccountLog::where('id', $request->input('id'))->update($info);
+
+        return ['success' => 1];
+    }
+
+    /**
      * 删除账单类型
      * @param Request $request
      */
