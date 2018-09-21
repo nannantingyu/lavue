@@ -343,7 +343,7 @@ class AccountController extends Controller
                 ->join('wx_account', 'wx_account_log.account_name', 'wx_account.id')
                 ->orderBy('wx_account_log.created_at', 'desc')
                 ->select('wx_account_log.*', 'wx_account.account_name')
-                ->get();
+                ->first();
 
             return ['success'=>1, 'data'=>$types];
         }
