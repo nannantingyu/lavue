@@ -379,20 +379,18 @@ class AccountController extends Controller
     public function accountData(Request $request) {
         $type = $request->input('type');
         $wx_id = $request->input('wx_id');
-        $start_date = $request->input('st', date("Y-m-01 00:00:00", strtotime("-3 month")));
-        $end_date = $request->input('st', date("Y-m-01 00:00:00", strtotime("+1 month")));
+        $start_date = $request->input('st', date("Y-m-01", strtotime("-3 month")));
+        $end_date = $request->input('et', date("Y-m-01", strtotime("+1 month")-3600));
         $keyid = $request->input('keyid');
 
-//        dump($start_date);
-//        dump($end_date);
-//        die;
-
-        if(!is_null($type) && !is_null($wx_id) && !is_null($keyid)) {
+        $start_date = date("Y-m-d 00:00:00", strtotime($start_date));
+        $end_date = date("Y-m-d 23:59:59", strtotime($end_date));
+        if(!is_null($type) && !is_null($wx_id)) {
             if($type === 'account') {
                 $data = WxAccountLog::where('account_name', $keyid)
                     ->where('wx_id', $wx_id)
                     ->where('start_time', '>=', $start_date)
-                    ->where('end_time', '>=', $end_date)
+                    ->where('end_time', '<=', $end_date)
                     ->get();
             }
             elseif($type === 'account_type') {
@@ -400,14 +398,13 @@ class AccountController extends Controller
                 $data = WxAccountLog::whereIn('account_name', $accounts)
                     ->where('wx_id', $wx_id)
                     ->where('start_time', '>=', $start_date)
-                    ->where('end_time', '>=', $end_date)
+                    ->where('end_time', '<=', $end_date)
                     ->get();
             }
             elseif($type === 'type') {
-                $data = WxAccountLog::where('type', $keyid)
-                    ->where('wx_id', $wx_id)
+                $data = WxAccountLog::where('wx_id', $wx_id)
                     ->where('start_time', '>=', $start_date)
-                    ->where('end_time', '>=', $end_date)
+                    ->where('end_time', '<=', $end_date)
                     ->get();
             }
 
