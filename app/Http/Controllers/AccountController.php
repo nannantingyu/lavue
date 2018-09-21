@@ -391,6 +391,7 @@ class AccountController extends Controller
                     ->where('wx_id', $wx_id)
                     ->where('start_time', '>=', $start_date)
                     ->where('end_time', '<=', $end_date)
+                    ->orderBy('start_time', 'desc')
                     ->get();
             }
             elseif($type === 'account_type') {
@@ -399,12 +400,14 @@ class AccountController extends Controller
                     ->where('wx_id', $wx_id)
                     ->where('start_time', '>=', $start_date)
                     ->where('end_time', '<=', $end_date)
+                    ->orderBy('start_time', 'desc')
                     ->get();
             }
             elseif($type === 'type') {
                 $data = WxAccountLog::where('wx_id', $wx_id)
                     ->where('start_time', '>=', $start_date)
                     ->where('end_time', '<=', $end_date)
+                    ->orderBy('start_time', 'desc')
                     ->get();
             }
 
