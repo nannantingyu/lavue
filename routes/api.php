@@ -35,3 +35,5 @@ Route::get('getSentence', "SentenceController@index");
 Route::post('addWxUser', "WxController@addOrUpdateWxUser");
 Route::get('getUserInfo', 'WxController@getUserInfo');
 Route::get('getWxOpenid', 'WxController@getWxOpenid');
+
+Route::get('getThisYear', 'AccountController@getThisYear');

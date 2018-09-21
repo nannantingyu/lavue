@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\WxAccount;
 use App\Models\WxAccountLog;
 use App\Models\WxAccountType;
+use Illuminate\Support\Facades\DB;
 
 class AccountController extends Controller
 {
@@ -417,5 +418,22 @@ class AccountController extends Controller
         return ['success'=>0];
     }
 
+    /**
+     * 获取今年的收入支出
+     * @param Request $request
+     */
+    public function getThisYear(Request $request) {
+        $wx_id = $request->input('wx_id');
+        $first_day = date("Y-01-01 00:00:00");
+        $end_day = date("Y-m-d H:i:s");
+
+        $data = WxAccountLog::where('start_time', ">=", $first_day)
+            ->where('end_time', "<=", $end_day)
+            ->groupBy("type")
+            ->select(DB::raw("type, sum(amount*single_price) as s"))
+            ->get();
+
+        return $data;
+    }
 
 }
