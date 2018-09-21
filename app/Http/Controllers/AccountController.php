@@ -427,13 +427,16 @@ class AccountController extends Controller
         $first_day = date("Y-01-01 00:00:00");
         $end_day = date("Y-m-d H:i:s");
 
-        $data = WxAccountLog::where('start_time', ">=", $first_day)
-            ->where('end_time', "<=", $end_day)
-            ->groupBy("type")
-            ->select(DB::raw("type, sum(amount*single_price) as s"))
-            ->get();
+        if(!is_null($wx_id)) {
+            $data = WxAccountLog::where('start_time', ">=", $first_day)
+                ->where('end_time', "<=", $end_day)
+                ->groupBy("type")
+                ->select(DB::raw("type, sum(amount*single_price) as s"))
+                ->get();
 
-        return $data;
+            return ['success'=>1, "data"=>$data];
+        }
+
+        return ['success'=>0];
     }
-
 }
