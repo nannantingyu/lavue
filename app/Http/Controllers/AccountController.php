@@ -48,6 +48,9 @@ class AccountController extends Controller
         $id = $request->input('id');
         $wx_id = $request->input('wx_id');
         if(!is_null($id)) {
+            $account_ids = WxAccount::where('wx_id', $wx_id)->where('account_type', $id)->pluck('id');
+            WxAccountLog::whereIn('account_name', $account_ids)->where('wx_id', $wx_id)->delete();
+            WxAccount::where('wx_id', $wx_id)->where('account_type', $id)->delete();
             WxAccountType::where('id', $id)->where('wx_id', $wx_id)->delete();
             return ['success' => 1];
         }
@@ -120,6 +123,7 @@ class AccountController extends Controller
         $wx_id = $request->input('wx_id');
         if(!is_null($id)) {
             WxAccount::where('id', $id)->where('wx_id', $wx_id)->delete();
+            WxAccountLog::where('account_name', $id)->where('wx_id', $wx_id)->delete();
             return ['success' => 1];
         }
 
