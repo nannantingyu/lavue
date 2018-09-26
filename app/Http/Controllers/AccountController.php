@@ -397,7 +397,7 @@ class AccountController extends Controller
         $startday = date("Y-m-d 00:00:00", strtotime("$year-$month-01"));
         $endday = date('Y-m-d 23:59:59', strtotime("$startday +1 month -1 day"));
 
-        $account_name = $request->input('account_name');
+        $account_name = $request->input('account_id');
 
         $all_data = WxAccountLog::where('wx_id', $wx_id)
             ->where('start_time', '>=', $startday)
