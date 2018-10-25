@@ -137,7 +137,7 @@ class AccountController extends Controller
     public function getFavorAccount(Request $request) {
         $wx_id = $request->input('wx_id');
         if(!is_null($wx_id)) {
-            $account = WxAccount::where('favor', 1)->get();
+            $account = WxAccount::where('favor', 1)->where('wx_id', $wx_id)->get();
             return ['success'=>1, 'data'=>$account];
         }
 
