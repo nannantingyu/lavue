@@ -49,7 +49,7 @@ return [
             'unix_socket' => env('DB_SOCKET', ''),
             'charset' => 'utf8mb4',
             'collation' => 'utf8mb4_unicode_ci',
-            'prefix' => env('DB_PREFIX'),
+            'prefix' => env('DB_PREFIX', ''),
             'strict' => true,
             'engine' => null,
         ],
@@ -78,6 +78,9 @@ return [
             'prefix' => '',
         ],
 
+        'kafka' => [
+            'host' => env('KAFKA_HOST'),
+        ]
     ],
 
     /*
@@ -109,8 +112,8 @@ return [
         'client' => 'predis',
 
         'default' => [
-            'host' => env('REDIS_HOST', 'r-2zeddf5409805514.redis.rds.aliyuncs.com'),
-            'password' => env('REDIS_PASSWORD', 'Wait12345'),
+            'host' => env('REDIS_HOST', '127.0.0.1'),
+            'password' => env('REDIS_PASSWORD', null),
             'port' => env('REDIS_PORT', 6379),
             'database' => 0,
         ],

@@ -1,15 +1,6 @@
 <?php
 
-use App\Http\Middleware\CheckAge;
-
 Route::get('/', "IndexController@index");
-Route::get('/home/{age}', function() {
-    return "这个是我写的页面哦";
-})->middleware(CheckAge::class);
-
-Route::get('/forbidden', function() {
-    return "您的年龄太小，不能访问哦";
-});
 
 //Index
 Route::get('/blog_{id}', "IndexController@detail");
@@ -36,7 +27,7 @@ Route::post('/login', "LoginController@login_post");
 Route::post('/register', "LoginController@register_post");
 Route::any('/captcha', function()
 {
-    return captcha();
+return captcha();
 });
 
 //List
@@ -84,3 +75,93 @@ $router->get('/areahouse', 'HouseController@getAreaResidential');
 $router->get('/residentialinfo', 'HouseController@getResidentialInfo');
 $router->post('/crawlinfo', 'HouseController@crawlinfo');
 $router->post('/crawl/{name}', 'HouseController@crawl');
+
+//admin
+// 用户
+$router->get('/cms', "Admin\IndexController@index");
+Route::post('/adlogin', 'Admin\UserController@login');
+Route::post('/adlogout', 'Admin\UserController@adlogout');
+Route::post('/regist', 'Admin\RegisterController@regist');
+Route::post('/addRole', 'Admin\UserController@addRole');
+Route::post('/assignRoleForUser', 'Admin\UserController@assignRoleForUser');
+Route::post('/retractRoleFromUser', 'Admin\UserController@retractRoleFromUser');
+Route::get('/getRoles', 'Admin\UserController@getRoles');
+Route::get('/getUsers', 'Admin\UserController@getUsers');
+Route::get('/getRoleUsers', 'Admin\UserController@getRoleUsers');
+Route::post('/setPassword', 'Admin\UserController@setPassword');
+Route::post('/addOrUpdateUser', 'Admin\UserController@addOrUpdateUser');
+Route::post('/setState', 'Admin\UserController@setState');
+
+// 上传
+Route::post('/uploads_image', 'Admin\UploadsController@image');
+
+// 模块
+Route::get('/getModule', 'Admin\ModuleController@getModule');
+Route::post('/addOrUpdateModule', 'Admin\ModuleController@addOrUpdateModule');
+Route::get('/getModuleTreeSelect', 'Admin\ModuleController@getModuleTreeSelect');
+Route::get('/getModulePermission', 'Admin\ModuleController@getModulePermission');
+Route::post('/addModulePermission', 'Admin\ModuleController@addModulePermission');
+Route::get('/getRoleMoudlePermission', 'Admin\ModuleController@getRoleMoudlePermission');
+Route::get('/getUserModulePermission', 'Admin\ModuleController@getUserModulePermission');
+
+// 系统配置
+Route::get('/configLists', 'Admin\ConfigController@lists');
+Route::get('/configInfo', 'Admin\ConfigController@info');
+Route::post('/setConfigState', 'Admin\ConfigController@setConfigState');
+Route::post('/addConfig', 'Admin\ConfigController@addConfig');
+
+// 文章分类
+Route::get('/categoryLists', 'Admin\CategoryController@lists');
+Route::get('/categoryInfo', 'Admin\CategoryController@info');
+Route::post('/setCategoryState', 'Admin\CategoryController@setCategoryState');
+Route::post('/addCategory', 'Admin\CategoryController@addCategory');
+Route::get('/categoryTree', 'Admin\CategoryController@tree');
+
+// 文章
+Route::get('/articleLists', 'Admin\ArticleController@lists');
+Route::get('/articleInfo', 'Admin\ArticleController@info');
+Route::post('/setArticleState', 'Admin\ArticleController@setArticleState');
+Route::post('/addArticle', 'Admin\ArticleController@addArticle');
+Route::post('/deleteArticle', 'Admin\ArticleController@deleteArticle');
+Route::post('/searchArticle', 'Admin\ArticleController@searchArticle');
+Route::get('/articleListsByCategory', 'Admin\ArticleController@articleListsByCategory');
+Route::get('/articleSource', 'Admin\ArticleController@source');
+Route::get('/articleSourceSite', 'Admin\ArticleController@source_site');
+Route::post('/multiOffline', 'Admin\ArticleController@multiOffline');
+Route::post('/multiOnline', 'Admin\ArticleController@multiOnline');
+Route::post('/multiDelete', 'Admin\ArticleController@multiDelete');
+Route::post('/addOrUpdateSourceSite', 'Admin\ArticleController@addOrUpdateSourceSite');
+Route::post('/removeSourceSite', 'Admin\ArticleController@removeSourceSite');
+Route::get('/toArticlePage', 'Admin\ArticleController@toArticlePage');
+Route::post('/redownloadImage', 'Admin\ArticleController@redownloadImage');
+
+// 区块链
+Route::get('/blockCoinLists', 'Admin\BlockCoinController@lists');
+Route::get('/blockCoinInfo', 'Admin\BlockCoinController@info');
+Route::post('/setBlockCoinState', 'Admin\BlockCoinController@setBlockCoinState');
+Route::post('/addBlockCoin', 'Admin\BlockCoinController@addBlockCoin');
+
+// 热门图片
+Route::get('/hotBannerLists', 'Admin\HotBannerController@lists');
+Route::get('/hotBannerInfo', 'Admin\HotBannerController@info');
+Route::post('/setHotBannerState', 'Admin\HotBannerController@setHotBannerState');
+Route::post('/addHotBanner', 'Admin\HotBannerController@addHotBanner');
+
+// 词条
+Route::get('/entryLists', 'Admin\EntryController@lists');
+Route::get('/entryInfo', 'Admin\EntryController@info');
+Route::post('/setEntryState', 'Admin\EntryController@setEntryState');
+Route::post('/addEntry', 'Admin\EntryController@addEntry');
+Route::post('/addEntryArticle', 'Admin\EntryController@addEntryArticle');
+Route::post('/removeEntryArticle', 'Admin\EntryController@removeEntryArticle');
+
+// 爬虫单独文章
+Route::get('/crawlArticleLists', 'Admin\CrawlArticleController@lists');
+Route::get('/crawlArticleInfo', 'Admin\CrawlArticleController@info');
+Route::post('/addCrawlArticle', 'Admin\CrawlArticleController@addCrawlArticle');
+
+// 爬虫分类转化
+Route::get('/categoryMapLists', 'Admin\CategoryMapController@lists');
+Route::get('/categoryMapInfo', 'Admin\CategoryMapController@info');
+Route::post('/setCategoryMapState', 'Admin\CategoryMapController@setCategoryMapState');
+Route::post('/addCategoryMap', 'Admin\CategoryMapController@addCategoryMap');
