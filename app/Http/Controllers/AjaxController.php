@@ -9,7 +9,7 @@ class AjaxController extends Controller
 {
     public function incre(Request $request) {
         $id = $request->id;
-        DB::table('weixin_article')->where('id', $id)->increment('favor');
+        DB::table('weixin_article')->where('id', $id)->increment('hits');
     }
 
     public function baidu_tuisong(Request $request) {
