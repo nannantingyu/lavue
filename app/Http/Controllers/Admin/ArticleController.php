@@ -360,16 +360,16 @@ class ArticleController extends Controller
         }
 
         $body = $request->input('body');
-        $articleBody = ArticleBody::where('aid', $article->id)->first();
+        $articleBody = ArticleBody::where('id', $article->id)->first();
         if (is_null($articleBody)) {
             $articleBody = new ArticleBody([
-                'aid' => $article->id,
+                'id' => $article->id,
                 'body' => $body
             ]);
 
             $articleBody->save();
         } else {
-            ArticleBody::where('aid', $article->id)->update([
+            ArticleBody::where('id', $article->id)->update([
                 'body' => $body
             ]);
         }
