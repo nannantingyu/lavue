@@ -3,7 +3,7 @@ export default {
         state.app_name = app_name
     },
     transfer: function(state, img) {
-        const imgs = img?'http://images.jujin8.com'+img.replace('/uploads/crawler', '/uploads'):'';
+        const imgs = img
         return imgs;
     }
 }

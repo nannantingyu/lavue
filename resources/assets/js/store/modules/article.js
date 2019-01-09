@@ -305,7 +305,7 @@ const getters = {
     fileimgs: state=> {
         let imgs = [];
         if(state.form.image)
-            imgs.push({url: 'http://images.jujin8.com'+state.form.image.replace('/uploads/crawler', '/uploads')});
+            imgs.push({url: state.form.image});
 
         return imgs;
     }
@@ -457,7 +457,7 @@ const actions = {
 
                         commit('set_article_now', result.data.data)
                         let pattern = /\/uploads\/crawler/g;
-                        let body_add_strip = result.data.data.body.body.replace(pattern, 'http://images.jujin8.com/uploads');
+                        let body_add_strip = result.data.data.body.body.replace(pattern, 'http://www.yjshare.cn/uploads');
 
                         console.log(body_add_strip);
                         state.editor.setContent(body_add_strip);

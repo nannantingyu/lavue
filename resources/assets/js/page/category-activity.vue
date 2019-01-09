@@ -2,7 +2,6 @@
     <div>
         <el-container>
             <el-header>
-                <h5>jujin8活动分类管理</h5>
                 <el-button type="primary" icon="el-icon-plus"  @click="addData">添加分类</el-button>
                 <el-radio-group v-model="radio" style="float: right;padding-bottom: 10px" @change="filterData">
                     <el-radio-button label="全部"></el-radio-button>

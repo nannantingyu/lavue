@@ -2,7 +2,6 @@
     <div>
         <el-container>
             <el-header>
-                <h5>jujin8财经假期</h5>
                 <el-button type="primary" icon="el-icon-plus" :disabled="!user_module_permission['holiday-delete']" @click="addData">添加财经假期</el-button>
                 <el-popover
                         placement="right"

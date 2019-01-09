@@ -21,7 +21,7 @@ class Feedback extends Model
      */
     public function lists($page = 0, $pageSize = 20, $state = null, $order = 'id', $isDesc = true)
     {
-        $qTable = ' jujin8_feedback';
+        $qTable = ' crawl_feedback';
 
         $where = '  ';
         if ($state == '0' || $state == '1') {

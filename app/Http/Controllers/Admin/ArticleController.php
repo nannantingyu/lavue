@@ -570,13 +570,13 @@ class ArticleController extends Controller
      */
     public function toArticlePage(Request $request) {
         $page = $request->input('page');
-        $url = "http://www.jujin8.com";
+        $url = "http://www.yjshare.cn";
 
         if($page){
             $source_id = md5($page);
             $article = DB::table('article')->where('source_id', $source_id)->select('id')->first();
             if($article) {
-                $url = 'http://www.jujin8.com/read/'.$article->id.'.html';
+                $url = 'http://www.yjshare.cn/blog_'.$article->id.'.html';
             }
         }
 

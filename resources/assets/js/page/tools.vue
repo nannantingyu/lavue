@@ -235,7 +235,7 @@
             fileimgs:function() {
                 let imgs = [];
                 if(this.form.image){
-                    imgs.push({url: 'http://images.jujin8.com'+this.form.image.replace('/uploads/crawler', '/uploads')});
+                    imgs.push({url: this.form.image});
                 }
                 return imgs;
             }
@@ -309,7 +309,7 @@
 
             },
             transfer: function(img) {
-                return img?'http://images.jujin8.com'+img.replace('/uploads/crawler', '/uploads'):''
+                return img
             },
             handleSuccess: function(response, file, fileList) {
                 if(response.success) {

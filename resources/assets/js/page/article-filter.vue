@@ -1,7 +1,6 @@
 <template>
     <div>
         <el-header>
-            <h5>jujin8文章来源审核开关</h5>
             <div style="overflow: hidden">
                 <el-radio-group v-model="radio" style="float: right;" @change="filterData">
                     <el-radio-button label="全部"></el-radio-button>

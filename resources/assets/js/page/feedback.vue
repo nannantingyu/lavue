@@ -2,7 +2,6 @@
     <div>
         <el-container>
             <el-header>
-                <h5>jujin8意见反馈列表</h5>
                 <el-button type="danger" round @click="updateMany(0)" :disabled="!user_module_permission['feedback-delete']">批量 修改为未处理</el-button>
                 <el-button type="success" round @click="updateMany(1)" :disabled="!user_module_permission['feedback-delete']">批量修改为已处理</el-button>
                 <el-radio-group v-model="radio" style="float: right;padding-bottom: 10px" @change="filterData">

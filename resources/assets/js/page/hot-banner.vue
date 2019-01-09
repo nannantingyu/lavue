@@ -354,7 +354,7 @@
                 });
             },
             transfer: function(img) {
-                return img?'http://images.jujin8.com'+img.replace('/uploads/crawler', '/uploads'):''
+                return img
             }
         },
         mounted() {

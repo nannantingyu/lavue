@@ -180,7 +180,7 @@ const getters = {
     fileimgs: state=> {
         let imgs = [];
         if(state.form.logo)
-            imgs.push({url: 'http://images.jujin8.com'+state.form.logo.replace('/uploads/crawler', '/uploads')});
+            imgs.push({url: state.form.logo});
 
         return imgs;
     }

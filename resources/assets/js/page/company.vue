@@ -308,7 +308,7 @@
                 });
             },
             transfer: function(img) {
-                return img?'http://images.jujin8.com'+img.replace('/uploads/crawler', '/uploads'):''
+                return img
             },
             changeTableSort: function(column) {
                 this.$store.commit("company/sort_data", {column:column['prop'], order: column['order']})

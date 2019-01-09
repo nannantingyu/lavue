@@ -2,7 +2,6 @@
     <div>
         <el-container>
             <el-header>
-                <h5>jujin8财经日历</h5>
                 <el-button type="primary" icon="el-icon-plus"  @click="addData" :disabled="!user_module_permission['calendar-delete']">添加日历数据</el-button>
                 <el-popover
                         placement="right"

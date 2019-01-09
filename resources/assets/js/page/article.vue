@@ -133,7 +133,7 @@
                 :label="columns['title']['title']"
                 v-if="columns['title']['show']" width="*">
                 <template slot-scope="scope">
-                    <a target="_blank" v-bind:href="'http://www.jujin8.com/read/'+scope.row.id+'.html'">{{ scope.row.title }}</a>
+                    <a target="_blank" v-bind:href="'http://www.yjshare.cn/blog_'+scope.row.id+'.html'">{{ scope.row.title }}</a>
                 </template>
             </el-table-column>
             <el-table-column

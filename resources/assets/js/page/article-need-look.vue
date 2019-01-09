@@ -1,7 +1,6 @@
 <template>
     <div>
         <el-header>
-            <h5>jujin8待审核文章管理</h5>
             <div style="overflow: hidden">
                 <template>
                     <el-select v-model="optionValue" placeholder="请选择网站来源" value-key="site" filterable
@@ -295,7 +294,7 @@
                 });
             },
             transfer: function (img) {
-                return img ? 'http://images.jujin8.com' + img.replace('/uploads/crawler', '/uploads') : ''
+                return img
             }
         },
         mounted() {

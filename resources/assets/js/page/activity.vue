@@ -2,7 +2,6 @@
     <div>
         <el-container>
             <el-header>
-                <h5>jujin8活动管理</h5>
                 <el-button type="primary" icon="el-icon-plus"  @click="addData">添加活动</el-button>
                 <el-radio-group v-model="radio" style="float: right;padding-bottom: 10px" @change="filterData">
                     <el-radio-button label="全部"></el-radio-button>
@@ -260,7 +259,7 @@
             fileimgs:function() {
                 let imgs = [];
                 if(this.form.image){
-                    imgs.push({url: 'http://images.jujin8.com'+this.form.image.replace('/uploads/crawler', '/uploads')});
+                    imgs.push({url: this.form.image});
                 }
                 return imgs;
             }
@@ -341,7 +340,7 @@
             },
             //图片
             transfer: function(img) {
-                return img?'http://images.jujin8.com'+img.replace('/uploads/crawler', '/uploads'):''
+                return img
             },
             handleSuccess: function(response, file, fileList) {
                 if(response.success) {

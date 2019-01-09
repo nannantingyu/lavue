@@ -50,7 +50,7 @@ class ArticleController extends Controller
     private function getFilterIds()
     {
         $idsStr = $this->getFilter();
-        $sql = "SELECT aid as id FROM jujin8_article_category where cid in (SELECT id FROM jujin8_category WHERE ename in ($idsStr))";
+        $sql = "SELECT aid as id FROM crawl_article_category where cid in (SELECT id FROM crawl_category WHERE ename in ($idsStr))";
 
         $list = DB::select($sql);
 
@@ -66,7 +66,7 @@ class ArticleController extends Controller
 
     private function getFilter()
     {
-        $filterName = DB::selectOne("SELECT `value` FROM jujin8_config WHERE `key`='articleFilter' LIMIT 1")->value;
+        $filterName = DB::selectOne("SELECT `value` FROM crawl_config WHERE `key`='articleFilter' LIMIT 1")->value;
         $filterName = explode(',', $filterName);
         $idsStr = "";
         for ($i = 0; $i < count($filterName); $i++) {
