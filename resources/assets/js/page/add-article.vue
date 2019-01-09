@@ -9,10 +9,6 @@
                 <script id="editor" type="text/plain"></script>
             </el-form-item>
 
-            <!--<el-form-item>-->
-                <!--<ContentEditor></ContentEditor>-->
-            <!--</el-form-item>-->
-
             <el-form-item label="图片" prop="image">
                 <el-upload
                         class="avatar-uploader"
@@ -108,7 +104,6 @@
 </template>
 
 <script>
-    import ContentEditor from '../components/content-editor'
     import {mapActions, mapState, mapGetters, mapMutations} from 'vuex'
     import {FormItem, Input, Select, Option, Switch, DatePicker, Upload, Form} from 'element-ui'
     Vue.use(FormItem);
@@ -128,7 +123,6 @@
 
     export default {
         name: "article-page",
-        components: {ContentEditor},
         computed: {
             ...mapState(['headers', 'formLabelWidth']),
             ...mapState({
