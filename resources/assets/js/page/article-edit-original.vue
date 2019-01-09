@@ -8,7 +8,7 @@
             <mavonEditor
                 :ishljs="true"
                 ref="md"
-                codeStyle="xcode"
+                codeStyle="dark"
                 @change="changeText"
                 @imgAdd="imgAdd"
                 @imgDel="imgDel"></mavonEditor>
