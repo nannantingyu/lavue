@@ -37,6 +37,12 @@
                             <span slot="title">添加文章</span>
                         </el-menu-item>
                         <el-menu-item
+                            v-if="user_module_permission['article-edit-original-read']"
+                            index="/article-edit-original">
+                            <i class="el-icon-circle-plus-outline"></i>
+                            <span slot="title">添加原创文章</span>
+                        </el-menu-item>
+                        <el-menu-item
                                 v-if="user_module_permission['article-filter-read']"
                                 index="/article-filter">
                             <i class="el-icon-search"></i>

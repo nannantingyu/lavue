@@ -1,5 +1,7 @@
 @extends('layout.app')
 @section('content')
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/xcode.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/2.9.0/github-markdown.min.css">
     <div class="main-content detail-main">
         <div class="content-left">
             <h2>{{ $article->title }}</h2>

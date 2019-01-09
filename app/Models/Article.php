@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Article extends Model {
     protected $table = 'weixin_article';
     const UPDATED_AT = 'updated_time';
+    const CREATED_AT = 'created_time';
     protected $fillable = ['title', 'image', 'description', 'type', 'keywords', 'author', 'publish_time', 'hits', 'state', 'recommend', 'favor', 'source_type'];
 
     public function body() {

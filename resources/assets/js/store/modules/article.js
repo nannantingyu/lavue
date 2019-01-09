@@ -499,7 +499,7 @@ const actions = {
     },
     add_or_update_article({ commit, state }, form) {
         return new Promise((resolve, reject) => {
-            let pattern = /http:\/\/images\.jujin8\.com\/uploads/g, body = state.editor.getContent();
+            let pattern = /http:\/\/images\.jujin8\.com\/uploads/g, body = form.body || state.editor.getContent();
             form.body = body.replace(pattern, '/uploads');
             form.state = form.state?1:0;
             form.recommend = form.recommend?1:0;

@@ -3,6 +3,7 @@ import {getCookie} from "./plugin/cookie";
 require('./bootstrap');
 window.Vue = require('vue');
 
+import 'mavon-editor/dist/css/index.css'
 import Vuex from 'vuex'
 import router from './router'
 import App from './components/container'

@@ -335,7 +335,7 @@ class ArticleController extends Controller
 
         $form = [
             'title' => $request->input('title'),
-            'image' => $request->input('image'),
+            'image' => json_encode([$request->input('image')]),
             'description' => $request->input('description'),
             'keywords' => $request->input('keywords'),
             'author' => $request->input('author'),
@@ -352,7 +352,6 @@ class ArticleController extends Controller
         if (is_null($id)) {
             $article = new Article($form);
             $article->save();
-            $article->url = '/article_' . $article->id;
             $article->save();
         } else {
             $article = Article::find($id);

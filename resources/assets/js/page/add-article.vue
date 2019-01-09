@@ -179,7 +179,6 @@
             },
             submitForm: function() {
                 const _this = this;
-                console.log(this.editor.getContent());
                 this.$refs['form'].validate((valid) => {
                     if (valid)
                         _this.add_or_update_article(this.form).then(function(result){
