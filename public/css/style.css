@@ -230,11 +230,17 @@ footer a{  color: #EEE;  }
 .detail-main .ep-source.cDGray{  display: none;  }
 .gg200x300{  display: none;  }
 .markdown-body p{text-indent: 0 !important;}
-.markdown-body ol, .markdown-body ul {
-    padding-left: 0 !important;
+.markdown-body ol {
+    list-style-type: decimal;
+}
+.markdown-body ul {
+    list-style-type: disc;
 }
 .markdown-body pre{
     font-size: 105% !important;
+}
+.markdown-body ol li,.markdown-body ul li {
+    list-style-type: initial;
 }
 
 /*list*/
