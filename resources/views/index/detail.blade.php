@@ -8,7 +8,7 @@
             <p class="right-con">
                 <span>{{ $article->author }}</span>
                 <span>{{ date("Y-m-d H:i", strtotime($article->publish_time)) }}</span>
-                <span>{{ $article->favor }}</span>
+                <span>{{ $article->hits }}</span>
             </p>
             {!!  $article->body !!}
         </div>

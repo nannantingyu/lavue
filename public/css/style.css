@@ -229,6 +229,13 @@ footer a{  color: #EEE;  }
 .detail-main p strong{  line-height: 50px;  padding-left: 0.6em;  }
 .detail-main .ep-source.cDGray{  display: none;  }
 .gg200x300{  display: none;  }
+.markdown-body p{text-indent: 0 !important;}
+.markdown-body ol, .markdown-body ul {
+    padding-left: 0 !important;
+}
+.markdown-body pre{
+    font-size: 105% !important;
+}
 
 /*list*/
 .con-list h2{padding-bottom: 20px;}
