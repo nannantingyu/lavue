@@ -19,7 +19,7 @@
     "laravel-mix": "^2.0",
     "lodash": "^4.17.4",
     "mavon-editor": "^2.6.17",
-    "moment": "^2.22.2",
+    "moment": "^2.29.4",
     "popper.js": "^1.12",
     "simditor": "^2.3.6",
     "vue": "^2.5.7",
